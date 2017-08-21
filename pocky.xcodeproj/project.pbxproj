@@ -21,6 +21,8 @@
 		D87490C91F4A07D1007E659F /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490C81F4A07D1007E659F /* Globals.swift */; };
 		D87490CC1F4B7BA5007E659F /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */; };
 		D87490D11F4B833F007E659F /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D01F4B833F007E659F /* shuffle.png */; };
+		D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D61F4B8D6F007E659F /* spatula-76.png */; };
+		D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D71F4B8D6F007E659F /* spatula-152.png */; };
 		FD720A4C7BFE40B6BC7C7406 /* Pods_pockyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092D03F79CB6E185A787F91B /* Pods_pockyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		D87490CA1F4A0AF8007E659F /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = "<group>"; };
 		D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleViewController.swift; sourceTree = "<group>"; };
 		D87490D01F4B833F007E659F /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuffle.png; path = Icons/shuffle.png; sourceTree = "<group>"; };
+		D87490D61F4B8D6F007E659F /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-76.png"; sourceTree = "<group>"; };
+		D87490D71F4B8D6F007E659F /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-152.png"; sourceTree = "<group>"; };
 		FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pockyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDF740AEA7A2EB0F34C00F7 /* Pods-pocky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.release.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +195,8 @@
 		D87490CD1F4B8313007E659F /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				D87490D61F4B8D6F007E659F /* spatula-76.png */,
+				D87490D71F4B8D6F007E659F /* spatula-152.png */,
 				D87490D01F4B833F007E659F /* shuffle.png */,
 			);
 			name = icons;
@@ -327,9 +333,11 @@
 			files = (
 				D874909F1F48F873007E659F /* LaunchScreen.storyboard in Resources */,
 				D87490C31F48F952007E659F /* GoogleService-Info.plist in Resources */,
+				D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */,
 				D874909C1F48F873007E659F /* Assets.xcassets in Resources */,
 				D87490D11F4B833F007E659F /* shuffle.png in Resources */,
 				D874909A1F48F873007E659F /* Main.storyboard in Resources */,
+				D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

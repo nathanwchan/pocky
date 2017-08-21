@@ -6,10 +6,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Spatch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,7 +100,7 @@
                             <constraint firstItem="JQQ-7a-ddr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zi7-ac-FGT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="deC-Ok-Xs8"/>
+                    <navigationItem key="navigationItem" title="Spatch" id="deC-Ok-Xs8"/>
                     <connections>
                         <segue destination="LYs-S8-l1V" kind="show" identifier="ShowShuffleViewController" id="RmQ-Ce-Gzd"/>
                     </connections>
@@ -108,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="1586.1328125" y="135.7247437774524"/>
         </scene>
-        <!--View Controller-->
+        <!--Search-->
         <scene sceneID="xXu-93-nWa">
             <objects>
                 <viewController id="uM6-Ic-tkQ" sceneMemberID="viewController">
@@ -121,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="m9q-o7-Muy"/>
+                    <navigationItem key="navigationItem" title="Search" id="m9q-o7-Muy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpH-Wp-dxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,7 +141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbO-w7-IiR">
-                                <rect key="frame" x="412.5" y="625" width="200" height="116.5"/>
+                                <rect key="frame" x="412" y="625" width="200" height="116.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Mna-xa-Ffv"/>
                                 </constraints>
@@ -148,15 +149,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-8V-t11" userLabel="Meals Stack View">
+                                <rect key="frame" x="20" y="64" width="984" height="1253"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TbO-w7-IiR" firstAttribute="centerY" secondItem="9ZG-DI-vfS" secondAttribute="centerY" id="R1z-hF-oSJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ay4-8V-t11" secondAttribute="trailing" id="V7o-rN-aJi"/>
+                            <constraint firstItem="ay4-8V-t11" firstAttribute="leading" secondItem="9ZG-DI-vfS" secondAttribute="leadingMargin" id="XNZ-da-2Yo"/>
+                            <constraint firstItem="ay4-8V-t11" firstAttribute="top" secondItem="wrT-8F-ZDC" secondAttribute="bottom" id="Y0E-po-60H"/>
+                            <constraint firstItem="DKJ-T5-5Gd" firstAttribute="top" secondItem="ay4-8V-t11" secondAttribute="bottom" id="bZm-G9-Nte"/>
                             <constraint firstItem="TbO-w7-IiR" firstAttribute="centerX" secondItem="9ZG-DI-vfS" secondAttribute="centerX" id="zfF-Ox-fB7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mealCountLabel" destination="TbO-w7-IiR" id="6hZ-qr-Lfr"/>
+                        <outlet property="mealsStackView" destination="ay4-8V-t11" id="FMd-GJ-GSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfQ-cV-JzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,7 +196,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alu-iG-6xj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shuffle" image="shuffle.png" id="Uhr-4z-Pp6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYE-cE-PK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jYE-cE-PK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
