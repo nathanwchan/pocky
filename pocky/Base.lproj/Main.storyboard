@@ -1,26 +1,226 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Bi-mM-0Pn">
+    <device id="ipad12_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JQQ-7a-ddr" userLabel="Horizontal Main Stack View">
+                                <rect key="frame" x="262" y="623" width="500" height="120.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many meals would you like to plan for?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-RS-gam">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="29.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ywp-ga-NAe" userLabel="Meal Count Stack View">
+                                        <rect key="frame" x="0.0" y="49.5" width="500" height="71"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="au1-8E-ThZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="71"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="7LN-qu-GGP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                                <state key="normal" title="1"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="mealCountButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1qZ-tO-0TB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRa-9S-HMx">
+                                                <rect key="frame" x="200" y="0.0" width="100" height="71"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="eQ8-BK-H3u"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                                <state key="normal" title="2"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="mealCountButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OFS-2P-ZNC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTJ-pd-teo">
+                                                <rect key="frame" x="400" y="0.0" width="100" height="71"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Oxe-PA-p2g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                                                <state key="normal" title="3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="mealCountButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jm1-e4-g7K"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hIX-RS-gam" firstAttribute="width" secondItem="JQQ-7a-ddr" secondAttribute="width" id="Ubi-Hq-Ihk"/>
+                                    <constraint firstAttribute="width" constant="500" id="iyM-Is-bJX"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JQQ-7a-ddr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YXM-6c-ast"/>
+                            <constraint firstItem="JQQ-7a-ddr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zi7-ac-FGT"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="deC-Ok-Xs8"/>
+                    <connections>
+                        <segue destination="LYs-S8-l1V" kind="show" identifier="ShowShuffleViewController" id="RmQ-Ce-Gzd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1586.1328125" y="135.7247437774524"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xXu-93-nWa">
+            <objects>
+                <viewController id="uM6-Ic-tkQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hm0-HL-PWg"/>
+                        <viewControllerLayoutGuide type="bottom" id="07T-TD-ObY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="F4q-N8-Xd2">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="m9q-o7-Muy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XpH-Wp-dxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="812"/>
+        </scene>
+        <!--Shuffle View Controller-->
+        <scene sceneID="OSW-tZ-3NJ">
+            <objects>
+                <viewController id="LYs-S8-l1V" customClass="ShuffleViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wrT-8F-ZDC"/>
+                        <viewControllerLayoutGuide type="bottom" id="DKJ-T5-5Gd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9ZG-DI-vfS">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbO-w7-IiR">
+                                <rect key="frame" x="412.5" y="625" width="200" height="116.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Mna-xa-Ffv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TbO-w7-IiR" firstAttribute="centerY" secondItem="9ZG-DI-vfS" secondAttribute="centerY" id="R1z-hF-oSJ"/>
+                            <constraint firstItem="TbO-w7-IiR" firstAttribute="centerX" secondItem="9ZG-DI-vfS" secondAttribute="centerX" id="zfF-Ox-fB7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mealCountLabel" destination="TbO-w7-IiR" id="6hZ-qr-Lfr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VfQ-cV-JzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2368.9453125" y="135.7247437774524"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="oXS-fQ-l3B">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7Bi-mM-0Pn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="gOb-WR-Gt0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="alu-iG-6xj" kind="relationship" relationship="viewControllers" id="zbc-UD-t4V"/>
+                        <segue destination="uaA-DE-l0Z" kind="relationship" relationship="viewControllers" id="GLG-Vl-UpJ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6c-PJ-ZRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56" y="451"/>
+        </scene>
+        <!--Shuffle-->
+        <scene sceneID="pYt-C6-LWs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alu-iG-6xj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shuffle" image="shuffle.png" id="Uhr-4z-Pp6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYE-cE-PK4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="40c-Kq-AL4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dza-Hi-vSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="861.9140625" y="135.7247437774524"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U5w-ca-EcN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uaA-DE-l0Z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="QJp-8P-4uv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cu2-kz-QO6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uM6-Ic-tkQ" kind="relationship" relationship="rootViewController" id="9aL-YY-JGt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqJ-sT-kDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="812"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="shuffle.png" width="35" height="35"/>
+    </resources>
 </document>
