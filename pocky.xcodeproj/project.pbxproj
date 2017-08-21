@@ -23,6 +23,7 @@
 		D87490D11F4B833F007E659F /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D01F4B833F007E659F /* shuffle.png */; };
 		D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D61F4B8D6F007E659F /* spatula-76.png */; };
 		D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D71F4B8D6F007E659F /* spatula-152.png */; };
+		D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490DA1F4B90E6007E659F /* DrawableStackView.swift */; };
 		FD720A4C7BFE40B6BC7C7406 /* Pods_pockyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092D03F79CB6E185A787F91B /* Pods_pockyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		D87490D01F4B833F007E659F /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuffle.png; path = Icons/shuffle.png; sourceTree = "<group>"; };
 		D87490D61F4B8D6F007E659F /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-76.png"; sourceTree = "<group>"; };
 		D87490D71F4B8D6F007E659F /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-152.png"; sourceTree = "<group>"; };
+		D87490DA1F4B90E6007E659F /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableStackView.swift; sourceTree = "<group>"; };
 		FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pockyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDF740AEA7A2EB0F34C00F7 /* Pods-pocky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.release.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				D87490A01F48F873007E659F /* Info.plist */,
 				D87490C21F48F952007E659F /* GoogleService-Info.plist */,
 				D87490CA1F4A0AF8007E659F /* pocky.playground */,
+				D87490DA1F4B90E6007E659F /* DrawableStackView.swift */,
 			);
 			path = pocky;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
 				D87490971F48F873007E659F /* ViewController.swift in Sources */,
+				D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */,
 				D87490951F48F873007E659F /* AppDelegate.swift in Sources */,
 				D87490CC1F4B7BA5007E659F /* ShuffleViewController.swift in Sources */,
 			);

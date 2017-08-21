@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +40,9 @@
                                                     <constraint firstAttribute="width" constant="100" id="7LN-qu-GGP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                <state key="normal" title="1"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -58,7 +59,9 @@
                                                     <constraint firstAttribute="width" constant="100" id="eQ8-BK-H3u"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                <state key="normal" title="2"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -75,7 +78,9 @@
                                                     <constraint firstAttribute="width" constant="100" id="Oxe-PA-p2g"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
-                                                <state key="normal" title="3"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="10"/>
@@ -139,34 +144,8 @@
                     <view key="view" contentMode="scaleToFill" id="9ZG-DI-vfS">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbO-w7-IiR">
-                                <rect key="frame" x="412" y="625" width="200" height="116.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Mna-xa-Ffv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="100"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-8V-t11" userLabel="Meals Stack View">
-                                <rect key="frame" x="20" y="64" width="984" height="1253"/>
-                            </stackView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="TbO-w7-IiR" firstAttribute="centerY" secondItem="9ZG-DI-vfS" secondAttribute="centerY" id="R1z-hF-oSJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ay4-8V-t11" secondAttribute="trailing" id="V7o-rN-aJi"/>
-                            <constraint firstItem="ay4-8V-t11" firstAttribute="leading" secondItem="9ZG-DI-vfS" secondAttribute="leadingMargin" id="XNZ-da-2Yo"/>
-                            <constraint firstItem="ay4-8V-t11" firstAttribute="top" secondItem="wrT-8F-ZDC" secondAttribute="bottom" id="Y0E-po-60H"/>
-                            <constraint firstItem="DKJ-T5-5Gd" firstAttribute="top" secondItem="ay4-8V-t11" secondAttribute="bottom" id="bZm-G9-Nte"/>
-                            <constraint firstItem="TbO-w7-IiR" firstAttribute="centerX" secondItem="9ZG-DI-vfS" secondAttribute="centerX" id="zfF-Ox-fB7"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="mealCountLabel" destination="TbO-w7-IiR" id="6hZ-qr-Lfr"/>
-                        <outlet property="mealsStackView" destination="ay4-8V-t11" id="FMd-GJ-GSa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfQ-cV-JzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
