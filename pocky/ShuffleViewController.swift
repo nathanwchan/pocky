@@ -10,14 +10,14 @@ import UIKit
 
 class ShuffleViewController: UIViewController {
 
-    var mealCount: Int = 1
+    private var viewModel = MealsViewModel()
     private let stackView = UIStackView(frame: .zero)
     private let mealsStackView = UIStackView(frame: .zero)
-    private let scrollView = UIScrollView(frame: .zero)
-    private let titleLabel = UILabel(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.bindToViewModel()
         
         view.backgroundColor = .white
         
@@ -42,24 +42,57 @@ class ShuffleViewController: UIViewController {
         
         stackView.addArrangedSubview(mealsStackView)
         
-        addNewMeal()
+        let buttonsStackView = DrawableStackView(frame: .zero)
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        buttonsStackView.axis = .horizontal
+        buttonsStackView.distribution = .fill
+        buttonsStackView.alignment = .fill
+        buttonsStackView.isLayoutMarginsRelativeArrangement = true
+        buttonsStackView.backgroundColor = .purple
+        
+        stackView.addArrangedSubview(buttonsStackView)
+        
+        buttonsStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        buttonsStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
         let addButton = UIButton(frame: .zero)
         addButton.backgroundColor = .green
         addButton.setTitle("+", for: .normal)
-        addButton.setTitleColor(.white, for: .normal)
+        addButton.setTitleColor(.black, for: .normal)
         addButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
         addButton.addTarget(self, action: #selector(self.addButtonClicked(sender:)), for: .touchUpInside)
-        addButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        addButton.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
         
-        stackView.addArrangedSubview(addButton)
+        buttonsStackView.addArrangedSubview(addButton)
         
-        addButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
-        addButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        let startOverButton = UIButton(frame: .zero)
+        startOverButton.backgroundColor = .yellow
+        startOverButton.setTitle("Start Over", for: .normal)
+        startOverButton.setTitleColor(.black, for: .normal)
+        startOverButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
+        startOverButton.addTarget(self, action: #selector(self.startOverButtonClicked(sender:)), for: .touchUpInside)
+        startOverButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        
+        buttonsStackView.addArrangedSubview(startOverButton)
+        
+        viewModel.addNewMeal()
     }
-
-    func addNewMeal() {
     
+    private func bindToViewModel() {
+        self.viewModel.didAddNewMeal = { [weak self] _ in
+            self?.viewModelDidAddNewMeal()
+        }
+        self.viewModel.didClearAllMeals = { [weak self] _ in
+            self?.viewModelDidClearAllMeals()
+        }
+    }
+    
+    private func viewModelDidAddNewMeal() {
+    
+        guard let mealViewModel = viewModel.mealViewModels.last else {
+            return
+        }
+        
         let mealStackView = DrawableStackView(frame: .zero)
         
         mealStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,11 +101,11 @@ class ShuffleViewController: UIViewController {
         mealStackView.alignment = .fill
         mealStackView.isLayoutMarginsRelativeArrangement = true
         mealStackView.backgroundColor = .blue
-        mealStackView.borderColor = UIColor.white.cgColor
-//            mealStackView.borderWidth = 5
+//        mealStackView.borderColor = UIColor.white.cgColor
+//        mealStackView.borderWidth = 5
         
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.text = "Meal plan \(mealCount)"
+        titleLabel.text = "Meal plan \(mealViewModel.mealNumber)"
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
@@ -90,10 +123,9 @@ class ShuffleViewController: UIViewController {
         
         mealStackView.addArrangedSubview(dishesStackView)
         
-        let dishNames = ["Chicken pasta", "Honey garlic salmon", "Garlic a-cai", "Roasted asparagus", "White rice", "Roasted sweet potatoes"]
-        for _ in 0..<arc4random_uniform(3)+1 {
+        for dish in mealViewModel.dishes {
             let dishLabel = UILabel(frame: .zero)
-            dishLabel.text = dishNames[Int(arc4random_uniform(UInt32(dishNames.count)))]
+            dishLabel.text = dish.title
             dishLabel.textColor = .white
             dishLabel.textAlignment = .center
             dishLabel.font = UIFont(name: "HelveticaNeue", size: 25)
@@ -102,38 +134,31 @@ class ShuffleViewController: UIViewController {
         }
         
         mealsStackView.addArrangedSubview(mealStackView)
-        mealStackView.isHidden = true
         
-        UIView.animate(withDuration: 0.5) {
-            mealStackView.isHidden = false
+        if viewModel.mealCount > 1 {
+            mealStackView.isHidden = true
+            
+            UIView.animate(withDuration: 0.5) {
+                mealStackView.isHidden = false
+            }
         }
     }
     
-    func addButtonClicked(sender: Any?) {
-        if mealCount < 3 {
-            mealCount += 1
-            addNewMeal()
+    private func viewModelDidClearAllMeals() {
+        for subview in mealsStackView.arrangedSubviews {
+            mealsStackView.removeArrangedSubview(subview)
+            subview.removeFromSuperview()
         }
-//        if mealCount == 4 {
-//            stackView.removeFromSuperview()
-//            
-//            scrollView.backgroundColor = .yellow
-//            scrollView.translatesAutoresizingMaskIntoConstraints = false
-//            
-//            view.addSubview(scrollView)
-//            
-//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//            scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
-//            scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-//            
-//            scrollView.addSubview(stackView)
-//            
-//            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-//            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-//            stackView.bottomAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-//            stackView.topAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-//            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-//        }
+        viewModel.addNewMeal()
+    }
+    
+    func addButtonClicked(sender: Any?) {
+        if viewModel.mealCount < 3 {
+            viewModel.addNewMeal()
+        }
+    }
+    
+    func startOverButtonClicked(sender: Any?) {
+        viewModel.clearAllMeals()
     }
 }

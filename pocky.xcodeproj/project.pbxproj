@@ -10,7 +10,6 @@
 		508E5B69607439BA4A31B210 /* Pods_pocky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB1E1B5A1D2A2BAE945A459 /* Pods_pocky.framework */; };
 		A9E43808861A0AC038210914 /* Pods_pockyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */; };
 		D87490951F48F873007E659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490941F48F873007E659F /* AppDelegate.swift */; };
-		D87490971F48F873007E659F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490961F48F873007E659F /* ViewController.swift */; };
 		D874909A1F48F873007E659F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87490981F48F873007E659F /* Main.storyboard */; };
 		D874909C1F48F873007E659F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D874909B1F48F873007E659F /* Assets.xcassets */; };
 		D874909F1F48F873007E659F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D874909D1F48F873007E659F /* LaunchScreen.storyboard */; };
@@ -24,6 +23,8 @@
 		D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D61F4B8D6F007E659F /* spatula-76.png */; };
 		D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D71F4B8D6F007E659F /* spatula-152.png */; };
 		D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490DA1F4B90E6007E659F /* DrawableStackView.swift */; };
+		D87490E01F4CC8BB007E659F /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490DF1F4CC8BB007E659F /* MealViewModel.swift */; };
+		D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490E11F4CCCA0007E659F /* MealsViewModel.swift */; };
 		FD720A4C7BFE40B6BC7C7406 /* Pods_pockyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092D03F79CB6E185A787F91B /* Pods_pockyTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +55,6 @@
 		B13F3E92D9C94215BFCF730E /* Pods-pocky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.debug.xcconfig"; sourceTree = "<group>"; };
 		D87490911F48F873007E659F /* pocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87490941F48F873007E659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D87490961F48F873007E659F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D87490991F48F873007E659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D874909B1F48F873007E659F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D874909E1F48F873007E659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		D87490D61F4B8D6F007E659F /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-76.png"; sourceTree = "<group>"; };
 		D87490D71F4B8D6F007E659F /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-152.png"; sourceTree = "<group>"; };
 		D87490DA1F4B90E6007E659F /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableStackView.swift; sourceTree = "<group>"; };
+		D87490DF1F4CC8BB007E659F /* MealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealViewModel.swift; path = "View Models/MealViewModel.swift"; sourceTree = "<group>"; };
+		D87490E11F4CCCA0007E659F /* MealsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewModel.swift; path = "View Models/MealsViewModel.swift"; sourceTree = "<group>"; };
 		FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pockyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDF740AEA7A2EB0F34C00F7 /* Pods-pocky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.release.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,9 +149,9 @@
 				D87490CD1F4B8313007E659F /* icons */,
 				D87490C71F4A07B9007E659F /* utils */,
 				D87490C41F4A0645007E659F /* models */,
-				D87490941F48F873007E659F /* AppDelegate.swift */,
-				D87490961F48F873007E659F /* ViewController.swift */,
+				D87490DC1F4CB7FE007E659F /* viewmodels */,
 				D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */,
+				D87490941F48F873007E659F /* AppDelegate.swift */,
 				D87490981F48F873007E659F /* Main.storyboard */,
 				D874909B1F48F873007E659F /* Assets.xcassets */,
 				D874909D1F48F873007E659F /* LaunchScreen.storyboard */,
@@ -203,6 +205,15 @@
 				D87490D01F4B833F007E659F /* shuffle.png */,
 			);
 			name = icons;
+			sourceTree = "<group>";
+		};
+		D87490DC1F4CB7FE007E659F /* viewmodels */ = {
+			isa = PBXGroup;
+			children = (
+				D87490DF1F4CC8BB007E659F /* MealViewModel.swift */,
+				D87490E11F4CCCA0007E659F /* MealsViewModel.swift */,
+			);
+			name = viewmodels;
 			sourceTree = "<group>";
 		};
 		DEEBA066D5C0D0B6D36ED203 /* Frameworks */ = {
@@ -504,9 +515,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
+				D87490E01F4CC8BB007E659F /* MealViewModel.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
-				D87490971F48F873007E659F /* ViewController.swift in Sources */,
 				D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */,
+				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,
 				D87490951F48F873007E659F /* AppDelegate.swift in Sources */,
 				D87490CC1F4B7BA5007E659F /* ShuffleViewController.swift in Sources */,
 			);
