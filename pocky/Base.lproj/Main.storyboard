@@ -106,13 +106,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Spatch" id="deC-Ok-Xs8"/>
-                    <connections>
-                        <segue destination="LYs-S8-l1V" kind="show" identifier="ShowShuffleViewController" id="RmQ-Ce-Gzd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586.1328125" y="135.7247437774524"/>
+            <point key="canvasLocation" x="1249" y="-754"/>
         </scene>
         <!--Search-->
         <scene sceneID="xXu-93-nWa">
@@ -133,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="1586" y="812"/>
         </scene>
-        <!--Shuffle View Controller-->
+        <!--Meal plan-->
         <scene sceneID="OSW-tZ-3NJ">
             <objects>
                 <viewController id="LYs-S8-l1V" customClass="ShuffleViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,10 +143,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Meal plan" id="wZ1-73-e0e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfQ-cV-JzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2368.9453125" y="135.7247437774524"/>
+            <point key="canvasLocation" x="1586" y="136"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oXS-fQ-l3B">
@@ -157,6 +155,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7Bi-mM-0Pn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gOb-WR-Gt0">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -175,13 +174,13 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alu-iG-6xj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shuffle" image="shuffle.png" id="Uhr-4z-Pp6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jYE-cE-PK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYE-cE-PK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="40c-Kq-AL4"/>
+                        <segue destination="LYs-S8-l1V" kind="relationship" relationship="rootViewController" id="qHG-yy-RBA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dza-Hi-vSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
