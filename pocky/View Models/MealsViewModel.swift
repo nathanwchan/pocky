@@ -7,26 +7,53 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 class MealsViewModel {
     //MARK: - Properties
-    private(set) var mealViewModels = [MealViewModel]()
+    private(set) var meals = [Meal]()
     var mealCount: Int {
-        return mealViewModels.count
+        return meals.count
+    }
+    private(set) var allDishes: [Dish]?
+    
+    init() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("dishes").child("0").observe(.value, with: { (snapshot) in
+            let data = snapshot.value as? [AnyObject]
+            self.allDishes = data?.flatMap { Dish(data: $0) }
+            self.addNewMeal()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
     
     //MARK: - Events
     var didAddNewMeal: ((MealsViewModel) -> Void)?
     var didClearAllMeals: ((MealsViewModel) -> Void)?
     
+    //MARK: - Private
+    func getRandomDishes() -> [Dish] {
+        guard let allDishes = allDishes else {
+            return []
+        }
+        var randomDishes = [Dish]()
+        for _ in 0..<arc4random_uniform(3)+1 {
+            randomDishes.append(allDishes[Int(arc4random_uniform(UInt32(allDishes.count)))])
+        }
+        return randomDishes
+    }
+    
     //MARK: - Actions
     func addNewMeal() {
-        mealViewModels.append(MealViewModel(mealNumber: self.mealCount + 1))
+        meals.append(Meal(mealNumber: self.mealCount + 1,
+                          dishes: getRandomDishes()))
         self.didAddNewMeal?(self)
     }
     
     func clearAllMeals() {
-        mealViewModels = []
+        meals = []
         self.didClearAllMeals?(self)
     }
 }

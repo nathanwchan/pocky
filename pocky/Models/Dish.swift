@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
-class Dish: NSObject {
+struct Dish {
     var title: String
     var category: [Category]
     var link: String?

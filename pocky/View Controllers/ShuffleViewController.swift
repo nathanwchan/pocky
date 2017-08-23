@@ -10,14 +10,14 @@ import UIKit
 
 class ShuffleViewController: UIViewController {
 
-    private var viewModel = MealsViewModel()
+    private var viewModel: MealsViewModel?
     private let stackView = UIStackView(frame: .zero)
     private let mealsStackView = UIStackView(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.bindToViewModel()
+        self.initViewModel()
         
         view.backgroundColor = .white
         
@@ -74,22 +74,22 @@ class ShuffleViewController: UIViewController {
         startOverButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         
         buttonsStackView.addArrangedSubview(startOverButton)
-        
-        viewModel.addNewMeal()
     }
     
-    private func bindToViewModel() {
-        self.viewModel.didAddNewMeal = { [weak self] _ in
+    private func initViewModel() {
+        viewModel = MealsViewModel()
+        
+        viewModel?.didAddNewMeal = { [weak self] _ in
             self?.viewModelDidAddNewMeal()
         }
-        self.viewModel.didClearAllMeals = { [weak self] _ in
+        viewModel?.didClearAllMeals = { [weak self] _ in
             self?.viewModelDidClearAllMeals()
         }
     }
     
     private func viewModelDidAddNewMeal() {
     
-        guard let mealViewModel = viewModel.mealViewModels.last else {
+        guard let meal = viewModel?.meals.last else {
             return
         }
         
@@ -105,7 +105,7 @@ class ShuffleViewController: UIViewController {
 //        mealStackView.borderWidth = 5
         
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.text = "Meal plan \(mealViewModel.mealNumber)"
+        titleLabel.text = "Meal plan \(meal.mealNumber)"
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
@@ -123,7 +123,7 @@ class ShuffleViewController: UIViewController {
         
         mealStackView.addArrangedSubview(dishesStackView)
         
-        for dish in mealViewModel.dishes {
+        for dish in meal.dishes {
             let dishLabel = UILabel(frame: .zero)
             dishLabel.text = dish.title
             dishLabel.textColor = .white
@@ -135,7 +135,7 @@ class ShuffleViewController: UIViewController {
         
         mealsStackView.addArrangedSubview(mealStackView)
         
-        if viewModel.mealCount > 1 {
+        if let mealCount = viewModel?.mealCount, mealCount > 1 {
             mealStackView.isHidden = true
             
             UIView.animate(withDuration: 0.5) {
@@ -149,16 +149,16 @@ class ShuffleViewController: UIViewController {
             mealsStackView.removeArrangedSubview(subview)
             subview.removeFromSuperview()
         }
-        viewModel.addNewMeal()
+        viewModel?.addNewMeal()
     }
     
     func addButtonClicked(sender: Any?) {
-        if viewModel.mealCount < 3 {
-            viewModel.addNewMeal()
+        if let mealCount = viewModel?.mealCount, mealCount < 3 {
+            viewModel?.addNewMeal()
         }
     }
     
     func startOverButtonClicked(sender: Any?) {
-        viewModel.clearAllMeals()
+        viewModel?.clearAllMeals()
     }
 }

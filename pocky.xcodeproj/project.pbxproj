@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		508E5B69607439BA4A31B210 /* Pods_pocky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB1E1B5A1D2A2BAE945A459 /* Pods_pocky.framework */; };
 		A9E43808861A0AC038210914 /* Pods_pockyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */; };
+		D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E781F4DFA8D00587931 /* Meal.swift */; };
+		D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7B1F4E016200587931 /* DrawableStackView.swift */; };
+		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
 		D87490951F48F873007E659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490941F48F873007E659F /* AppDelegate.swift */; };
 		D874909A1F48F873007E659F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87490981F48F873007E659F /* Main.storyboard */; };
 		D874909C1F48F873007E659F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D874909B1F48F873007E659F /* Assets.xcassets */; };
@@ -18,12 +21,9 @@
 		D87490C31F48F952007E659F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D87490C21F48F952007E659F /* GoogleService-Info.plist */; };
 		D87490C61F4A066C007E659F /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490C51F4A066C007E659F /* Dish.swift */; };
 		D87490C91F4A07D1007E659F /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490C81F4A07D1007E659F /* Globals.swift */; };
-		D87490CC1F4B7BA5007E659F /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */; };
 		D87490D11F4B833F007E659F /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D01F4B833F007E659F /* shuffle.png */; };
 		D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D61F4B8D6F007E659F /* spatula-76.png */; };
 		D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D71F4B8D6F007E659F /* spatula-152.png */; };
-		D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490DA1F4B90E6007E659F /* DrawableStackView.swift */; };
-		D87490E01F4CC8BB007E659F /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490DF1F4CC8BB007E659F /* MealViewModel.swift */; };
 		D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490E11F4CCCA0007E659F /* MealsViewModel.swift */; };
 		FD720A4C7BFE40B6BC7C7406 /* Pods_pockyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092D03F79CB6E185A787F91B /* Pods_pockyTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,9 @@
 		5B1E2541EC99AA3CD6967384 /* Pods-pockyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pockyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pockyTests/Pods-pockyTests.release.xcconfig"; sourceTree = "<group>"; };
 		87FC45D659563FC67E13BE8C /* Pods-pockyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pockyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pockyUITests/Pods-pockyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B13F3E92D9C94215BFCF730E /* Pods-pocky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.debug.xcconfig"; sourceTree = "<group>"; };
+		D80F4E781F4DFA8D00587931 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
+		D80F4E7B1F4E016200587931 /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableStackView.swift; path = Utils/DrawableStackView.swift; sourceTree = "<group>"; };
+		D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleViewController.swift; path = "View Controllers/ShuffleViewController.swift"; sourceTree = "<group>"; };
 		D87490911F48F873007E659F /* pocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87490941F48F873007E659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D87490991F48F873007E659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,12 +72,9 @@
 		D87490C51F4A066C007E659F /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dish.swift; path = Models/Dish.swift; sourceTree = "<group>"; };
 		D87490C81F4A07D1007E659F /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = Utils/Globals.swift; sourceTree = "<group>"; };
 		D87490CA1F4A0AF8007E659F /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = "<group>"; };
-		D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShuffleViewController.swift; sourceTree = "<group>"; };
 		D87490D01F4B833F007E659F /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuffle.png; path = Icons/shuffle.png; sourceTree = "<group>"; };
 		D87490D61F4B8D6F007E659F /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-76.png"; sourceTree = "<group>"; };
 		D87490D71F4B8D6F007E659F /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-152.png"; sourceTree = "<group>"; };
-		D87490DA1F4B90E6007E659F /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawableStackView.swift; sourceTree = "<group>"; };
-		D87490DF1F4CC8BB007E659F /* MealViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealViewModel.swift; path = "View Models/MealViewModel.swift"; sourceTree = "<group>"; };
 		D87490E11F4CCCA0007E659F /* MealsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewModel.swift; path = "View Models/MealsViewModel.swift"; sourceTree = "<group>"; };
 		FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pockyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDF740AEA7A2EB0F34C00F7 /* Pods-pocky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.release.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +121,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D80F4E7A1F4E00A000587931 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
 		D87490881F48F873007E659F = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +158,7 @@
 				D87490C71F4A07B9007E659F /* utils */,
 				D87490C41F4A0645007E659F /* models */,
 				D87490DC1F4CB7FE007E659F /* viewmodels */,
-				D87490CB1F4B7BA4007E659F /* ShuffleViewController.swift */,
+				D80F4E7A1F4E00A000587931 /* viewcontrollers */,
 				D87490941F48F873007E659F /* AppDelegate.swift */,
 				D87490981F48F873007E659F /* Main.storyboard */,
 				D874909B1F48F873007E659F /* Assets.xcassets */,
@@ -158,7 +166,6 @@
 				D87490A01F48F873007E659F /* Info.plist */,
 				D87490C21F48F952007E659F /* GoogleService-Info.plist */,
 				D87490CA1F4A0AF8007E659F /* pocky.playground */,
-				D87490DA1F4B90E6007E659F /* DrawableStackView.swift */,
 			);
 			path = pocky;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D87490C51F4A066C007E659F /* Dish.swift */,
+				D80F4E781F4DFA8D00587931 /* Meal.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				D87490C81F4A07D1007E659F /* Globals.swift */,
+				D80F4E7B1F4E016200587931 /* DrawableStackView.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -210,7 +219,6 @@
 		D87490DC1F4CB7FE007E659F /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
-				D87490DF1F4CC8BB007E659F /* MealViewModel.swift */,
 				D87490E11F4CCCA0007E659F /* MealsViewModel.swift */,
 			);
 			name = viewmodels;
@@ -515,12 +523,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
-				D87490E01F4CC8BB007E659F /* MealViewModel.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
-				D87490DB1F4B90E6007E659F /* DrawableStackView.swift in Sources */,
+				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,
+				D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */,
 				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,
+				D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */,
 				D87490951F48F873007E659F /* AppDelegate.swift in Sources */,
-				D87490CC1F4B7BA5007E659F /* ShuffleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
