@@ -125,7 +125,8 @@ class ShuffleViewController: UIViewController {
         
         for dish in meal.dishes {
             let dishLabel = UILabel(frame: .zero)
-            dishLabel.text = dish.title
+            dishLabel.text = "\(dish.title)\n\(dish.category.map { $0.rawValue.characters.first! })"
+            dishLabel.numberOfLines = 0
             dishLabel.textColor = .white
             dishLabel.textAlignment = .center
             dishLabel.font = UIFont(name: "HelveticaNeue", size: 25)

@@ -12,6 +12,7 @@
 		D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E781F4DFA8D00587931 /* Meal.swift */; };
 		D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7B1F4E016200587931 /* DrawableStackView.swift */; };
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
+		D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */; };
 		D87490951F48F873007E659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490941F48F873007E659F /* AppDelegate.swift */; };
 		D874909A1F48F873007E659F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87490981F48F873007E659F /* Main.storyboard */; };
 		D874909C1F48F873007E659F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D874909B1F48F873007E659F /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		D80F4E781F4DFA8D00587931 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
 		D80F4E7B1F4E016200587931 /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableStackView.swift; path = Utils/DrawableStackView.swift; sourceTree = "<group>"; };
 		D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleViewController.swift; path = "View Controllers/ShuffleViewController.swift"; sourceTree = "<group>"; };
+		D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+randomItem.swift"; path = "Utils/Array+randomItem.swift"; sourceTree = "<group>"; };
 		D87490911F48F873007E659F /* pocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87490941F48F873007E659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D87490991F48F873007E659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				D87490C81F4A07D1007E659F /* Globals.swift */,
 				D80F4E7B1F4E016200587931 /* DrawableStackView.swift */,
+				D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -525,6 +528,7 @@
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
 				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,
+				D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */,
 				D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */,
 				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,
 				D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */,

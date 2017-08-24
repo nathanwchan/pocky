@@ -13,3 +13,7 @@ enum Category: String {
     case Veggie = "v"
     case Carb = "c"
 }
+
+extension Category {
+    static let allValues = [Category.Meat, Category.Veggie, Category.Carb]
+}
