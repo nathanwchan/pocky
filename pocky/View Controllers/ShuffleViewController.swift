@@ -123,7 +123,7 @@ class ShuffleViewController: UIViewController {
         
         mealStackView.addArrangedSubview(dishesStackView)
         
-        for dish in meal.dishes {
+        for dish in meal.sortedDishes {
             let dishLabel = UILabel(frame: .zero)
             dishLabel.text = "\(dish.title)\n\(dish.category.map { $0.rawValue.characters.first! })"
             dishLabel.numberOfLines = 0

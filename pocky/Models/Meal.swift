@@ -14,6 +14,10 @@ struct Meal {
         return "Meal \(mealNumber)"
     }
     var dishes: [Dish]
+    var sortedDishes: [Dish] {
+        // super custom code to make sure Meat dishes are always first, then Veggie, then Carb
+        return dishes.sorted(by: Dish.sortClosure)
+    }
     
     init(mealNumber: Int, dishes: [Dish]) {
         self.mealNumber = mealNumber

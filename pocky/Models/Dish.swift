@@ -31,4 +31,8 @@ struct Dish {
         self.link = dict["link"] as? String
         self.notes = dict["notes"] as? String
     }
+    
+    static let sortClosure: (Dish, Dish) -> Bool = { dish1, dish2 in
+        return dish1.category.map({ Category.index(of: $0) }).min()! < dish2.category.map({ Category.index(of: $0) }).min()!
+    }
 }

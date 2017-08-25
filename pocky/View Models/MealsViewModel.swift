@@ -49,25 +49,13 @@ class MealsViewModel {
         if categories.isEmpty {
             return dishCombos
         }
-        
-        var filterClosure: (Dish) -> Bool
-        if categories.count == 1 {
-            filterClosure = { dish in
-                return dish.category.count == 1 && dish.category.contains(categories[0])
-            }
-        } else {
-            filterClosure = { dish in
-                return dish.category.contains { category in
-                    let categoriesToExclude = Category.allValues.filter { !categories.contains($0) }
-                    return categories.contains(category) && !categoriesToExclude.contains(category)
-                }
-            }
+        let filterClosure: (Dish) -> Bool = { dish in
+            return Set(dish.category).isSubset(of: Set(categories))
         }
-        
         guard let dishToAdd = allDishes?.filter(filterClosure).randomItem() else {
             return dishCombos
         }
-        return dishCombos + [dishToAdd]
+        return getDishCombos(with: categories.filter { !dishToAdd.category.contains($0) }, dishCombos: dishCombos + [dishToAdd])
         
     }
     
