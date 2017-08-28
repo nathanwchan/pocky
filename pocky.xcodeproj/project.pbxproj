@@ -14,6 +14,8 @@
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
 		D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */; };
 		D833BB2B1F539BED000D25E9 /* DishUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */; };
+		D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */; };
+		D838E5B41F54BEAB00E3DC17 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D838E5B31F54BEAB00E3DC17 /* info.png */; };
 		D87490951F48F873007E659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490941F48F873007E659F /* AppDelegate.swift */; };
 		D874909A1F48F873007E659F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87490981F48F873007E659F /* Main.storyboard */; };
 		D874909C1F48F873007E659F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D874909B1F48F873007E659F /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 		D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleViewController.swift; path = "View Controllers/ShuffleViewController.swift"; sourceTree = "<group>"; };
 		D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+randomItem.swift"; path = "Utils/Array+randomItem.swift"; sourceTree = "<group>"; };
 		D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishUIButton.swift; path = Utils/DishUIButton.swift; sourceTree = "<group>"; };
+		D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishViewController.swift; path = "View Controllers/DishViewController.swift"; sourceTree = "<group>"; };
+		D838E5B31F54BEAB00E3DC17 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Icons/info.png; sourceTree = "<group>"; };
 		D87490911F48F873007E659F /* pocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D87490941F48F873007E659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D87490991F48F873007E659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */,
+				D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 		D87490CD1F4B8313007E659F /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				D838E5B31F54BEAB00E3DC17 /* info.png */,
 				D87490D61F4B8D6F007E659F /* spatula-76.png */,
 				D87490D71F4B8D6F007E659F /* spatula-152.png */,
 				D87490D01F4B833F007E659F /* shuffle.png */,
@@ -366,6 +372,7 @@
 				D87490D11F4B833F007E659F /* shuffle.png in Resources */,
 				D874909A1F48F873007E659F /* Main.storyboard in Resources */,
 				D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */,
+				D838E5B41F54BEAB00E3DC17 /* info.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +539,7 @@
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
 				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,
+				D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */,
 				D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */,
 				D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */,
 				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,

@@ -145,14 +145,35 @@ class ShuffleViewController: UIViewController {
             
             dishStackView.addArrangedSubview(dishLabel)
             
+            let dishButtonsStackView = UIStackView(frame: .zero)
+            dishButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
+            dishButtonsStackView.axis = .horizontal
+            dishButtonsStackView.distribution = .equalSpacing
+            dishButtonsStackView.alignment = .center
+            dishButtonsStackView.isLayoutMarginsRelativeArrangement = true
+            dishButtonsStackView.spacing = 15
+            
             let shuffleButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
             shuffleButton.addTarget(self, action: #selector(self.shuffleButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
+            shuffleButton.imageEdgeInsets = UIEdgeInsetsMake(2.5, 10, 2.5, 10)
             shuffleButton.backgroundColor = .yellow
             shuffleButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
             shuffleButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
             
-            dishStackView.addArrangedSubview(shuffleButton)
+            dishButtonsStackView.addArrangedSubview(shuffleButton)
+            
+            let infoButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
+            infoButton.addTarget(self, action: #selector(self.infoButtonClicked(sender:)), for: .touchUpInside)
+            infoButton.setImage(UIImage(named: "info.png"), for: .normal)
+            infoButton.imageEdgeInsets = UIEdgeInsetsMake(5, 12.5, 5, 12.5)
+            infoButton.backgroundColor = .yellow
+            infoButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            infoButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            dishButtonsStackView.addArrangedSubview(infoButton)
+            
+            dishStackView.addArrangedSubview(dishButtonsStackView)
             
             let bottomSpacer = UIView(frame: .zero)
             bottomSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
@@ -215,5 +236,29 @@ class ShuffleViewController: UIViewController {
     
     func shuffleButtonClicked(sender: DishUIButton) {
         viewModel?.shuffleDishes(mealIndex: sender.mealIndex, categories: sender.dish.category)
+    }
+    
+    func infoButtonClicked(sender: DishUIButton) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ShowDishSegue", sender: sender)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            case "ShowDishSegue":
+                guard let dishViewController = segue.destination as? DishViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                guard let dishUIButton = sender as? DishUIButton else {
+                    fatalError("Unexpected sender: \(sender.debugDescription)")
+                }
+                dishViewController.dish = dishUIButton.dish
+            default:
+                fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
+            }
     }
 }

@@ -42,10 +42,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meal plan" id="wZ1-73-e0e"/>
+                    <connections>
+                        <segue destination="Wxw-tL-V9d" kind="show" identifier="ShowDishSegue" id="asq-a9-mRh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VfQ-cV-JzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586" y="136"/>
+        </scene>
+        <!--Dish View Controller-->
+        <scene sceneID="OJC-41-tWy">
+            <objects>
+                <viewController id="Wxw-tL-V9d" customClass="DishViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V2q-4B-JRS"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tll-uE-f3d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="97n-gp-aUS" customClass="DishView">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QLi-Ly-z2s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="450"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="oXS-fQ-l3B">
