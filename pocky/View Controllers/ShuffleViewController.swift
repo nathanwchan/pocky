@@ -85,11 +85,13 @@ class ShuffleViewController: UIViewController {
         viewModel?.didClearAllMeals = { [weak self] _ in
             self?.viewModelDidClearAllMeals()
         }
+        viewModel?.didShuffleDishes = { [weak self] (_, mealNumber: Int) in
+            self?.viewModelDidShuffleMeal(mealNumber: mealNumber)
+        }
     }
     
-    private func viewModelDidAddNewMeal() {
-    
-        guard let meal = viewModel?.meals.last else {
+    private func updateMealStackView(at index: Int) {
+        guard let meal = viewModel?.meals[index] else {
             return
         }
         
@@ -101,8 +103,6 @@ class ShuffleViewController: UIViewController {
         mealStackView.alignment = .fill
         mealStackView.isLayoutMarginsRelativeArrangement = true
         mealStackView.backgroundColor = .blue
-//        mealStackView.borderColor = UIColor.white.cgColor
-//        mealStackView.borderWidth = 5
         
         let titleLabel = UILabel(frame: .zero)
         titleLabel.text = "Meal plan \(meal.mealNumber)"
@@ -124,6 +124,18 @@ class ShuffleViewController: UIViewController {
         mealStackView.addArrangedSubview(dishesStackView)
         
         for dish in meal.sortedDishes {
+            let dishStackView = UIStackView(frame: .zero)
+            dishStackView.translatesAutoresizingMaskIntoConstraints = false
+            dishStackView.axis = .vertical
+            dishStackView.distribution = .fill
+            dishStackView.alignment = .center
+            dishStackView.isLayoutMarginsRelativeArrangement = true
+            dishStackView.spacing = 10
+            
+            let topSpacer = UIView(frame: .zero)
+            topSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+            dishStackView.addArrangedSubview(topSpacer)
+            
             let dishLabel = UILabel(frame: .zero)
             dishLabel.text = "\(dish.title)\n\(dish.category.map { $0.rawValue.characters.first! })"
             dishLabel.numberOfLines = 0
@@ -131,17 +143,51 @@ class ShuffleViewController: UIViewController {
             dishLabel.textAlignment = .center
             dishLabel.font = UIFont(name: "HelveticaNeue", size: 25)
             
-            dishesStackView.addArrangedSubview(dishLabel)
+            dishStackView.addArrangedSubview(dishLabel)
+            
+            let shuffleButton = DishUIButton(dish: dish, mealNumber: meal.mealNumber)
+            shuffleButton.addTarget(self, action: #selector(self.shuffleButtonClicked(sender:)), for: .touchUpInside)
+            shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
+            shuffleButton.backgroundColor = .yellow
+            shuffleButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            shuffleButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            
+            dishStackView.addArrangedSubview(shuffleButton)
+            
+            let bottomSpacer = UIView(frame: .zero)
+            bottomSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+            dishStackView.addArrangedSubview(bottomSpacer)
+            
+            topSpacer.heightAnchor.constraint(equalTo: bottomSpacer.heightAnchor).isActive = true
+            
+            dishesStackView.addArrangedSubview(dishStackView)
         }
         
-        mealsStackView.addArrangedSubview(mealStackView)
-        
-        if let mealCount = viewModel?.mealCount, mealCount > 1 {
-            mealStackView.isHidden = true
+        var animateView = false
+        if mealsStackView.arrangedSubviews.count <= index {
+            mealsStackView.addArrangedSubview(mealStackView)
+            if let mealCount = viewModel?.mealCount, mealCount > 1 {
+                animateView = true
+            }
+        } else {
+            let originalSubview = mealsStackView.arrangedSubviews[index]
+            mealsStackView.removeArrangedSubview(originalSubview)
+            originalSubview.removeFromSuperview()
             
+            mealsStackView.insertArrangedSubview(mealStackView, at: index)
+        }
+        
+        if animateView {
+            mealStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 mealStackView.isHidden = false
             }
+        }
+    }
+    
+    private func viewModelDidAddNewMeal() {
+        if let count = viewModel?.mealCount {
+            updateMealStackView(at: count - 1)
         }
     }
     
@@ -153,6 +199,10 @@ class ShuffleViewController: UIViewController {
         viewModel?.addNewMeal()
     }
     
+    private func viewModelDidShuffleMeal(mealNumber: Int) {
+        updateMealStackView(at: mealNumber - 1)
+    }
+    
     func addButtonClicked(sender: Any?) {
         if let mealCount = viewModel?.mealCount, mealCount < 3 {
             viewModel?.addNewMeal()
@@ -161,5 +211,9 @@ class ShuffleViewController: UIViewController {
     
     func startOverButtonClicked(sender: Any?) {
         viewModel?.clearAllMeals()
+    }
+    
+    func shuffleButtonClicked(sender: DishUIButton) {
+        viewModel?.shuffleDishes(mealNumber: sender.mealNumber, categories: sender.dish.category)
     }
 }

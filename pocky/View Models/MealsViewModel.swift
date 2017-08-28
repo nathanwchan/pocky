@@ -32,6 +32,7 @@ class MealsViewModel {
     //MARK: - Events
     var didAddNewMeal: ((MealsViewModel) -> Void)?
     var didClearAllMeals: ((MealsViewModel) -> Void)?
+    var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
     
     //MARK: - Private
     func getRandomDishes() -> [Dish] {
@@ -75,5 +76,19 @@ class MealsViewModel {
     func clearAllMeals() {
         meals = []
         self.didClearAllMeals?(self)
+    }
+    
+    func shuffleDishes(mealNumber: Int, categories: [Category]) {
+        let newDishes = getDishCombos(with: categories)
+        
+        let mealIndex = mealNumber - 1
+        if mealIndex < 0 || mealIndex >= meals.count {
+            return
+        }
+        
+        let dishesToKeep = meals[mealIndex].dishes.filter { Set($0.category).intersection(Set(categories)).isEmpty }
+        meals[mealIndex].dishes = dishesToKeep + newDishes
+        
+        self.didShuffleDishes?(self, mealNumber)
     }
 }
