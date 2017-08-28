@@ -50,7 +50,13 @@ class MealsViewModel {
             return dishCombos
         }
         let filterClosure: (Dish) -> Bool = { dish in
-            return Set(dish.category).isSubset(of: Set(categories))
+            let isDishWithinRequiredCategories = Set(dish.category).isSubset(of: Set(categories))
+            // allow Carb dish to be duplicated
+            var isDishAlreadyAdded = false
+            if !(dish.category.count == 1 && dish.category.first! == .Carb) {
+                isDishAlreadyAdded = self.meals.flatMap({ $0.dishes }).contains(dish)
+            }
+            return isDishWithinRequiredCategories && !isDishAlreadyAdded
         }
         guard let dishToAdd = allDishes?.filter(filterClosure).randomItem() else {
             return dishCombos

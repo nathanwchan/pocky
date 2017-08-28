@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dish {
+struct Dish: Equatable {
     var title: String
     var category: [Category]
     var link: String?
@@ -34,5 +34,9 @@ struct Dish {
     
     static let sortClosure: (Dish, Dish) -> Bool = { dish1, dish2 in
         return dish1.category.map({ Category.index(of: $0) }).min()! < dish2.category.map({ Category.index(of: $0) }).min()!
+    }
+    
+    static func == (lhs: Dish, rhs: Dish) -> Bool {
+        return lhs.title == rhs.title
     }
 }
