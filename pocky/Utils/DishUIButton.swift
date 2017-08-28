@@ -10,11 +10,11 @@ import UIKit
 
 class DishUIButton: UIButton {
     let dish: Dish
-    let mealNumber: Int
+    let mealIndex: Int
     
-    required init(dish: Dish, mealNumber: Int) {
+    required init(dish: Dish, mealIndex: Int) {
         self.dish = dish
-        self.mealNumber = mealNumber
+        self.mealIndex = mealIndex
         
         super.init(frame: .zero)
     }

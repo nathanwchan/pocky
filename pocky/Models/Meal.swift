@@ -9,9 +9,9 @@
 import Foundation
 
 struct Meal {
-    var mealNumber: Int
+    var mealIndex: Int
     var title: String {
-        return "Meal \(mealNumber)"
+        return "Meal \(mealIndex + 1)"
     }
     var dishes: [Dish]
     var sortedDishes: [Dish] {
@@ -19,8 +19,8 @@ struct Meal {
         return dishes.sorted(by: Dish.sortClosure)
     }
     
-    init(mealNumber: Int, dishes: [Dish]) {
-        self.mealNumber = mealNumber
+    init(mealIndex: Int, dishes: [Dish]) {
+        self.mealIndex = mealIndex
         self.dishes = dishes
     }
 }

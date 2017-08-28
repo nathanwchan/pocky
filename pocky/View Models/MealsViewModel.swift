@@ -68,7 +68,7 @@ class MealsViewModel {
     
     //MARK: - Actions
     func addNewMeal() {
-        meals.append(Meal(mealNumber: self.mealCount + 1,
+        meals.append(Meal(mealIndex: self.mealCount,
                           dishes: getDishCombos(with: Category.allValues)))
         self.didAddNewMeal?(self)
     }
@@ -78,10 +78,9 @@ class MealsViewModel {
         self.didClearAllMeals?(self)
     }
     
-    func shuffleDishes(mealNumber: Int, categories: [Category]) {
+    func shuffleDishes(mealIndex: Int, categories: [Category]) {
         let newDishes = getDishCombos(with: categories)
         
-        let mealIndex = mealNumber - 1
         if mealIndex < 0 || mealIndex >= meals.count {
             return
         }
@@ -89,6 +88,6 @@ class MealsViewModel {
         let dishesToKeep = meals[mealIndex].dishes.filter { Set($0.category).intersection(Set(categories)).isEmpty }
         meals[mealIndex].dishes = dishesToKeep + newDishes
         
-        self.didShuffleDishes?(self, mealNumber)
+        self.didShuffleDishes?(self, mealIndex)
     }
 }

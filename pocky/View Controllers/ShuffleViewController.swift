@@ -85,8 +85,8 @@ class ShuffleViewController: UIViewController {
         viewModel?.didClearAllMeals = { [weak self] _ in
             self?.viewModelDidClearAllMeals()
         }
-        viewModel?.didShuffleDishes = { [weak self] (_, mealNumber: Int) in
-            self?.viewModelDidShuffleMeal(mealNumber: mealNumber)
+        viewModel?.didShuffleDishes = { [weak self] (_, mealIndex: Int) in
+            self?.viewModelDidShuffleMeal(mealIndex: mealIndex)
         }
     }
     
@@ -105,7 +105,7 @@ class ShuffleViewController: UIViewController {
         mealStackView.backgroundColor = .blue
         
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.text = "Meal plan \(meal.mealNumber)"
+        titleLabel.text = "Meal plan \(meal.mealIndex + 1)"
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
@@ -145,7 +145,7 @@ class ShuffleViewController: UIViewController {
             
             dishStackView.addArrangedSubview(dishLabel)
             
-            let shuffleButton = DishUIButton(dish: dish, mealNumber: meal.mealNumber)
+            let shuffleButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
             shuffleButton.addTarget(self, action: #selector(self.shuffleButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
             shuffleButton.backgroundColor = .yellow
@@ -199,8 +199,8 @@ class ShuffleViewController: UIViewController {
         viewModel?.addNewMeal()
     }
     
-    private func viewModelDidShuffleMeal(mealNumber: Int) {
-        updateMealStackView(at: mealNumber - 1)
+    private func viewModelDidShuffleMeal(mealIndex: Int) {
+        updateMealStackView(at: mealIndex)
     }
     
     func addButtonClicked(sender: Any?) {
@@ -214,6 +214,6 @@ class ShuffleViewController: UIViewController {
     }
     
     func shuffleButtonClicked(sender: DishUIButton) {
-        viewModel?.shuffleDishes(mealNumber: sender.mealNumber, categories: sender.dish.category)
+        viewModel?.shuffleDishes(mealIndex: sender.mealIndex, categories: sender.dish.category)
     }
 }
