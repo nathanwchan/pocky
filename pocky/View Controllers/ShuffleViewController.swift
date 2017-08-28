@@ -104,14 +104,37 @@ class ShuffleViewController: UIViewController {
         mealStackView.isLayoutMarginsRelativeArrangement = true
         mealStackView.backgroundColor = .blue
         
+        let titleStackView = UIStackView(frame: .zero)
+        
+        titleStackView.translatesAutoresizingMaskIntoConstraints = false
+        titleStackView.axis = .horizontal
+        titleStackView.distribution = .fill
+        titleStackView.alignment = .fill
+        titleStackView.isLayoutMarginsRelativeArrangement = true
+        titleStackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        
         let titleLabel = UILabel(frame: .zero)
         titleLabel.text = "Meal plan \(meal.mealIndex + 1)"
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
-        titleLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
         
-        mealStackView.addArrangedSubview(titleLabel)
+        titleStackView.addArrangedSubview(titleLabel)
+        
+        let shuffleMealButton = UIButton(frame: .zero)
+        shuffleMealButton.addTarget(self, action: #selector(self.shuffleMealButtonClicked(sender:)), for: .touchUpInside)
+        shuffleMealButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
+        shuffleMealButton.imageEdgeInsets = UIEdgeInsetsMake(2.5, 10, 2.5, 10)
+        shuffleMealButton.backgroundColor = .yellow
+        shuffleMealButton.tag = index
+        shuffleMealButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        shuffleMealButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        shuffleMealButton.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .horizontal)
+        
+        titleStackView.addArrangedSubview(shuffleMealButton)
+        
+        mealStackView.addArrangedSubview(titleStackView)
         
         let dishesStackView = UIStackView(frame: .zero)
         dishesStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +177,7 @@ class ShuffleViewController: UIViewController {
             dishButtonsStackView.spacing = 15
             
             let shuffleButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
-            shuffleButton.addTarget(self, action: #selector(self.shuffleButtonClicked(sender:)), for: .touchUpInside)
+            shuffleButton.addTarget(self, action: #selector(self.shuffleDishButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
             shuffleButton.imageEdgeInsets = UIEdgeInsetsMake(2.5, 10, 2.5, 10)
             shuffleButton.backgroundColor = .yellow
@@ -234,8 +257,12 @@ class ShuffleViewController: UIViewController {
         viewModel?.clearAllMeals()
     }
     
-    func shuffleButtonClicked(sender: DishUIButton) {
+    func shuffleDishButtonClicked(sender: DishUIButton) {
         viewModel?.shuffleDishes(mealIndex: sender.mealIndex, categories: sender.dish.category)
+    }
+    
+    func shuffleMealButtonClicked(sender: UIButton) {
+        viewModel?.shuffleDishes(mealIndex: sender.tag, categories: Category.allValues)
     }
     
     func infoButtonClicked(sender: DishUIButton) {

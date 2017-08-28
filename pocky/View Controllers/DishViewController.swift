@@ -54,7 +54,6 @@ class DishViewController: UIViewController {
         
         if let link = dish.link {
             let linkLabel = UILabel(frame: .zero)
-//            linkLabel.text = link
             linkLabel.textColor = .blue
             linkLabel.textAlignment = .center
             linkLabel.font = UIFont(name: "HelveticaNeue", size: 25)
