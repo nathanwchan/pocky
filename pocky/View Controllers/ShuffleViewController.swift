@@ -276,16 +276,16 @@ class ShuffleViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         switch(segue.identifier ?? "") {
-            case "ShowDishSegue":
-                guard let dishViewController = segue.destination as? DishViewController else {
-                    fatalError("Unexpected destination: \(segue.destination)")
-                }
-                guard let dishUIButton = sender as? DishUIButton else {
-                    fatalError("Unexpected sender: \(sender.debugDescription)")
-                }
-                dishViewController.dish = dishUIButton.dish
-            default:
-                fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
+        case "ShowDishSegue":
+            guard let dishViewController = segue.destination as? DishViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
             }
+            guard let dishUIButton = sender as? DishUIButton else {
+                fatalError("Unexpected sender: \(sender.debugDescription)")
+            }
+            dishViewController.dish = dishUIButton.dish
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
+        }
     }
 }
