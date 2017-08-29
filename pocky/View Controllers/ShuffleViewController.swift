@@ -77,7 +77,7 @@ class ShuffleViewController: UIViewController {
     }
     
     private func initViewModel() {
-        viewModel = MealsViewModel()
+        viewModel = MealsViewModel(networkProvider: NetworkProvider())
         
         viewModel?.didAddNewMeal = { [weak self] _ in
             self?.viewModelDidAddNewMeal()
@@ -272,7 +272,6 @@ class ShuffleViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         super.prepare(for: segue, sender: sender)
         
         switch(segue.identifier ?? "") {

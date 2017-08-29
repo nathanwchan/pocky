@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
 class MealsViewModel {
     //MARK: - Properties
@@ -17,35 +16,20 @@ class MealsViewModel {
     }
     private(set) var allDishes: [Dish]?
     
-    init() {
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("dishes").child("0").observe(.value, with: { (snapshot) in
-            let data = snapshot.value as? [AnyObject]
-            self.allDishes = data?.flatMap { Dish(data: $0) }
-            self.addNewMeal()
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+    init(networkProvider: Network) {
+        networkProvider.getAllDishes(for: "0", completion: self.didGetAllDishes)
     }
     
     //MARK: - Events
     var didAddNewMeal: ((MealsViewModel) -> Void)?
     var didClearAllMeals: ((MealsViewModel) -> Void)?
     var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
-    
-    //MARK: - Private
-    func getRandomDishes() -> [Dish] {
-        guard let allDishes = allDishes else {
-            return []
-        }
-        var randomDishes = [Dish]()
-        for _ in 0..<arc4random_uniform(3)+1 {
-            randomDishes.append(allDishes.randomItem()!)
-        }
-        return randomDishes
+    func didGetAllDishes(dishes: [Dish]?) {
+        self.allDishes = dishes
+        self.addNewMeal()
     }
     
+    //MARK: - Private
     func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
         if categories.isEmpty {
             return dishCombos

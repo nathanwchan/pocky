@@ -8,7 +8,8 @@ target 'pocky' do
 
   target 'pockyTests' do
     inherit! :search_paths
-    # Pods for testing
+
+    pod 'Firebase'
   end
 
   target 'pockyUITests' do

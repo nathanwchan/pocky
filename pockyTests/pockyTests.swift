@@ -10,6 +10,7 @@ import XCTest
 @testable import pocky
 
 class pockyTests: XCTestCase {
+    typealias Category = pocky.Category
     
     override func setUp() {
         super.setUp()
@@ -21,16 +22,24 @@ class pockyTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testMealsVMGetDishCombos() {
+        let testMealsViewModel = MealsViewModel(networkProvider: TestNetworkProvider())
+        let categoryTests: [[Category]] = [
+            Category.allValues,
+            Category.allValues,
+            Category.allValues,
+            [Category.Meat],
+            [Category.Veggie],
+            [Category.Carb],
+            [Category.Meat, Category.Veggie],
+            [Category.Meat, Category.Carb],
+            [Category.Veggie, Category.Carb]
+        ]
+        for categories in categoryTests {
+            let returnedDishes = testMealsViewModel.getDishCombos(with: categories)
+            let returnedDishesCategories = returnedDishes.flatMap { $0.category }
+            XCTAssertTrue(returnedDishesCategories.count == categories.count, "categories count should be equal")
+            XCTAssertTrue(Set(returnedDishesCategories) == Set(categories), "categories values should be equal")
         }
     }
-    
 }

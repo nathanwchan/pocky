@@ -14,6 +14,10 @@
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
 		D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */; };
 		D833BB2B1F539BED000D25E9 /* DishUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */; };
+		D83539131F55EA8C00CB3A6D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83539121F55EA8C00CB3A6D /* Network.swift */; };
+		D83539151F55EB6100CB3A6D /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83539141F55EB6100CB3A6D /* NetworkProvider.swift */; };
+		D83539171F55F06F00CB3A6D /* TestNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83539161F55F06F00CB3A6D /* TestNetworkProvider.swift */; };
+		D835391B1F55FC9300CB3A6D /* dishes_data.json in Resources */ = {isa = PBXBuildFile; fileRef = D835391A1F55FC9300CB3A6D /* dishes_data.json */; };
 		D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */; };
 		D838E5B41F54BEAB00E3DC17 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = D838E5B31F54BEAB00E3DC17 /* info.png */; };
 		D87490951F48F873007E659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490941F48F873007E659F /* AppDelegate.swift */; };
@@ -62,6 +66,10 @@
 		D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleViewController.swift; path = "View Controllers/ShuffleViewController.swift"; sourceTree = "<group>"; };
 		D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+randomItem.swift"; path = "Utils/Array+randomItem.swift"; sourceTree = "<group>"; };
 		D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishUIButton.swift; path = Utils/DishUIButton.swift; sourceTree = "<group>"; };
+		D83539121F55EA8C00CB3A6D /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Services/Network.swift; sourceTree = "<group>"; };
+		D83539141F55EB6100CB3A6D /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkProvider.swift; path = Services/NetworkProvider.swift; sourceTree = "<group>"; };
+		D83539161F55F06F00CB3A6D /* TestNetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNetworkProvider.swift; sourceTree = "<group>"; };
+		D835391A1F55FC9300CB3A6D /* dishes_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dishes_data.json; sourceTree = "<group>"; };
 		D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishViewController.swift; path = "View Controllers/DishViewController.swift"; sourceTree = "<group>"; };
 		D838E5B31F54BEAB00E3DC17 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = info.png; path = Icons/info.png; sourceTree = "<group>"; };
 		D87490911F48F873007E659F /* pocky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pocky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +146,15 @@
 			name = viewcontrollers;
 			sourceTree = "<group>";
 		};
+		D83539111F55EA6900CB3A6D /* services */ = {
+			isa = PBXGroup;
+			children = (
+				D83539121F55EA8C00CB3A6D /* Network.swift */,
+				D83539141F55EB6100CB3A6D /* NetworkProvider.swift */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
 		D87490881F48F873007E659F = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +182,7 @@
 			children = (
 				D87490CD1F4B8313007E659F /* icons */,
 				D87490C71F4A07B9007E659F /* utils */,
+				D83539111F55EA6900CB3A6D /* services */,
 				D87490C41F4A0645007E659F /* models */,
 				D87490DC1F4CB7FE007E659F /* viewmodels */,
 				D80F4E7A1F4E00A000587931 /* viewcontrollers */,
@@ -182,8 +200,10 @@
 		D87490A81F48F873007E659F /* pockyTests */ = {
 			isa = PBXGroup;
 			children = (
+				D835391A1F55FC9300CB3A6D /* dishes_data.json */,
 				D87490A91F48F873007E659F /* pockyTests.swift */,
 				D87490AB1F48F873007E659F /* Info.plist */,
+				D83539161F55F06F00CB3A6D /* TestNetworkProvider.swift */,
 			);
 			path = pockyTests;
 			sourceTree = "<group>";
@@ -380,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D835391B1F55FC9300CB3A6D /* dishes_data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +561,8 @@
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
 				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,
 				D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */,
+				D83539151F55EB6100CB3A6D /* NetworkProvider.swift in Sources */,
+				D83539131F55EA8C00CB3A6D /* Network.swift in Sources */,
 				D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */,
 				D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */,
 				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,
@@ -553,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D87490AA1F48F873007E659F /* pockyTests.swift in Sources */,
+				D83539171F55F06F00CB3A6D /* TestNetworkProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
