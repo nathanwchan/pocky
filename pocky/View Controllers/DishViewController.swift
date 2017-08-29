@@ -45,10 +45,10 @@ class DishViewController: UIViewController {
         stackView.addArrangedSubview(titleLabel)
         
         let categoryLabel = UILabel(frame: .zero)
-        categoryLabel.text = "\(dish.category.map { $0.rawValue.characters.first! })"
+        categoryLabel.text = "\(dish.category.map({ String(describing: $0) }).joined(separator: ", "))"
         categoryLabel.textColor = .black
         categoryLabel.textAlignment = .center
-        categoryLabel.font = UIFont(name: "HelveticaNeue", size: 30)
+        categoryLabel.font = UIFont(name: "HelveticaNeue", size: 25)
         
         stackView.addArrangedSubview(categoryLabel)
         
@@ -72,7 +72,8 @@ class DishViewController: UIViewController {
             notesLabel.text = notes
             notesLabel.textColor = .black
             notesLabel.textAlignment = .center
-            notesLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+            notesLabel.font = UIFont(name: "HelveticaNeue", size: 25)
+            notesLabel.numberOfLines = 0
             
             stackView.addArrangedSubview(notesLabel)
         }
