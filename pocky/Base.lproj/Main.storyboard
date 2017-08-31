@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Bi-mM-0Pn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Bi-mM-0Pn">
     <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Search-->
         <scene sceneID="xXu-93-nWa">
             <objects>
-                <viewController id="uM6-Ic-tkQ" sceneMemberID="viewController">
+                <viewController id="uM6-Ic-tkQ" customClass="SearchViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hm0-HL-PWg"/>
                         <viewControllerLayoutGuide type="bottom" id="07T-TD-ObY"/>
@@ -20,13 +21,64 @@
                     <view key="view" contentMode="scaleToFill" id="F4q-N8-Xd2">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="GLX-84-Sih">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M1C-CV-p8q">
+                                <rect key="frame" x="0.0" y="108" width="1024" height="1209"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dishCell" rowHeight="75" id="xLP-wO-gn3" customClass="DishTableViewCell" customModule="pocky" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xLP-wO-gn3" id="RkV-sj-wRg">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Honey garlic salmon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sU1-3K-F0S">
+                                                    <rect key="frame" x="20" y="10" width="994" height="55"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="sU1-3K-F0S" secondAttribute="trailing" constant="10" id="89F-Sx-pNN"/>
+                                            <constraint firstItem="sU1-3K-F0S" firstAttribute="top" secondItem="xLP-wO-gn3" secondAttribute="top" constant="10" id="9pg-Dq-T91"/>
+                                            <constraint firstAttribute="bottom" secondItem="sU1-3K-F0S" secondAttribute="bottom" constant="10" id="A6s-0N-hpH"/>
+                                            <constraint firstItem="sU1-3K-F0S" firstAttribute="leading" secondItem="xLP-wO-gn3" secondAttribute="leading" constant="20" id="hPu-jy-aJW"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dishTitleLabel" destination="sU1-3K-F0S" id="ZHb-HB-3uR"/>
+                                            <segue destination="Wxw-tL-V9d" kind="show" identifier="ShowDishSegue" id="bg2-Y3-6v4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GLX-84-Sih" firstAttribute="leading" secondItem="F4q-N8-Xd2" secondAttribute="leadingMargin" constant="-20" id="5f6-Pl-Oai"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GLX-84-Sih" secondAttribute="trailing" constant="-20" id="G60-og-AEI"/>
+                            <constraint firstItem="07T-TD-ObY" firstAttribute="top" secondItem="M1C-CV-p8q" secondAttribute="bottom" id="P2C-A0-ZxL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M1C-CV-p8q" secondAttribute="trailing" constant="-20" id="TSj-C0-gr5"/>
+                            <constraint firstItem="GLX-84-Sih" firstAttribute="top" secondItem="Hm0-HL-PWg" secondAttribute="bottom" id="UFz-CJ-cKw"/>
+                            <constraint firstItem="M1C-CV-p8q" firstAttribute="top" secondItem="GLX-84-Sih" secondAttribute="bottom" id="ldT-x1-LBb"/>
+                            <constraint firstItem="M1C-CV-p8q" firstAttribute="leading" secondItem="F4q-N8-Xd2" secondAttribute="leadingMargin" constant="-20" id="nWR-N4-IzT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="m9q-o7-Muy"/>
+                    <connections>
+                        <outlet property="searchBar" destination="GLX-84-Sih" id="DMj-k0-syN"/>
+                        <outlet property="tableView" destination="M1C-CV-p8q" id="pmG-EW-caS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XpH-Wp-dxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586" y="812"/>
+            <point key="canvasLocation" x="1585.546875" y="811.71303074670561"/>
         </scene>
         <!--Meal plan-->
         <scene sceneID="OSW-tZ-3NJ">
@@ -129,4 +181,7 @@
     <resources>
         <image name="shuffle.png" width="35" height="35"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bg2-Y3-6v4"/>
+    </inferredMetricsTieBreakers>
 </document>

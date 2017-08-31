@@ -74,5 +74,7 @@ fastlane/test_output
 [._]s[a-v][a-z]
 [._]sw[a-p]
 
+.DS_Store
+
 Keys.plist
 GoogleService-Info.plist

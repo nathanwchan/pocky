@@ -14,22 +14,27 @@ class MealsViewModel {
     var mealCount: Int {
         return meals.count
     }
-    private(set) var allDishes: [Dish]?
+    let networkProvider: Network!
+    private var dishesViewModel: DishesViewModel!
     
     init(networkProvider: Network) {
-        networkProvider.getAllDishes(for: "0", completion: self.didGetAllDishes)
+        self.networkProvider = networkProvider
+        dishesViewModel = DishesViewModel(networkProvider: networkProvider)
+        dishesViewModel?.didGetAllDishes = { [weak self] _ in
+            self?.viewModelDidGetAllDishes()
+        }
     }
     
     //MARK: - Events
     var didAddNewMeal: ((MealsViewModel) -> Void)?
     var didClearAllMeals: ((MealsViewModel) -> Void)?
     var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
-    func didGetAllDishes(dishes: [Dish]?) {
-        self.allDishes = dishes
+    
+    //MARK: - Private
+    func viewModelDidGetAllDishes() {
         self.addNewMeal()
     }
     
-    //MARK: - Private
     func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
         if categories.isEmpty {
             return dishCombos
@@ -43,7 +48,7 @@ class MealsViewModel {
             }
             return isDishWithinRequiredCategories && !isDishAlreadyAdded
         }
-        guard let dishToAdd = allDishes?.filter(filterClosure).randomItem() else {
+        guard let dishToAdd = dishesViewModel.allDishes?.filter(filterClosure).randomItem() else {
             return dishCombos
         }
         return getDishCombos(with: categories.filter { !dishToAdd.category.contains($0) }, dishCombos: dishCombos + [dishToAdd])
