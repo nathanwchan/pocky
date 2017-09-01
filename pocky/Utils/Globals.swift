@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum Constants {
+    // using enum so that it can't accidentally be instantiated and works purely as a namespace.
+    static let globalUserID = "0"
+}
+
 enum Category: String {
     case Meat = "m"
     case Veggie = "v"

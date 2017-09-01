@@ -9,5 +9,7 @@
 import Foundation
 
 protocol Network {
-    func getAllDishes(for userID: String, completion: @escaping (([Dish]?) -> Void))
+    func getAllDishes(completion: @escaping (([Dish]?) -> Void))
+    func saveMealPlan(title: String, meals: [Meal])
+    func getSavedMealPlans(completion: @escaping (([MealPlan]?) -> Void))
 }

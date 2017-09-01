@@ -133,17 +133,18 @@
                     <connections>
                         <segue destination="alu-iG-6xj" kind="relationship" relationship="viewControllers" id="zbc-UD-t4V"/>
                         <segue destination="uaA-DE-l0Z" kind="relationship" relationship="viewControllers" id="GLG-Vl-UpJ"/>
+                        <segue destination="IKC-kZ-b6C" kind="relationship" relationship="viewControllers" id="8Zg-pi-rfU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6c-PJ-ZRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="451"/>
+            <point key="canvasLocation" x="-164" y="812"/>
         </scene>
-        <!--Shuffle-->
+        <!--Plan-->
         <scene sceneID="pYt-C6-LWs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alu-iG-6xj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shuffle" image="shuffle.png" id="Uhr-4z-Pp6"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="planner.png" id="Uhr-4z-Pp6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYE-cE-PK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -177,9 +178,74 @@
             </objects>
             <point key="canvasLocation" x="862" y="812"/>
         </scene>
+        <!--Saved Meal Plans-->
+        <scene sceneID="OSU-of-fHO">
+            <objects>
+                <tableViewController id="xhQ-6Y-4FQ" customClass="FavoritesTableViewController" customModule="pocky" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" id="vQQ-eS-qe1">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealPlanCell" rowHeight="89" id="mVr-9n-sDK" customClass="MealPlanTableViewCell" customModule="pocky" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mVr-9n-sDK" id="9Ts-HN-Ywu">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="88.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week of August 31, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9T-Dr-sOw">
+                                            <rect key="frame" x="20" y="10" width="994" height="69"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="T9T-Dr-sOw" secondAttribute="bottom" constant="10" id="6Td-Ky-dne"/>
+                                    <constraint firstAttribute="trailing" secondItem="T9T-Dr-sOw" secondAttribute="trailing" constant="10" id="cJP-6a-D03"/>
+                                    <constraint firstItem="T9T-Dr-sOw" firstAttribute="top" secondItem="mVr-9n-sDK" secondAttribute="top" constant="10" id="s5A-ib-ON5"/>
+                                    <constraint firstItem="T9T-Dr-sOw" firstAttribute="leading" secondItem="mVr-9n-sDK" secondAttribute="leading" constant="20" id="u2N-vu-huz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="mealPlanTitleLabel" destination="T9T-Dr-sOw" id="Ijo-EP-Cyq"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xhQ-6Y-4FQ" id="HqZ-Yf-5Ia"/>
+                            <outlet property="delegate" destination="xhQ-6Y-4FQ" id="6ct-7V-sFC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Saved Meal Plans" id="cYd-Oj-aam"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAw-UY-0pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1585.546875" y="1510.9809663250364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jzT-IR-WfD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IKC-kZ-b6C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="O5P-6X-WlC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BTZ-92-3lj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xhQ-6Y-4FQ" kind="relationship" relationship="rootViewController" id="VqE-XE-EFb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NvW-OH-wkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="1511"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="shuffle.png" width="35" height="35"/>
+        <image name="planner.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bg2-Y3-6v4"/>

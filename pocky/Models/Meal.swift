@@ -23,4 +23,12 @@ struct Meal {
         self.mealIndex = mealIndex
         self.dishes = dishes
     }
+    
+    // Codable in Swift 4 !!!
+    func encodeForFirebase() -> [String: Any] {
+        return [
+            "mealIndex": mealIndex,
+            "dishIds": dishes.flatMap({ $0.id })
+        ]
+    }
 }

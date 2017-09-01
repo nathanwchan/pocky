@@ -9,25 +9,20 @@
 import Foundation
 
 struct Dish: Equatable {
+    var id: String
     var title: String
     var category: [Category]
     var link: String?
     var notes: String?
     
-    init(title: String, category: [Category], link: String?, notes: String?) {
-        self.title = title
-        self.category = category
-        self.link = link
-        self.notes = notes
-    }
-    
-    init?(data: AnyObject) {
+    init?(id: String, data: Any?) {
         guard let dict = data as? [String: AnyObject] else { return nil }
         guard let title = dict["title"] as? String else { return nil }
         guard let link = dict["link"] as? String else { return nil }
         guard let notes = dict["notes"] as? String else { return nil }
         guard let category = dict["category"] as? [String] else { return nil }
         
+        self.id = id
         self.title = title
         self.category = category.flatMap { Category(rawValue: $0) }
         self.link = link.isEmpty ? nil : link

@@ -55,6 +55,16 @@ class ShuffleViewController: UIViewController {
         buttonsStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         buttonsStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
+        let saveButton = UIButton(frame: .zero)
+        saveButton.backgroundColor = .orange
+        saveButton.setTitle("Save", for: .normal)
+        saveButton.setTitleColor(.black, for: .normal)
+        saveButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
+        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
+        saveButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        
+        buttonsStackView.addArrangedSubview(saveButton)
+        
         let addButton = UIButton(frame: .zero)
         addButton.backgroundColor = .green
         addButton.setTitle("+", for: .normal)
@@ -263,6 +273,21 @@ class ShuffleViewController: UIViewController {
     
     func shuffleMealButtonClicked(sender: UIButton) {
         viewModel?.shuffleDishes(mealIndex: sender.tag, categories: Category.allValues)
+    }
+    
+    func saveButtonClicked(sender: UIButton) {
+        // TODO: prompt to ask for title of meal
+        
+        // get the current date and time
+        let currentDateTime = Date()
+        // initialize the date formatter and set the style
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .long
+        // get the date time String from the date object
+        let title = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+        
+        viewModel?.saveMealPlan(title: title)
     }
     
     func infoButtonClicked(sender: DishUIButton) {

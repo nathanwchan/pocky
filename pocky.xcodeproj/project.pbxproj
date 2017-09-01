@@ -12,7 +12,14 @@
 		C101F5411F58767A00028E10 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5401F58767A00028E10 /* SearchViewController.swift */; };
 		C101F5431F5877AE00028E10 /* DishesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5421F5877AE00028E10 /* DishesViewModel.swift */; };
 		C101F5451F587FC700028E10 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5441F587FC700028E10 /* DishTableViewCell.swift */; };
-		C1F362331F56884100E32DF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1F362321F56884100E32DF8 /* GoogleService-Info.plist */; };
+		C101F5471F58A60300028E10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C101F5461F58A60300028E10 /* GoogleService-Info.plist */; };
+		C101F54C1F58A61300028E10 /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F5491F58A61300028E10 /* spatula-76.png */; };
+		C101F54D1F58A61300028E10 /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F54A1F58A61300028E10 /* spatula-152.png */; };
+		C101F54F1F58A71900028E10 /* planner.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F54E1F58A71900028E10 /* planner.png */; };
+		C101F5531F58CD1000028E10 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5521F58CD1000028E10 /* FavoritesTableViewController.swift */; };
+		C101F5551F58CD7000028E10 /* MealPlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5541F58CD7000028E10 /* MealPlansViewModel.swift */; };
+		C101F5571F58CF7D00028E10 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5561F58CF7D00028E10 /* MealPlan.swift */; };
+		C101F5591F58D57800028E10 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5581F58D57800028E10 /* MealPlanTableViewCell.swift */; };
 		D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E781F4DFA8D00587931 /* Meal.swift */; };
 		D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7B1F4E016200587931 /* DrawableStackView.swift */; };
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
@@ -33,8 +40,6 @@
 		D87490C61F4A066C007E659F /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490C51F4A066C007E659F /* Dish.swift */; };
 		D87490C91F4A07D1007E659F /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490C81F4A07D1007E659F /* Globals.swift */; };
 		D87490D11F4B833F007E659F /* shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D01F4B833F007E659F /* shuffle.png */; };
-		D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D61F4B8D6F007E659F /* spatula-76.png */; };
-		D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = D87490D71F4B8D6F007E659F /* spatula-152.png */; };
 		D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87490E11F4CCCA0007E659F /* MealsViewModel.swift */; };
 		FD720A4C7BFE40B6BC7C7406 /* Pods_pockyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092D03F79CB6E185A787F91B /* Pods_pockyTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,7 +72,14 @@
 		C101F5401F58767A00028E10 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "View Controllers/SearchViewController.swift"; sourceTree = "<group>"; };
 		C101F5421F5877AE00028E10 /* DishesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishesViewModel.swift; path = "View Models/DishesViewModel.swift"; sourceTree = "<group>"; };
 		C101F5441F587FC700028E10 /* DishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishTableViewCell.swift; path = "View Controllers/DishTableViewCell.swift"; sourceTree = "<group>"; };
-		C1F362321F56884100E32DF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		C101F5461F58A60300028E10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C101F5491F58A61300028E10 /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-76.png"; path = "Icons/spatula-76.png"; sourceTree = "<group>"; };
+		C101F54A1F58A61300028E10 /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-152.png"; path = "Icons/spatula-152.png"; sourceTree = "<group>"; };
+		C101F54E1F58A71900028E10 /* planner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planner.png; path = Icons/planner.png; sourceTree = "<group>"; };
+		C101F5521F58CD1000028E10 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavoritesTableViewController.swift; path = "View Controllers/FavoritesTableViewController.swift"; sourceTree = "<group>"; };
+		C101F5541F58CD7000028E10 /* MealPlansViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlansViewModel.swift; path = "View Models/MealPlansViewModel.swift"; sourceTree = "<group>"; };
+		C101F5561F58CF7D00028E10 /* MealPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlan.swift; path = Models/MealPlan.swift; sourceTree = "<group>"; };
+		C101F5581F58D57800028E10 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlanTableViewCell.swift; path = "View Controllers/MealPlanTableViewCell.swift"; sourceTree = "<group>"; };
 		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; };
 		D80F4E781F4DFA8D00587931 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
 		D80F4E7B1F4E016200587931 /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableStackView.swift; path = Utils/DrawableStackView.swift; sourceTree = "<group>"; };
@@ -95,8 +107,6 @@
 		D87490C51F4A066C007E659F /* Dish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dish.swift; path = Models/Dish.swift; sourceTree = "<group>"; };
 		D87490C81F4A07D1007E659F /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Globals.swift; path = Utils/Globals.swift; sourceTree = "<group>"; };
 		D87490D01F4B833F007E659F /* shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shuffle.png; path = Icons/shuffle.png; sourceTree = "<group>"; };
-		D87490D61F4B8D6F007E659F /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-76.png"; sourceTree = "<group>"; };
-		D87490D71F4B8D6F007E659F /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spatula-152.png"; sourceTree = "<group>"; };
 		D87490E11F4CCCA0007E659F /* MealsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealsViewModel.swift; path = "View Models/MealsViewModel.swift"; sourceTree = "<group>"; };
 		FD6921F1BAFA3FD4A1E41808 /* Pods_pockyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pockyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDF740AEA7A2EB0F34C00F7 /* Pods-pocky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pocky.release.xcconfig"; path = "Pods/Target Support Files/Pods-pocky/Pods-pocky.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,7 +159,9 @@
 				D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */,
 				D838E5B11F54BDEB00E3DC17 /* DishViewController.swift */,
 				C101F5401F58767A00028E10 /* SearchViewController.swift */,
+				C101F5521F58CD1000028E10 /* FavoritesTableViewController.swift */,
 				C101F5441F587FC700028E10 /* DishTableViewCell.swift */,
+				C101F5581F58D57800028E10 /* MealPlanTableViewCell.swift */,
 			);
 			name = viewcontrollers;
 			sourceTree = "<group>";
@@ -199,7 +211,7 @@
 				D874909B1F48F873007E659F /* Assets.xcassets */,
 				D874909D1F48F873007E659F /* LaunchScreen.storyboard */,
 				D87490A01F48F873007E659F /* Info.plist */,
-				C1F362321F56884100E32DF8 /* GoogleService-Info.plist */,
+				C101F5461F58A60300028E10 /* GoogleService-Info.plist */,
 				C1F362341F56885C00E32DF8 /* pocky.playground */,
 			);
 			path = pocky;
@@ -230,6 +242,7 @@
 			children = (
 				D87490C51F4A066C007E659F /* Dish.swift */,
 				D80F4E781F4DFA8D00587931 /* Meal.swift */,
+				C101F5561F58CF7D00028E10 /* MealPlan.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -248,9 +261,10 @@
 		D87490CD1F4B8313007E659F /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				C101F5491F58A61300028E10 /* spatula-76.png */,
+				C101F54A1F58A61300028E10 /* spatula-152.png */,
+				C101F54E1F58A71900028E10 /* planner.png */,
 				D838E5B31F54BEAB00E3DC17 /* info.png */,
-				D87490D61F4B8D6F007E659F /* spatula-76.png */,
-				D87490D71F4B8D6F007E659F /* spatula-152.png */,
 				D87490D01F4B833F007E659F /* shuffle.png */,
 			);
 			name = icons;
@@ -261,6 +275,7 @@
 			children = (
 				D87490E11F4CCCA0007E659F /* MealsViewModel.swift */,
 				C101F5421F5877AE00028E10 /* DishesViewModel.swift */,
+				C101F5541F58CD7000028E10 /* MealPlansViewModel.swift */,
 			);
 			name = viewmodels;
 			sourceTree = "<group>";
@@ -395,13 +410,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D874909F1F48F873007E659F /* LaunchScreen.storyboard in Resources */,
-				C1F362331F56884100E32DF8 /* GoogleService-Info.plist in Resources */,
-				D87490D91F4B8D6F007E659F /* spatula-152.png in Resources */,
+				C101F54F1F58A71900028E10 /* planner.png in Resources */,
+				C101F5471F58A60300028E10 /* GoogleService-Info.plist in Resources */,
 				D874909C1F48F873007E659F /* Assets.xcassets in Resources */,
+				C101F54D1F58A61300028E10 /* spatula-152.png in Resources */,
 				D87490D11F4B833F007E659F /* shuffle.png in Resources */,
 				D874909A1F48F873007E659F /* Main.storyboard in Resources */,
-				D87490D81F4B8D6F007E659F /* spatula-76.png in Resources */,
 				D838E5B41F54BEAB00E3DC17 /* info.png in Resources */,
+				C101F54C1F58A61300028E10 /* spatula-76.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +602,9 @@
 			files = (
 				D833BB2B1F539BED000D25E9 /* DishUIButton.swift in Sources */,
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
+				C101F5551F58CD7000028E10 /* MealPlansViewModel.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
+				C101F5531F58CD1000028E10 /* FavoritesTableViewController.swift in Sources */,
 				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,
 				C101F5431F5877AE00028E10 /* DishesViewModel.swift in Sources */,
 				D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */,
@@ -597,7 +615,9 @@
 				C101F5411F58767A00028E10 /* SearchViewController.swift in Sources */,
 				D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */,
 				D87490E21F4CCCA0007E659F /* MealsViewModel.swift in Sources */,
+				C101F5571F58CF7D00028E10 /* MealPlan.swift in Sources */,
 				D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */,
+				C101F5591F58D57800028E10 /* MealPlanTableViewCell.swift in Sources */,
 				D87490951F48F873007E659F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
