@@ -20,13 +20,21 @@ class TestNetworkProvider: Network {
             let fileData = try Data(contentsOf: file)
             let json = try JSONSerialization.jsonObject(with: fileData, options: [])
             let data = json as? [AnyObject]
-            dishesData = data?.flatMap { Dish(data: $0) }
+            dishesData = data?.flatMap { Dish(id: "0", data: $0) }
         } catch let error {
             print(error.localizedDescription)
         }
     }
         
-    func getAllDishes(for userID: String, completion: @escaping ([Dish]?) -> Void) {
+    func getAllDishes(completion: @escaping ([Dish]?) -> Void) {
         completion(dishesData)
+    }
+    
+    func saveMealPlan(title: String, meals: [Meal]) {
+        return
+    }
+    
+    func getSavedMealPlans(completion: @escaping (([MealPlan]?) -> Void)) {
+        return
     }
 }

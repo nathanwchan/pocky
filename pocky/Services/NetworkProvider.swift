@@ -27,7 +27,6 @@ class NetworkProvider: Network {
     func saveMealPlan(title: String, meals: [Meal]) {
         let mealPlan = MealPlan(title: title, meals: meals)
         self.ref.child("mealPlans").child(Constants.globalUserID).childByAutoId().setValue(mealPlan.encodeForFirebase())
-//        mealPlan.meals.map { $0.encodeForFirebase() }
     }
     
     func getSavedMealPlans(completion: @escaping ([MealPlan]?) -> Void) {

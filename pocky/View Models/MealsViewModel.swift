@@ -31,11 +31,11 @@ class MealsViewModel {
     var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
     
     //MARK: - Private
-    private func viewModelDidGetAllDishes() {
+    func viewModelDidGetAllDishes() {
         self.addNewMeal()
     }
     
-    private func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
+    func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
         if categories.isEmpty {
             return dishCombos
         }
