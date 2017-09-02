@@ -41,6 +41,7 @@ class DishViewController: UIViewController {
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
+        titleLabel.numberOfLines = 0
         
         stackView.addArrangedSubview(titleLabel)
         
