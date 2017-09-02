@@ -124,10 +124,10 @@ class ShuffleViewController: UIViewController {
         titleStackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.text = "Meal plan \(meal.mealIndex + 1)"
+        titleLabel.text = "Meal \(meal.mealIndex + 1)"
         titleLabel.textColor = .white
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
         
         titleStackView.addArrangedSubview(titleLabel)
@@ -170,11 +170,13 @@ class ShuffleViewController: UIViewController {
             dishStackView.addArrangedSubview(topSpacer)
             
             let dishLabel = UILabel(frame: .zero)
-            dishLabel.text = "\(dish.title)\n\(dish.category.map { $0.rawValue.characters.first! })"
-            dishLabel.numberOfLines = 0
+            dishLabel.text = "\(dish.title)" // \n\(dish.category.map { $0.rawValue.characters.first! })"
+            dishLabel.numberOfLines = 1
             dishLabel.textColor = .white
             dishLabel.textAlignment = .center
-            dishLabel.font = UIFont(name: "HelveticaNeue", size: 25)
+            dishLabel.font = UIFont(name: "HelveticaNeue", size: 22)
+            dishLabel.adjustsFontSizeToFitWidth = true
+            dishLabel.sizeToFit()
             
             dishStackView.addArrangedSubview(dishLabel)
             
