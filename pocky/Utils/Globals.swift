@@ -17,6 +17,8 @@ enum Category: String {
     case Meat = "m"
     case Veggie = "v"
     case Carb = "c"
+    case Dessert = "d"
+    case Special = "s"
 }
 
 extension Category {
