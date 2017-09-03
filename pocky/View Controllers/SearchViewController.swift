@@ -34,6 +34,9 @@ class SearchViewController: UIViewController {
         dishesViewModel?.didGetAllDishes = { [weak self] _ in
             self?.showAllDishes()
         }
+        
+        self.searchBar.becomeFirstResponder()
+        self.tableView.keyboardDismissMode = .onDrag
     }
     
     func showAllDishes() {
