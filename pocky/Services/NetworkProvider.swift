@@ -33,6 +33,21 @@ class NetworkProvider: Network {
         ref.child("mealPlans").child(Constants.globalUserID).observe(.value, with: { (snapshot) in
             let mealPlans: [MealPlan] = snapshot.children.flatMap { snap in
                 let mealPlanSnap = snap as! DataSnapshot
+//                guard let dict = mealPlanSnap.value as? [String: AnyObject] else { return nil }
+//                guard let title = dict["title"] as? String else { return nil }
+//                guard let meals = dict["meals"] as? [AnyObject] else { return nil }
+//                
+//                meals.flatMap { meal in
+//                    guard let meal = meal as? [String: AnyObject] else { return nil }
+//                    guard let mealIndex = meal["mealIndex"] as? Int else { return nil }
+//                    guard let dishIds = meal["dishIds"]?.allKeys as? [String] else { return nil }
+//                    
+//                    ref.child("dishes").child(Constants.globalUserID).observeSingleEvent(of: .value, with: { (snapshot) in
+//                        let data = snapshot.value as? [AnyObject]
+//                    }
+//                    return meal
+//                }
+                
                 return MealPlan(id: mealPlanSnap.key, data: mealPlanSnap.value)
             }
             completion(mealPlans)

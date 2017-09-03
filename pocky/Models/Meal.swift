@@ -28,7 +28,7 @@ struct Meal {
     func encodeForFirebase() -> [String: Any] {
         return [
             "mealIndex": mealIndex,
-            "dishIds": dishes.flatMap({ $0.id })
+            "dishIds": Dictionary(elements: dishes.flatMap({ ($0.id, true) }))
         ]
     }
 }

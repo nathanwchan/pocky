@@ -20,6 +20,7 @@
 		C101F5551F58CD7000028E10 /* MealPlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5541F58CD7000028E10 /* MealPlansViewModel.swift */; };
 		C101F5571F58CF7D00028E10 /* MealPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5561F58CF7D00028E10 /* MealPlan.swift */; };
 		C101F5591F58D57800028E10 /* MealPlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5581F58D57800028E10 /* MealPlanTableViewCell.swift */; };
+		C16460701F5A179500B79B82 /* Dictionary+initWithElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164606F1F5A179500B79B82 /* Dictionary+initWithElements.swift */; };
 		D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E781F4DFA8D00587931 /* Meal.swift */; };
 		D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7B1F4E016200587931 /* DrawableStackView.swift */; };
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
@@ -80,6 +81,7 @@
 		C101F5541F58CD7000028E10 /* MealPlansViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlansViewModel.swift; path = "View Models/MealPlansViewModel.swift"; sourceTree = "<group>"; };
 		C101F5561F58CF7D00028E10 /* MealPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlan.swift; path = Models/MealPlan.swift; sourceTree = "<group>"; };
 		C101F5581F58D57800028E10 /* MealPlanTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MealPlanTableViewCell.swift; path = "View Controllers/MealPlanTableViewCell.swift"; sourceTree = "<group>"; };
+		C164606F1F5A179500B79B82 /* Dictionary+initWithElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+initWithElements.swift"; sourceTree = "<group>"; };
 		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; };
 		D80F4E781F4DFA8D00587931 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
 		D80F4E7B1F4E016200587931 /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableStackView.swift; path = Utils/DrawableStackView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				D87490C81F4A07D1007E659F /* Globals.swift */,
 				D80F4E7B1F4E016200587931 /* DrawableStackView.swift */,
 				D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */,
+				C164606F1F5A179500B79B82 /* Dictionary+initWithElements.swift */,
 				D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */,
 			);
 			name = utils;
@@ -610,6 +613,7 @@
 				D838E5B21F54BDEB00E3DC17 /* DishViewController.swift in Sources */,
 				C101F5451F587FC700028E10 /* DishTableViewCell.swift in Sources */,
 				D83539151F55EB6100CB3A6D /* NetworkProvider.swift in Sources */,
+				C16460701F5A179500B79B82 /* Dictionary+initWithElements.swift in Sources */,
 				D83539131F55EA8C00CB3A6D /* Network.swift in Sources */,
 				D80F4E801F4F7EEB00587931 /* Array+randomItem.swift in Sources */,
 				C101F5411F58767A00028E10 /* SearchViewController.swift in Sources */,

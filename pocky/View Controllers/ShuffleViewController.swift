@@ -13,6 +13,7 @@ class ShuffleViewController: UIViewController {
     private var viewModel: MealsViewModel?
     private let stackView = UIStackView(frame: .zero)
     private let mealsStackView = UIStackView(frame: .zero)
+    var mealPlan: MealPlan?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +90,9 @@ class ShuffleViewController: UIViewController {
     private func initViewModel() {
         viewModel = MealsViewModel(networkProvider: NetworkProvider())
         
+        viewModel?.didInitViewModel = { [weak self] _ in
+            self?.viewModelDidInit()
+        }
         viewModel?.didAddNewMeal = { [weak self] _ in
             self?.viewModelDidAddNewMeal()
         }
@@ -97,6 +101,9 @@ class ShuffleViewController: UIViewController {
         }
         viewModel?.didShuffleDishes = { [weak self] (_, mealIndex: Int) in
             self?.viewModelDidShuffleMeal(mealIndex: mealIndex)
+        }
+        viewModel?.didLoadMealPlan = { [weak self] _ in
+            self?.viewModelDidLoadMealPlan()
         }
     }
     
@@ -241,6 +248,14 @@ class ShuffleViewController: UIViewController {
         }
     }
     
+    private func viewModelDidInit() {
+        if let mealPlan = mealPlan {
+            viewModel?.loadMealPlan(mealPlan)
+        } else {
+            viewModel?.addNewMeal()
+        }
+    }
+    
     private func viewModelDidAddNewMeal() {
         if let count = viewModel?.mealCount {
             updateMealStackView(at: count - 1)
@@ -257,6 +272,14 @@ class ShuffleViewController: UIViewController {
     
     private func viewModelDidShuffleMeal(mealIndex: Int) {
         updateMealStackView(at: mealIndex)
+    }
+    
+    private func viewModelDidLoadMealPlan() {
+        if let count = viewModel?.mealCount {
+            for i in 0..<count {
+                updateMealStackView(at: i)
+            }
+        }
     }
     
     func addButtonClicked(sender: Any?) {

@@ -21,14 +21,18 @@ class MealsViewModel {
         self.networkProvider = networkProvider
         dishesViewModel = DishesViewModel(networkProvider: networkProvider)
         dishesViewModel?.didGetAllDishes = { [weak self] _ in
-            self?.viewModelDidGetAllDishes()
+            if let strongSelf = self {
+                strongSelf.didInitViewModel?(strongSelf)
+            }
         }
     }
     
     //MARK: - Events
+    var didInitViewModel: ((MealsViewModel) -> Void)?
     var didAddNewMeal: ((MealsViewModel) -> Void)?
     var didClearAllMeals: ((MealsViewModel) -> Void)?
     var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
+    var didLoadMealPlan: ((MealsViewModel) -> Void)?
     
     //MARK: - Private
     func viewModelDidGetAllDishes() {
@@ -82,5 +86,10 @@ class MealsViewModel {
     
     func saveMealPlan(title: String) {
         networkProvider.saveMealPlan(title: title, meals: meals)
+    }
+    
+    func loadMealPlan(_ mealPlan: MealPlan) {
+        meals = mealPlan.meals
+        self.didLoadMealPlan?(self)
     }
 }
