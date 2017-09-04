@@ -73,7 +73,7 @@ class DishViewController: UIViewController {
             notesLabel.text = notes
             notesLabel.textColor = .black
             notesLabel.textAlignment = .center
-            notesLabel.font = UIFont(name: "HelveticaNeue", size: 25)
+            notesLabel.font = UIFont(name: "HelveticaNeue", size: 20)
             notesLabel.numberOfLines = 0
             
             stackView.addArrangedSubview(notesLabel)

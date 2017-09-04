@@ -19,7 +19,7 @@ class ShuffleViewController: UIViewController {
         
         self.initViewModel()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(colorLiteralRed: (230/255), green: (230/255), blue: (230/255), alpha: 1)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -39,10 +39,12 @@ class ShuffleViewController: UIViewController {
         mealsStackView.distribution = .fillEqually
         mealsStackView.alignment = .fill
         mealsStackView.isLayoutMarginsRelativeArrangement = true
+        mealsStackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
+        mealsStackView.spacing = 20
         
         stackView.addArrangedSubview(mealsStackView)
         
-        let buttonsStackView = DrawableStackView(frame: .zero)
+        let buttonsStackView = DrawableStackView()
         buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.axis = .horizontal
         buttonsStackView.distribution = .fill
@@ -55,18 +57,8 @@ class ShuffleViewController: UIViewController {
         buttonsStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         buttonsStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
-        let saveButton = UIButton(frame: .zero)
-        saveButton.backgroundColor = .orange
-        saveButton.setTitle("Save", for: .normal)
-        saveButton.setTitleColor(.black, for: .normal)
-        saveButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
-        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
-        saveButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        
-        buttonsStackView.addArrangedSubview(saveButton)
-        
         let addButton = UIButton(frame: .zero)
-        addButton.backgroundColor = .green
+        addButton.backgroundColor = .white
         addButton.setTitle("+", for: .normal)
         addButton.setTitleColor(.black, for: .normal)
         addButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
@@ -75,15 +67,19 @@ class ShuffleViewController: UIViewController {
         
         buttonsStackView.addArrangedSubview(addButton)
         
-        let startOverButton = UIButton(frame: .zero)
-        startOverButton.backgroundColor = .yellow
-        startOverButton.setTitle("Start Over", for: .normal)
-        startOverButton.setTitleColor(.black, for: .normal)
-        startOverButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 25)
-        startOverButton.addTarget(self, action: #selector(self.startOverButtonClicked(sender:)), for: .touchUpInside)
-        startOverButton.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        // Navigation button setup
         
-        buttonsStackView.addArrangedSubview(startOverButton)
+        let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
+        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
+        let negativeSpacerLeft = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacerLeft.width = -7;
+        self.navigationItem.leftBarButtonItems = [negativeSpacerLeft, UIBarButtonItem(customView: saveButton)]
+        
+        let startOverButton = UIBarButtonItem(title: "Start Over", style: .plain, target: self, action: #selector(self.startOverButtonClicked(sender:)))
+        let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacerRight.width = -6;
+        navigationItem.rightBarButtonItems = [negativeSpacerLeft, startOverButton]
     }
     
     private func initViewModel() {
@@ -105,14 +101,14 @@ class ShuffleViewController: UIViewController {
             return
         }
         
-        let mealStackView = DrawableStackView(frame: .zero)
+        let mealStackView = DrawableStackView()
         
         mealStackView.translatesAutoresizingMaskIntoConstraints = false
         mealStackView.axis = .vertical
         mealStackView.distribution = .fill
         mealStackView.alignment = .fill
         mealStackView.isLayoutMarginsRelativeArrangement = true
-        mealStackView.backgroundColor = .blue
+        mealStackView.backgroundColor = .white
         
         let titleStackView = UIStackView(frame: .zero)
         
@@ -125,7 +121,7 @@ class ShuffleViewController: UIViewController {
         
         let titleLabel = UILabel(frame: .zero)
         titleLabel.text = "Meal \(meal.mealIndex + 1)"
-        titleLabel.textColor = .white
+        titleLabel.textColor = .black
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: 20)
         titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
@@ -163,7 +159,7 @@ class ShuffleViewController: UIViewController {
             dishStackView.distribution = .fill
             dishStackView.alignment = .center
             dishStackView.isLayoutMarginsRelativeArrangement = true
-            dishStackView.spacing = 10
+            dishStackView.spacing = 5
             
             let topSpacer = UIView(frame: .zero)
             topSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
@@ -172,7 +168,7 @@ class ShuffleViewController: UIViewController {
             let dishLabel = UILabel(frame: .zero)
             dishLabel.text = "\(dish.title)" // \n\(dish.category.map { $0.rawValue.characters.first! })"
             dishLabel.numberOfLines = 1
-            dishLabel.textColor = .white
+            dishLabel.textColor = .black
             dishLabel.textAlignment = .center
             dishLabel.font = UIFont(name: "HelveticaNeue", size: 22)
             dishLabel.adjustsFontSizeToFitWidth = true
@@ -186,15 +182,15 @@ class ShuffleViewController: UIViewController {
             dishButtonsStackView.distribution = .equalSpacing
             dishButtonsStackView.alignment = .center
             dishButtonsStackView.isLayoutMarginsRelativeArrangement = true
-            dishButtonsStackView.spacing = 15
+            dishButtonsStackView.spacing = 10
             
             let shuffleButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
             shuffleButton.addTarget(self, action: #selector(self.shuffleDishButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
             shuffleButton.imageEdgeInsets = UIEdgeInsetsMake(2.5, 10, 2.5, 10)
             shuffleButton.backgroundColor = .yellow
-            shuffleButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
-            shuffleButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            shuffleButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            shuffleButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
             
             dishButtonsStackView.addArrangedSubview(shuffleButton)
             
@@ -203,8 +199,8 @@ class ShuffleViewController: UIViewController {
             infoButton.setImage(UIImage(named: "info.png"), for: .normal)
             infoButton.imageEdgeInsets = UIEdgeInsetsMake(5, 12.5, 5, 12.5)
             infoButton.backgroundColor = .yellow
-            infoButton.heightAnchor.constraint(equalToConstant: 35).isActive = true
-            infoButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+            infoButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            infoButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
             
             dishButtonsStackView.addArrangedSubview(infoButton)
             
@@ -290,6 +286,11 @@ class ShuffleViewController: UIViewController {
         let title = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
         
         viewModel?.saveMealPlan(title: title)
+        
+        let alertController = UIAlertController(title: "Saved meal plan to your favorites", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func infoButtonClicked(sender: DishUIButton) {

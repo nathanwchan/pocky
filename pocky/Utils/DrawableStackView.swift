@@ -16,12 +16,17 @@ class DrawableStackView: UIStackView {
         super.init(frame: frame)
         
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(backgroundView)
         
         backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         backgroundView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+    }
+    
+    convenience init() {
+        self.init(frame: .zero)
     }
     
     required init(coder: NSCoder) {

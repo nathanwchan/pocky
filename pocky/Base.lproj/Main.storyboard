@@ -146,7 +146,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="alu-iG-6xj" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Plan" image="planner.png" id="Uhr-4z-Pp6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jYE-cE-PK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="jYE-cE-PK4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -248,6 +248,6 @@
         <image name="planner.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bg2-Y3-6v4"/>
+        <segue reference="asq-a9-mRh"/>
     </inferredMetricsTieBreakers>
 </document>
