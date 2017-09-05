@@ -50,7 +50,16 @@ class NetworkProvider: Network {
         }
     }
     
-    func saveDish(dish: Dish) {
-        ref.child("dishes").child(Constants.globalUserID).child(dish.id).setValue(dish.encodeForFirebase())
+    func updateDish(dish: Dish) {
+        guard let dishId = dish.id else {
+            return
+        }
+        ref.child("dishes").child(Constants.globalUserID).child(dishId).setValue(dish.encodeForFirebase())
+    }
+    
+    func createDish(dish: Dish, completion: @escaping ((String) -> Void)) {
+        ref.child("dishes").child(Constants.globalUserID).childByAutoId().setValue(dish.encodeForFirebase()) { (error, retRef) in
+                completion(retRef.key)
+        }
     }
 }

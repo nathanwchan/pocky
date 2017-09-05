@@ -37,6 +37,11 @@ class SearchViewController: UIViewController {
         
         self.searchBar.becomeFirstResponder()
         self.tableView.keyboardDismissMode = .onDrag
+        
+        let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacerRight.width = -6;
+        let addNewDishButton = UIBarButtonItem(title: "Add New Dish", style: .plain, target: self, action: #selector(self.addNewDishButtonClicked(sender:)))
+        navigationItem.rightBarButtonItems = [negativeSpacerRight, addNewDishButton]
     }
     
     func showAllDishes() {
@@ -45,10 +50,18 @@ class SearchViewController: UIViewController {
         }
     }
     
+    func addNewDishButtonClicked(sender: UIBarButtonItem) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "ShowAddNewDishSegue", sender: sender)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
         switch(segue.identifier ?? "") {
+        case "ShowAddNewDishSegue":
+            return
         case "ShowDishSegue":
             guard let dishViewController = segue.destination as? DishViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")

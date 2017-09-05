@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 
 enum State {
+    case creating
     case viewing
     case editing
 }
@@ -36,6 +37,7 @@ class DishViewController: UIViewController {
     private let notesStackView = UIStackView(frame: .zero)
     private let notesTextView = UITextView(frame: .zero)
     private let saveButton = UIButton(frame: .zero)
+    private let createButton = UIButton(frame: .zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,16 +168,23 @@ class DishViewController: UIViewController {
         
         notesStackView.addArrangedSubview(notesTextView)
         
-        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = .blue
         saveButton.contentEdgeInsets = UIEdgeInsetsMake(10, 20, 10, 20)
         saveButton.layer.cornerRadius = 4
         
-        guard let dishId = dishId else {
-            fatalError("No dishId provided")
+        createButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
+        createButton.setTitle("Create", for: .normal)
+        createButton.backgroundColor = .blue
+        createButton.contentEdgeInsets = UIEdgeInsetsMake(10, 20, 10, 20)
+        createButton.layer.cornerRadius = 4
+        
+        if let dishId = dishId {
+            viewModel?.getDish(id: dishId)
+        } else {
+            viewState = .creating
         }
-        viewModel?.getDish(id: dishId)
     }
     
     private func initViewModel() {
@@ -184,14 +193,14 @@ class DishViewController: UIViewController {
         viewModel?.didGetDish = { [weak self] _ in
             self?.updateView()
         }
+        viewModel?.didCreateDish = { [weak self] (_, dishId: String) in
+            self?.dishId = dishId
+            self?.viewModel?.getDish(id: dishId)
+        }
     }
     
     func updateView() {
-        guard let dish = viewModel?.dish else {
-            return
-        }
-        
-        navigationItem.title = dish.title
+        navigationItem.title = viewModel?.dish?.title ?? "Create a new dish"
         
         let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         negativeSpacerRight.width = -6;
@@ -202,7 +211,28 @@ class DishViewController: UIViewController {
         }
         
         switch viewState {
+        case .creating:
+            titleTextField.becomeFirstResponder()
+            stackView.addArrangedSubview(titleTextField)
+            titleTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            titleTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
+            
+            stackView.addArrangedSubview(categoriesStackView)
+            
+            stackView.addArrangedSubview(linkStackView)
+            linkStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            linkStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
+            
+            stackView.addArrangedSubview(notesStackView)
+            notesStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            notesStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
+            
+            stackView.addArrangedSubview(createButton)
         case .viewing:
+            guard let dish = viewModel?.dish else {
+                return
+            }
+            
             let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.editButtonClicked(sender:)))
         
             navigationItem.rightBarButtonItems = [negativeSpacerRight, editButton]
@@ -225,6 +255,10 @@ class DishViewController: UIViewController {
                 stackView.addArrangedSubview(notesLabel)
             }
         case .editing:
+            guard let dish = viewModel?.dish else {
+                return
+            }
+            
             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonClicked(sender:)))
             
             navigationItem.rightBarButtonItems = [negativeSpacerRight, cancelButton]
@@ -283,11 +317,7 @@ class DishViewController: UIViewController {
         viewState = .viewing
     }
     
-    func saveButtonClicked(sender: UIButton) {
-        guard let dishID = viewModel?.dish?.id else {
-            return
-        }
-        
+    func saveOrCreateButtonClicked(sender: UIButton) {
         guard let title = titleTextField.text.nilIfEmpty else {
             let alertController = UIAlertController(title: "Error", message: "You must set a title!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -307,13 +337,16 @@ class DishViewController: UIViewController {
             return
         }
         
-        let dish = Dish(id: dishID,
+        let dish = Dish(id: viewModel?.dish?.id,
                         title: title,
                         category: categories,
                         link: linkTextField.text,
                         notes: notesTextView.text)
-        viewModel?.saveDish(dish: dish)
-        
+        if dish.id == nil {
+            viewModel?.createDish(dish: dish)
+        } else {
+            viewModel?.updateDish(dish: dish)
+        }
         viewState = .viewing
     }
 }

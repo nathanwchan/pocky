@@ -19,6 +19,7 @@ class DishViewModel {
     
     //MARK: - Events
     var didGetDish: ((DishViewModel) -> Void)?
+    var didCreateDish: ((DishViewModel, String) -> Void)?
     
     //MARK: - Private
     private func didGetDish(dish: Dish?) {
@@ -26,13 +27,21 @@ class DishViewModel {
         self.didGetDish?(self)
     }
     
+    private func didCreateDish(dishId: String) {
+        self.didCreateDish?(self, dishId)
+    }
+    
     //MARK: - Actions
     func getDish(id: String) {
         networkProvider.getDish(id: id, completion: self.didGetDish)
     }
     
-    func saveDish(dish: Dish) {
-        networkProvider.saveDish(dish: dish)
+    func updateDish(dish: Dish) {
+        networkProvider.updateDish(dish: dish)
+    }
+    
+    func createDish(dish: Dish) {
+        networkProvider.createDish(dish: dish, completion: self.didCreateDish)
     }
 }
 

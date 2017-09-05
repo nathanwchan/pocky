@@ -9,7 +9,7 @@
 import Foundation
 
 struct Dish: Equatable {
-    var id: String
+    var id: String?
     var title: String
     var category: [Category]
     var link: String? = nil
@@ -31,7 +31,7 @@ struct Dish: Equatable {
         }
     }
     
-    init(id: String, title: String, category: [Category], link: String?, notes: String?) {
+    init(id: String?, title: String, category: [Category], link: String?, notes: String?) {
         self.id = id
         self.title = title
         self.category = category

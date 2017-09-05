@@ -42,7 +42,11 @@ class TestNetworkProvider: Network {
         return
     }
     
-    func saveDish(dish: Dish) {
+    func updateDish(dish: Dish) {
+        return
+    }
+    
+    func createDish(dish: Dish, completion: @escaping ((String) -> Void)) {
         return
     }
 }

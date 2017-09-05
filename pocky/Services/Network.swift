@@ -13,5 +13,6 @@ protocol Network {
     func saveMealPlan(mealPlan: MealPlan)
     func getSavedMealPlans(completion: @escaping (([MealPlan]?) -> Void))
     func getDish(id: String, completion: @escaping ((Dish?) -> Void))
-    func saveDish(dish: Dish)
+    func updateDish(dish: Dish)
+    func createDish(dish: Dish, completion: @escaping ((String) -> Void))
 }
