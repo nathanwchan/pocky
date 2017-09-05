@@ -10,9 +10,9 @@ import Foundation
 
 extension Optional where Wrapped == String {
     var nilIfEmpty: String? {
-        guard let s = self else {
+        guard let `self` = self else {
             return nil
         }
-        return s.isEmpty ? nil : s
+        return self.isEmpty ? nil : self
     }
 }
