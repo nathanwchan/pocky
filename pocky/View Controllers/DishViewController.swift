@@ -31,7 +31,9 @@ class DishViewController: UIViewController {
     private let titleTextField = UITextField(frame: .zero)
     private let categoriesStackView = UIStackView(frame: .zero)
     private var categorySwitches: [UISwitch] = []
+    private let linkStackView = UIStackView(frame: .zero)
     private let linkTextField = UITextField(frame: .zero)
+    private let notesStackView = UIStackView(frame: .zero)
     private let notesTextView = UITextView(frame: .zero)
     private let saveButton = UIButton(frame: .zero)
     
@@ -46,7 +48,7 @@ class DishViewController: UIViewController {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.spacing = 10
+        stackView.spacing = 20
         stackView.backgroundColor = .white
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
@@ -111,11 +113,45 @@ class DishViewController: UIViewController {
             categoriesStackView.addArrangedSubview(categoryStackView)
         }
         
+        linkStackView.translatesAutoresizingMaskIntoConstraints = false
+        linkStackView.axis = .horizontal
+        linkStackView.distribution = .fill
+        linkStackView.alignment = .firstBaseline
+        linkStackView.spacing = 5
+        
+        let linkStaticLabel = UILabel(frame: .zero)
+        linkStaticLabel.text = "LINK"
+        linkStaticLabel.textColor = .black
+        linkStaticLabel.textAlignment = .left
+        linkStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+        linkStaticLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        linkStackView.addArrangedSubview(linkStaticLabel)
+        
         linkTextField.textColor = .black
         linkTextField.textAlignment = .left
         linkTextField.font = UIFont(name: "HelveticaNeue", size: 20)
         linkTextField.borderStyle = .line
-        linkTextField.clearButtonMode = .whileEditing
+        linkTextField.autocapitalizationType = .none
+        linkTextField.clearButtonMode = .always
+        linkTextField.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        
+        linkStackView.addArrangedSubview(linkTextField)
+        
+        notesStackView.translatesAutoresizingMaskIntoConstraints = false
+        notesStackView.axis = .horizontal
+        notesStackView.distribution = .fill
+        notesStackView.alignment = .top
+        notesStackView.spacing = 5
+        
+        let notesStaticLabel = UILabel(frame: .zero)
+        notesStaticLabel.text = "NOTES"
+        notesStaticLabel.textColor = .black
+        notesStaticLabel.textAlignment = .left
+        notesStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+        notesStaticLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        notesStackView.addArrangedSubview(notesStaticLabel)
         
         notesTextView.textColor = .black
         notesTextView.textAlignment = .left
@@ -126,6 +162,9 @@ class DishViewController: UIViewController {
         notesTextView.isScrollEnabled = false
         notesTextView.layer.borderWidth = 1
         notesTextView.layer.borderColor = UIColor.black.cgColor
+        notesTextView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        
+        notesStackView.addArrangedSubview(notesTextView)
         
         saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
         saveButton.setTitle("Save", for: .normal)
@@ -192,6 +231,8 @@ class DishViewController: UIViewController {
             
             titleTextField.text = dish.title
             stackView.addArrangedSubview(titleTextField)
+            titleTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            titleTextField.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
             
             for categorySwitch in categorySwitches {
                 categorySwitch.setOn(dish.category.map({ Category.index(of: $0) }).contains(categorySwitch.tag), animated: false)
@@ -199,10 +240,14 @@ class DishViewController: UIViewController {
             stackView.addArrangedSubview(categoriesStackView)
             
             linkTextField.text = dish.link ?? ""
-            stackView.addArrangedSubview(linkTextField)
+            stackView.addArrangedSubview(linkStackView)
+            linkStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            linkStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
             
             notesTextView.text = dish.notes ?? ""
-            stackView.addArrangedSubview(notesTextView)
+            stackView.addArrangedSubview(notesStackView)
+            notesStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
+            notesStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
             
             stackView.addArrangedSubview(saveButton)
         }
@@ -214,6 +259,11 @@ class DishViewController: UIViewController {
                 let vc = SFSafariViewController(url: url, entersReaderIfAvailable: false)
                 vc.modalPresentationStyle = .overFullScreen
                 present(vc, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Error", message: "URL is invalid. Maybe it's missing http:// ?", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -238,8 +288,11 @@ class DishViewController: UIViewController {
             return
         }
         
-        guard let title = titleTextField.text else {
-            // alert title must be set
+        guard let title = titleTextField.text.nilIfEmpty else {
+            let alertController = UIAlertController(title: "Error", message: "You must set a title!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
             return
         }
         
@@ -247,7 +300,10 @@ class DishViewController: UIViewController {
             categorySwitch.isOn ? Category.allValues[categorySwitch.tag] : nil
         }
         if categories.isEmpty {
-            // alert at least one category must be set
+            let alertController = UIAlertController(title: "Error", message: "You must set at least one category!", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
             return
         }
         
