@@ -25,9 +25,9 @@ class pockyTests: XCTestCase {
     func testMealsVMGetDishCombos() {
         let testMealsViewModel = MealsViewModel(networkProvider: TestNetworkProvider())
         let categoryTests: [[Category]] = [
-            Category.allValues,
-            Category.allValues,
-            Category.allValues,
+            Category.allValuesUsedForPlanning,
+            Category.allValuesUsedForPlanning,
+            Category.allValuesUsedForPlanning,
             [Category.Meat],
             [Category.Veggie],
             [Category.Carb],

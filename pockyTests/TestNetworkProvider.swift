@@ -30,11 +30,19 @@ class TestNetworkProvider: Network {
         completion(dishesData)
     }
     
-    func saveMealPlan(title: String, meals: [Meal]) {
+    func saveMealPlan(mealPlan: MealPlan) {
         return
     }
     
     func getSavedMealPlans(completion: @escaping (([MealPlan]?) -> Void)) {
+        return
+    }
+    
+    func getDish(id: String, completion: @escaping ((Dish?) -> Void)) {
+        return
+    }
+    
+    func saveDish(dish: Dish) {
         return
     }
 }

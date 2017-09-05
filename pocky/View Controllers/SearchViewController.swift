@@ -63,7 +63,7 @@ class SearchViewController: UIViewController {
             }
             
             let dish = dishesToShow[indexPath.row]
-            dishViewController.dish = dish
+            dishViewController.dishId = dish.id
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
         }

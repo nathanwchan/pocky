@@ -22,8 +22,9 @@ enum Category: String {
 }
 
 extension Category {
-    // this is deliberately ordered for display
-    static let allValues = [Category.Meat, Category.Veggie, Category.Carb]
+    // these are deliberately ordered for display
+    static let allValuesUsedForPlanning = [Category.Meat, Category.Veggie, Category.Carb]
+    static let allValues = [Category.Meat, Category.Veggie, Category.Carb, Category.Dessert, Category.Special]
     
     static func index(of category: Category) -> Int {
         return allValues.index(of: category) ?? allValues.count

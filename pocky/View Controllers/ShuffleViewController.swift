@@ -79,7 +79,7 @@ class ShuffleViewController: UIViewController {
         let startOverButton = UIBarButtonItem(title: "Start Over", style: .plain, target: self, action: #selector(self.startOverButtonClicked(sender:)))
         let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         negativeSpacerRight.width = -6;
-        navigationItem.rightBarButtonItems = [negativeSpacerLeft, startOverButton]
+        navigationItem.rightBarButtonItems = [negativeSpacerRight, startOverButton]
     }
     
     private func initViewModel() {
@@ -270,7 +270,7 @@ class ShuffleViewController: UIViewController {
     }
     
     func shuffleMealButtonClicked(sender: UIButton) {
-        viewModel?.shuffleDishes(mealIndex: sender.tag, categories: Category.allValues)
+        viewModel?.shuffleDishes(mealIndex: sender.tag, categories: Category.allValuesUsedForPlanning)
     }
     
     func saveButtonClicked(sender: UIButton) {
@@ -310,7 +310,7 @@ class ShuffleViewController: UIViewController {
             guard let dishUIButton = sender as? DishUIButton else {
                 fatalError("Unexpected sender: \(sender.debugDescription)")
             }
-            dishViewController.dish = dishUIButton.dish
+            dishViewController.dishId = dishUIButton.dish.id
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
         }

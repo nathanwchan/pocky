@@ -24,9 +24,8 @@ class NetworkProvider: Network {
         }
     }
     
-    func saveMealPlan(title: String, meals: [Meal]) {
-        let mealPlan = MealPlan(title: title, meals: meals)
-        self.ref.child("mealPlans").child(Constants.globalUserID).childByAutoId().setValue(mealPlan.encodeForFirebase())
+    func saveMealPlan(mealPlan: MealPlan) {
+        ref.child("mealPlans").child(Constants.globalUserID).childByAutoId().setValue(mealPlan.encodeForFirebase())
     }
     
     func getSavedMealPlans(completion: @escaping ([MealPlan]?) -> Void) {
@@ -39,5 +38,19 @@ class NetworkProvider: Network {
         }) { (error) in
             print(error.localizedDescription)
         }
+    }
+    
+    func getDish(id: String, completion: @escaping (Dish?) -> Void) {
+        ref.child("dishes").child(Constants.globalUserID).child(id).observe(.value, with: { (snapshot) in
+            let value = snapshot.value as? [String : AnyObject]
+            let dish = Dish(id: snapshot.key, data: value)
+            completion(dish)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func saveDish(dish: Dish) {
+        ref.child("dishes").child(Constants.globalUserID).child(dish.id).setValue(dish.encodeForFirebase())
     }
 }

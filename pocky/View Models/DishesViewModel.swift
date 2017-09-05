@@ -20,7 +20,7 @@ class DishesViewModel {
     var didGetAllDishes: ((DishesViewModel) -> Void)?
     
     //MARK: - Private
-    func didGetAllDishes(dishes: [Dish]?) {
+    private func didGetAllDishes(dishes: [Dish]?) {
         self.allDishes = dishes
         self.didGetAllDishes?(self)
     }

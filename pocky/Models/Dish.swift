@@ -12,21 +12,31 @@ struct Dish: Equatable {
     var id: String
     var title: String
     var category: [Category]
-    var link: String?
-    var notes: String?
+    var link: String? = nil
+    var notes: String? = nil
     
     init?(id: String, data: Any?) {
         guard let dict = data as? [String: AnyObject] else { return nil }
         guard let title = dict["title"] as? String else { return nil }
-        guard let link = dict["link"] as? String else { return nil }
-        guard let notes = dict["notes"] as? String else { return nil }
         guard let category = dict["category"] as? [String] else { return nil }
         
         self.id = id
         self.title = title
         self.category = category.flatMap { Category(rawValue: $0) }
-        self.link = link.isEmpty ? nil : link
-        self.notes = notes.isEmpty ? nil : notes
+        if let link = (dict["link"] as? String).nilIfEmpty {
+            self.link = link
+        }
+        if let notes = (dict["notes"] as? String).nilIfEmpty {
+            self.notes = notes
+        }
+    }
+    
+    init(id: String, title: String, category: [Category], link: String?, notes: String?) {
+        self.id = id
+        self.title = title
+        self.category = category
+        self.link = link.nilIfEmpty
+        self.notes = notes.nilIfEmpty
     }
     
     static let sortClosure: (Dish, Dish) -> Bool = { dish1, dish2 in
@@ -35,5 +45,20 @@ struct Dish: Equatable {
     
     static func == (lhs: Dish, rhs: Dish) -> Bool {
         return lhs.title == rhs.title
+    }
+    
+    // Codable in Swift 4 !!!
+    func encodeForFirebase() -> [String: Any] {
+        var returnDict: [String: Any] = [
+            "title": title,
+            "category": category.map { $0.rawValue }
+        ]
+        if let link = link.nilIfEmpty {
+            returnDict["link"] = link
+        }
+        if let notes = notes.nilIfEmpty {
+            returnDict["notes"] = notes
+        }
+        return returnDict
     }
 }

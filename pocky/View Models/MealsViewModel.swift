@@ -31,8 +31,10 @@ class MealsViewModel {
     var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
     
     //MARK: - Private
-    func viewModelDidGetAllDishes() {
-        self.addNewMeal()
+    private func viewModelDidGetAllDishes() {
+        if mealCount == 0 {
+            self.addNewMeal()
+        }
     }
     
     func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
@@ -58,7 +60,7 @@ class MealsViewModel {
     //MARK: - Actions
     func addNewMeal() {
         meals.append(Meal(mealIndex: self.mealCount,
-                          dishes: getDishCombos(with: Category.allValues)))
+                          dishes: getDishCombos(with: Category.allValuesUsedForPlanning)))
         self.didAddNewMeal?(self)
     }
     
@@ -81,6 +83,7 @@ class MealsViewModel {
     }
     
     func saveMealPlan(title: String) {
-        networkProvider.saveMealPlan(title: title, meals: meals)
+        let mealPlan = MealPlan(title: title, meals: meals)
+        networkProvider.saveMealPlan(mealPlan: mealPlan)
     }
 }
