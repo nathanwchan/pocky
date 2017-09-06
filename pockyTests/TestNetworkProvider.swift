@@ -20,7 +20,7 @@ class TestNetworkProvider: Network {
             let fileData = try Data(contentsOf: file)
             let json = try JSONSerialization.jsonObject(with: fileData, options: [])
             let data = json as? [AnyObject]
-            dishesData = data?.flatMap { Dish(id: "0", data: $0) }
+            dishesData = data?.flatMap { Dish(data: $0) }
         } catch let error {
             print(error.localizedDescription)
         }
@@ -31,6 +31,10 @@ class TestNetworkProvider: Network {
     }
     
     func saveMealPlan(mealPlan: MealPlan) {
+        return
+    }
+    
+    func deleteMealPlan(mealPlanId: String) {
         return
     }
     

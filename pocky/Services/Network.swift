@@ -11,6 +11,7 @@ import Foundation
 protocol Network {
     func getAllDishes(completion: @escaping (([Dish]?) -> Void))
     func saveMealPlan(mealPlan: MealPlan)
+    func deleteMealPlan(mealPlanId: String)
     func getSavedMealPlans(completion: @escaping (([MealPlan]?) -> Void))
     func getDish(id: String, completion: @escaping ((Dish?) -> Void))
     func updateDish(dish: Dish)

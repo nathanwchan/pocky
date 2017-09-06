@@ -13,7 +13,8 @@ struct MealPlan {
     var title: String
     var meals: [Meal]
     
-    init(title: String, meals: [Meal]) {
+    init(id: String? = nil, title: String, meals: [Meal]) {
+        self.id = id
         self.title = title
         self.meals = meals
     }

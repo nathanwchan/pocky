@@ -30,4 +30,11 @@ class MealPlansViewModel {
     func getSavedMealPlans() {
         networkProvider.getSavedMealPlans(completion: self.didGetSavedMealPlans)
     }
+    
+    func deleteMealPlan(mealPlanIndex: Int) {
+        guard let mealPlanId = mealPlans[mealPlanIndex].id else {
+            return
+        }
+        networkProvider.deleteMealPlan(mealPlanId: mealPlanId)
+    }
 }

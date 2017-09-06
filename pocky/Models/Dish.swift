@@ -15,7 +15,15 @@ struct Dish: Equatable {
     var link: String? = nil
     var notes: String? = nil
     
-    init?(id: String, data: Any?) {
+    init(id: String? = nil, title: String, category: [Category], link: String?, notes: String?) {
+        self.id = id
+        self.title = title
+        self.category = category
+        self.link = link.nilIfEmpty
+        self.notes = notes.nilIfEmpty
+    }
+    
+    init?(id: String? = nil, data: Any?) {
         guard let dict = data as? [String: AnyObject] else { return nil }
         guard let title = dict["title"] as? String else { return nil }
         guard let category = dict["category"] as? [String] else { return nil }
@@ -29,14 +37,6 @@ struct Dish: Equatable {
         if let notes = (dict["notes"] as? String).nilIfEmpty {
             self.notes = notes
         }
-    }
-    
-    init(id: String?, title: String, category: [Category], link: String?, notes: String?) {
-        self.id = id
-        self.title = title
-        self.category = category
-        self.link = link.nilIfEmpty
-        self.notes = notes.nilIfEmpty
     }
     
     static let sortClosure: (Dish, Dish) -> Bool = { dish1, dish2 in

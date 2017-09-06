@@ -28,6 +28,10 @@ class NetworkProvider: Network {
         ref.child("mealPlans").child(Constants.globalUserID).childByAutoId().setValue(mealPlan.encodeForFirebase())
     }
     
+    func deleteMealPlan(mealPlanId: String) {
+        ref.child("mealPlans").child(Constants.globalUserID).child(mealPlanId).removeValue()
+    }
+    
     func getSavedMealPlans(completion: @escaping ([MealPlan]?) -> Void) {
         ref.child("mealPlans").child(Constants.globalUserID).observe(.value, with: { (snapshot) in
             var mealPlans = [MealPlan]()
@@ -73,7 +77,7 @@ class NetworkProvider: Network {
                 }
                 
                 mealsDispatchGroup.notify(queue: .main) {
-                    mealPlans.append(MealPlan(title: title, meals: mealsForMealPlan))
+                    mealPlans.append(MealPlan(id: mealPlanSnap.key, title: title, meals: mealsForMealPlan))
                     mealPlansDispatchGroup.leave()
                 }
             }
