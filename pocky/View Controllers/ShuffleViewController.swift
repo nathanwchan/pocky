@@ -250,7 +250,7 @@ class ShuffleViewController: UIViewController {
     private func viewModelDidInit() {
         if let mealPlan = mealPlan {
             viewModel?.loadMealPlan(mealPlan)
-        } else {
+        } else if let count = viewModel?.mealCount, count == 0 {
             viewModel?.addNewMeal()
         }
     }

@@ -35,12 +35,6 @@ class MealsViewModel {
     var didLoadMealPlan: ((MealsViewModel) -> Void)?
     
     //MARK: - Private
-    private func viewModelDidGetAllDishes() {
-        if mealCount == 0 {
-            self.addNewMeal()
-        }
-    }
-    
     func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
         if categories.isEmpty {
             return dishCombos
