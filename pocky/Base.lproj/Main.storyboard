@@ -211,6 +211,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="mealPlanTitleLabel" destination="T9T-Dr-sOw" id="Ijo-EP-Cyq"/>
+                                    <segue destination="LYs-S8-l1V" kind="show" identifier="ShowMealPlanSegue" id="x23-ng-0o4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -249,6 +250,7 @@
         <image name="planner.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="x23-ng-0o4"/>
         <segue reference="ERp-3v-WKG"/>
     </inferredMetricsTieBreakers>
 </document>

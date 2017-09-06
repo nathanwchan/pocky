@@ -23,6 +23,7 @@
 		C16460721F5DCF4000B79B82 /* addToFavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = C16460711F5DCF4000B79B82 /* addToFavorite.png */; };
 		C16460741F5E244900B79B82 /* DishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16460731F5E244900B79B82 /* DishViewModel.swift */; };
 		C16460761F5E322700B79B82 /* OptionalString+nilIfEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16460751F5E322700B79B82 /* OptionalString+nilIfEmpty.swift */; };
+		C16460781F5F726600B79B82 /* Dictionary+initWithElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */; };
 		D80F4E791F4DFA8D00587931 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E781F4DFA8D00587931 /* Meal.swift */; };
 		D80F4E7C1F4E016200587931 /* DrawableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7B1F4E016200587931 /* DrawableStackView.swift */; };
 		D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80F4E7D1F4E017700587931 /* ShuffleViewController.swift */; };
@@ -86,6 +87,7 @@
 		C16460711F5DCF4000B79B82 /* addToFavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = addToFavorite.png; path = Icons/addToFavorite.png; sourceTree = "<group>"; };
 		C16460731F5E244900B79B82 /* DishViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishViewModel.swift; path = "View Models/DishViewModel.swift"; sourceTree = "<group>"; };
 		C16460751F5E322700B79B82 /* OptionalString+nilIfEmpty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "OptionalString+nilIfEmpty.swift"; path = "Utils/OptionalString+nilIfEmpty.swift"; sourceTree = "<group>"; };
+		C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+initWithElements.swift"; path = "Utils/Dictionary+initWithElements.swift"; sourceTree = "<group>"; };
 		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; };
 		D80F4E781F4DFA8D00587931 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = Models/Meal.swift; sourceTree = "<group>"; };
 		D80F4E7B1F4E016200587931 /* DrawableStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawableStackView.swift; path = Utils/DrawableStackView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				D87490C81F4A07D1007E659F /* Globals.swift */,
 				D80F4E7B1F4E016200587931 /* DrawableStackView.swift */,
 				D80F4E7F1F4F7EEB00587931 /* Array+randomItem.swift */,
+				C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */,
 				D833BB2A1F539BEC000D25E9 /* DishUIButton.swift */,
 				C16460751F5E322700B79B82 /* OptionalString+nilIfEmpty.swift */,
 			);
@@ -614,6 +617,7 @@
 				D87490C91F4A07D1007E659F /* Globals.swift in Sources */,
 				C16460741F5E244900B79B82 /* DishViewModel.swift in Sources */,
 				C101F5551F58CD7000028E10 /* MealPlansViewModel.swift in Sources */,
+				C16460781F5F726600B79B82 /* Dictionary+initWithElements.swift in Sources */,
 				D87490C61F4A066C007E659F /* Dish.swift in Sources */,
 				C101F5531F58CD1000028E10 /* FavoritesTableViewController.swift in Sources */,
 				D80F4E7E1F4E017700587931 /* ShuffleViewController.swift in Sources */,

@@ -43,4 +43,30 @@ class FavoritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // MARK: - Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+        case "ShowMealPlanSegue":
+            guard let shuffleViewController = segue.destination as? ShuffleViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedMealPlanCell = sender as? MealPlanTableViewCell else {
+                fatalError("Unexpected sender: \(sender.debugDescription)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedMealPlanCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let mealPlan = viewModel.mealPlans[indexPath.row]
+            shuffleViewController.mealPlan = mealPlan
+            shuffleViewController.navFromFavorites = true
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
+        }
+    }
 }

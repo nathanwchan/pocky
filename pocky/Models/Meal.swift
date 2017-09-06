@@ -26,9 +26,15 @@ struct Meal {
     
     // Codable in Swift 4 !!!
     func encodeForFirebase() -> [String: Any] {
+        let dishIds = dishes.flatMap { (dish) -> (String, Bool)? in
+            guard let dishId = dish.id else {
+                return nil
+            }
+            return (dishId, true)
+        }
         return [
             "mealIndex": mealIndex,
-            "dishIds": dishes.flatMap({ $0.id })
+            "dishIds": Dictionary(elements: dishIds)
         ]
     }
 }

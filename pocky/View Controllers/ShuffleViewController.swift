@@ -13,6 +13,8 @@ class ShuffleViewController: UIViewController {
     private var viewModel: MealsViewModel?
     private let stackView = UIStackView(frame: .zero)
     private let mealsStackView = UIStackView(frame: .zero)
+    var mealPlan: MealPlan?
+    var navFromFavorites = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,12 +71,14 @@ class ShuffleViewController: UIViewController {
         
         // Navigation button setup
         
-        let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
-        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
-        let negativeSpacerLeft = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        negativeSpacerLeft.width = -7;
-        self.navigationItem.leftBarButtonItems = [negativeSpacerLeft, UIBarButtonItem(customView: saveButton)]
+        if !navFromFavorites {
+            let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+            saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
+            saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
+            let negativeSpacerLeft = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+            negativeSpacerLeft.width = -7;
+            self.navigationItem.leftBarButtonItems = [negativeSpacerLeft, UIBarButtonItem(customView: saveButton)]
+        }
         
         let startOverButton = UIBarButtonItem(title: "Start Over", style: .plain, target: self, action: #selector(self.startOverButtonClicked(sender:)))
         let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
@@ -85,6 +89,9 @@ class ShuffleViewController: UIViewController {
     private func initViewModel() {
         viewModel = MealsViewModel(networkProvider: NetworkProvider())
         
+        viewModel?.didInitViewModel = { [weak self] _ in
+            self?.viewModelDidInit()
+        }
         viewModel?.didAddNewMeal = { [weak self] _ in
             self?.viewModelDidAddNewMeal()
         }
@@ -94,9 +101,12 @@ class ShuffleViewController: UIViewController {
         viewModel?.didShuffleDishes = { [weak self] (_, mealIndex: Int) in
             self?.viewModelDidShuffleMeal(mealIndex: mealIndex)
         }
+        viewModel?.didLoadMealPlan = { [weak self] _ in
+            self?.viewModelDidLoadMealPlan()
+        }
     }
     
-    private func updateMealStackView(at index: Int) {
+    private func updateMealStackView(at index: Int, forceNoAnimate: Bool = false) {
         guard let meal = viewModel?.meals[index] else {
             return
         }
@@ -229,11 +239,19 @@ class ShuffleViewController: UIViewController {
             mealsStackView.insertArrangedSubview(mealStackView, at: index)
         }
         
-        if animateView {
+        if animateView && !forceNoAnimate {
             mealStackView.isHidden = true
             UIView.animate(withDuration: 0.5) {
                 mealStackView.isHidden = false
             }
+        }
+    }
+    
+    private func viewModelDidInit() {
+        if let mealPlan = mealPlan {
+            viewModel?.loadMealPlan(mealPlan)
+        } else {
+            viewModel?.addNewMeal()
         }
     }
     
@@ -253,6 +271,14 @@ class ShuffleViewController: UIViewController {
     
     private func viewModelDidShuffleMeal(mealIndex: Int) {
         updateMealStackView(at: mealIndex)
+    }
+    
+    private func viewModelDidLoadMealPlan() {
+        if let count = viewModel?.mealCount {
+            for i in 0..<count {
+                updateMealStackView(at: i, forceNoAnimate: true)
+            }
+        }
     }
     
     func addButtonClicked(sender: Any?) {

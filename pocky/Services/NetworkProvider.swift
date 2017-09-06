@@ -30,11 +30,57 @@ class NetworkProvider: Network {
     
     func getSavedMealPlans(completion: @escaping ([MealPlan]?) -> Void) {
         ref.child("mealPlans").child(Constants.globalUserID).observe(.value, with: { (snapshot) in
-            let mealPlans: [MealPlan] = snapshot.children.flatMap { snap in
+            var mealPlans = [MealPlan]()
+            let mealPlansDispatchGroup = DispatchGroup()
+            
+            for snap in snapshot.children {
                 let mealPlanSnap = snap as! DataSnapshot
-                return MealPlan(id: mealPlanSnap.key, data: mealPlanSnap.value)
+                guard let dict = mealPlanSnap.value as? [String: AnyObject] else { continue }
+                guard let title = dict["title"] as? String else { continue }
+                guard let meals = dict["meals"] as? [AnyObject] else { continue }
+                
+                mealPlansDispatchGroup.enter()
+                
+                var mealsForMealPlan = [Meal]()
+                let mealsDispatchGroup = DispatchGroup()
+                
+                for meal in meals {
+                    guard let meal = meal as? [String: AnyObject] else { continue }
+                    guard let mealIndex = meal["mealIndex"] as? Int else { continue }
+                    guard let dishIds = meal["dishIds"]?.allKeys as? [String] else { continue }
+                    
+                    mealsDispatchGroup.enter()
+                    
+                    var dishesForMeal = [Dish]()
+                    let dishesDispatchGroup = DispatchGroup()
+                    
+                    for dishId in dishIds {
+                        dishesDispatchGroup.enter()
+                        self.getDish(id: dishId) { dish in
+                            guard let dish = dish else {
+                                dishesDispatchGroup.leave()
+                                return
+                            }
+                            dishesForMeal.append(dish)
+                            dishesDispatchGroup.leave()
+                        }
+                    }
+                    
+                    dishesDispatchGroup.notify(queue: .main) {
+                        mealsForMealPlan.append(Meal(mealIndex: mealIndex, dishes: dishesForMeal))
+                        mealsDispatchGroup.leave()
+                    }
+                }
+                
+                mealsDispatchGroup.notify(queue: .main) {
+                    mealPlans.append(MealPlan(title: title, meals: mealsForMealPlan))
+                    mealPlansDispatchGroup.leave()
+                }
             }
-            completion(mealPlans)
+            
+            mealPlansDispatchGroup.notify(queue: .main) {
+                completion(mealPlans)
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
