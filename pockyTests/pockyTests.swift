@@ -11,6 +11,10 @@ import XCTest
 
 class pockyTests: XCTestCase {
     typealias Category = pocky.Category
+    static let testNetworkProvider = TestNetworkProvider()
+    var testMealsViewModel = MealsViewModel(networkProvider: testNetworkProvider)
+//    var testMealPlansViewModel = MealPlansViewModel(networkProvider: testNetworkProvider)
+    
     
     override func setUp() {
         super.setUp()
@@ -23,7 +27,6 @@ class pockyTests: XCTestCase {
     }
     
     func testMealsVMGetDishCombos() {
-        let testMealsViewModel = MealsViewModel(networkProvider: TestNetworkProvider())
         let categoryTests: [[Category]] = [
             Category.allValuesUsedForPlanning,
             Category.allValuesUsedForPlanning,
@@ -40,6 +43,38 @@ class pockyTests: XCTestCase {
             let returnedDishesCategories = returnedDishes.flatMap { $0.category }
             XCTAssertTrue(returnedDishesCategories.count == categories.count, "categories count should be equal")
             XCTAssertTrue(Set(returnedDishesCategories) == Set(categories), "categories values should be equal")
+        }
+    }
+    
+    func testMealsVMAddMealAndClearMeals() {
+        let initMealCount = testMealsViewModel.mealCount
+        
+        for i in 1..<5 {
+            testMealsViewModel.addNewMeal()
+            XCTAssert(initMealCount + i == testMealsViewModel.mealCount, "addNewMeal did not add new meal")
+        }
+        
+        testMealsViewModel.clearAllMeals()
+        XCTAssert(testMealsViewModel.mealCount == 0, "clearAllMeals did not clear meals")
+    }
+    
+    func testMealsVMShuffleDishes() {
+        for _ in 0..<10 {
+            testMealsViewModel.addNewMeal()
+            XCTAssertTrue(testMealsViewModel.mealCount == 1)
+            
+            // test shuffling first dish in meal
+            let firstDish = testMealsViewModel.meals[0].sortedDishes[0]
+            testMealsViewModel.shuffleDishes(mealIndex: 0, categories: firstDish.category)
+            
+            let newDishes = testMealsViewModel.meals[0].dishes
+            let newDishesCategories = newDishes.flatMap { $0.category }
+            XCTAssertTrue((Set(newDishesCategories) == Set(Category.allValuesUsedForPlanning)), "missing categories after shuffle")
+            XCTAssertTrue(newDishesCategories.count == Category.allValuesUsedForPlanning.count, "duplicate categories found after shuffle")
+            XCTAssertTrue(!newDishes.contains(firstDish))
+            
+            testMealsViewModel.clearAllMeals()
+            XCTAssertTrue(testMealsViewModel.mealCount == 0)
         }
     }
 }

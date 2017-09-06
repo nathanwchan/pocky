@@ -19,15 +19,6 @@ struct MealPlan {
         self.meals = meals
     }
     
-    init?(id: String, data: Any?) {
-        guard let dict = data as? [String: AnyObject] else { return nil }
-        guard let title = dict["title"] as? String else { return nil }
-        
-        self.id = id
-        self.title = title
-        self.meals = []
-    }
-    
     // Codable in Swift 4 !!!
     func encodeForFirebase() -> [String: Any] {
         return [

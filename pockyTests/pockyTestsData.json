@@ -1,0 +1,479 @@
+{
+  "dishes" : [ {
+    "category" : [ "m" ],
+    "title" : "Stirfry onion and egg"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Stirfry tomato and egg"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "title" : "Chicken Curry with rice"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Bulgogi beef"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Cabbage + turkey"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Cheese Nappa cabbage"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Mapo tofu"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Orange juice pork chops"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Tubed silk tofu with minced porl"
+  }, {
+    "category" : [ "m" ],
+    "title" : "3 cup chicken"
+  }, {
+    "category" : [ "m", "v" ],
+    "notes" : "Steam sliced chicken breast and bok choy in cast-iron skillet",
+    "title" : "Bittman chicken and bok choy"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Roasted asparagus, brussels sprouts"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "title" : "Korean BBQ chicken rice roll w Basil"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Korean BBQ chicken with onion stirfry"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "notes" : "alfredo",
+    "title" : "Chicken pasta"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Stir-fried broccoli "
+  }, {
+    "category" : [ "m" ],
+    "notes" : "Mom's spices rub, paprika, avocado oil on chicken breast\nBake at 350C for 20-25 mins",
+    "title" : "Mom's rub chicken"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Stir-fried zucchini "
+  }, {
+    "category" : [ "c" ],
+    "title" : "Roasted sweet potatoes"
+  }, {
+    "category" : [ "c" ],
+    "title" : "White rice"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Garlic a-cai"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://www.bettycrocker.com/recipes/slow-cooker-balsamic-honey-glazed-chicken-and-vegetables/0aaf5200-f239-4fd7-a93f-b7da1823a099",
+    "title" : "Honey vinegar slow-cooker chicken"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Roasted zucchini"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "title" : "Stir-fried udon"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://cafedelites.com/honey-mustard-chicken-potatoes/",
+    "title" : "Honey mustard chicken potatoes with veggies (one pan)"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://www.epicurious.com/recipes/food/views/lemon-paprika-roasted-salmon-51189020",
+    "title" : "Lemon paprika salmon"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://foodistkitchen.com/roast/",
+    "notes" : "Foodist Kitchen password: nate5bullet",
+    "title" : "Chicken roast"
+  }, {
+    "category" : [ "m", "v" ],
+    "title" : "Cashew chicken"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1328901133872522&id=74052302134 ",
+    "title" : "Scallop linguini"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Sugar snap peas"
+  }, {
+    "category" : [ "m", "v" ],
+    "notes" : "2lb chuck roast, can of: french onion soup, beef broth, beef consomme",
+    "title" : "Chuck roast (opt. green beans)"
+  }, {
+    "category" : [ "m", "v" ],
+    "notes" : "Soy sauce",
+    "title" : "Chicken drumstick (opt. green beans)"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Stir-fried bai-cai with mushrooms"
+  }, {
+    "category" : [ "v" ],
+    "title" : "Roasted cauliflower "
+  }, {
+    "category" : [ "c" ],
+    "link" : "http://allrecipes.com/recipe/21220/mashed-sweet-potatoes/",
+    "title" : "Mashed sweet potatoes"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "title" : "Spaghetti"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://www.inspiredtaste.net/8145/baked-drumsticks-with-rosemary/",
+    "title" : "Baked rosemary chicken drumsticks"
+  }, {
+    "category" : [ "m" ],
+    "link" : "6 chicken legs\n4 tbsp oil\n2 tbsp lemongrass\n2 minced cloves garlic\nminced shallots\n2 tsp tumeric powder\n1 tsp coriander powder\n1 tsp chili powder\n1 tsp salt\n2 tbsp brown sugar\n2 tbsp water\nBlend marinate ingredients in a food processor",
+    "title" : "Lemongrass chicken (mom's recipe)"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Drumsticks with chicken marinate"
+  }, {
+    "category" : [ "m" ],
+    "title" : "Stir-fried chicken and dou gan"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1782340445360237&id=1633535693574047",
+    "title" : "Cumin cream chicken penne "
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://www.facebook.com/CafeDelites/posts/1461099573913006",
+    "title" : "Beef Brocolli Ramen"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://www.facebook.com/CafeDelites/posts/1430637983625832",
+    "title" : "Chicken Noodle Soup"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "http://www.ntd.tv/2017/04/22/chicken-lo-mein/",
+    "title" : "Chicken Lo Mein"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1489988771024086&id=868050759884560",
+    "title" : "Caprese stuffed balsamic chicken "
+  }, {
+    "category" : [ "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1524896940866602&id=868050759884560",
+    "title" : "Parmasan roasted broccoli "
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1077693232363621&id=1016273921838886",
+    "title" : "Skillet baked chicken and vege"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://www.facebook.com/buzzfeedtasty/videos/1927766554142651/",
+    "title" : "Chili cheese dog boats"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.food.com/recipe/best-banana-bread-2886",
+    "title" : "Banana bread (use less sugar (try half next time)"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://lifemadesweeter.com/2014/02/pineapple-orange-teriyaki-salmon/",
+    "title" : "Pineapple orange teriyaki salmon bake"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://www.food.com/recipe/chicken-in-white-wine-sauce-60200?ref=amp",
+    "title" : "Chicken cooked in white wine sauce"
+  }, {
+    "category" : [ "d" ],
+    "link" : "https://www.facebook.com/SeonkyoungLongest/posts/1661536770540500",
+    "title" : "Avacado chocolate bread"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.kingarthurflour.com/recipes/scones-recipe#reviews",
+    "title" : "Scones"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://www.facebook.com/buzzfeedtasty/posts/1891305624455411",
+    "title" : "Honey garlic ribs"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "https://youtu.be/zA2ys8C-lNk",
+    "title" : "Boeuf bourguignon"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://www.yummy.ph/recipe/marinated-tofu-and-vegetable-stir-fry-recipe",
+    "title" : "Pan-Fried / Marinated tofu"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.wellplated.com/banana-oatmeal-muffins/",
+    "title" : "Banana oatmeal chocolate chip muffins"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.kraftrecipes.com/recipes/chocolate-molten-lava-cakes-69182.aspx",
+    "title" : "Lava cake"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1882441225341851&id=1614251518827491",
+    "title" : "Slow cooker honey garlic pork sliders"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://www.facebook.com/buzzfeedtasty/videos/1879762238943083/",
+    "title" : "Chicken pot pie bites"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.tasteofhome.com/recipes/strawberry-shortcake",
+    "title" : "Strawberry Shortcake"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://youtu.be/GpTL8pif-Tc",
+    "title" : "Korean street toast"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.cookingclassy.com/puff-pastry-fruit-tarts-ricotta-cream-filling/",
+    "title" : "Fruit tart"
+  }, {
+    "category" : [ "c" ],
+    "link" : "http://www.foodandwine.com/recipes/wild-mushroom-and-red-wine-risotto",
+    "title" : "Risotto"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://www.saveur.com/classic-chicken-marsala-recipe",
+    "title" : "Marsala chicken"
+  }, {
+    "category" : [ "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1880741415511832&id=1614251518827491",
+    "title" : "Gnocchi"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1879139292338711&id=1614251518827491",
+    "title" : "Cabernet braised short ribs"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://www.kitchenbowl.com/recipe/od7q31ahLp/five-ingredient-brownies",
+    "title" : "Brownies"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "http://allrecipes.com/recipe/14685/slow-cooker-beef-stew-i/",
+    "title" : "Slow cooker beef stew"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1870691893183451&id=1614251518827491",
+    "title" : "French dip sandwich"
+  }, {
+    "category" : [ "d" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=2143428132464724&id=1318800798260799",
+    "title" : "Japanese cheesecake"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1868992930020014&id=1614251518827491",
+    "title" : "Paprika chicken and rice bake"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1868418600077447&id=1614251518827491",
+    "title" : "Cob salad deviled eggs"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1868400903412550&id=1614251518827491",
+    "title" : "Chicken mushroom broccoli stir-fry"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1851835921735715&id=1614251518827491",
+    "title" : "Maple glazed salmon"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1346239965418086&id=100000962855426",
+    "title" : "Slow cooker butter chicken"
+  }, {
+    "category" : [ "d" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=10153573418301727&id=20534666726",
+    "title" : "Ice cream cake"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1812176055701702&id=1614251518827491",
+    "title" : "Fish tacos"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "http://www.justonecookbook.com/japchae/",
+    "title" : "Korean Japchae"
+  }, {
+    "category" : [ "m" ],
+    "link" : "http://cafedelites.com/2016/06/26/honey-garlic-butter-salmon-foil/",
+    "title" : "Honey Garlic butter salmon"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1793568050895836&id=1614251518827491",
+    "title" : "Tuna Rice burger"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1769365329982775&id=1614251518827491",
+    "title" : "Honey Mustard Chicken Tater Tot Nachos"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1990402484433957&id=1318800798260799",
+    "title" : "Bacon avocado salad"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1763650480554260&id=1614251518827491",
+    "title" : "Philly cheese steak bagel bites"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "http://damndelicious.net/2014/10/03/easy-lo-mein/",
+    "title" : "Easy lo mein"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "http://www.momontimeout.com/2014/05/20-minute-skillet-chicken-and-spinach-parmesan/",
+    "title" : "Parmesan spinach chicken"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1118102821565136&id=100000962855426",
+    "title" : "Deep fried blooming onion"
+  }, {
+    "category" : [ "v", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1752996084953033&id=1614251518827491",
+    "title" : "Brocolli Pesto pasta"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1750667631852545&id=1614251518827491",
+    "title" : "Sticky Garlic chicken bites"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1744499325802709&id=1614251518827491",
+    "title" : "BBQ pulled pork fries"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1739906896261952&id=1614251518827491",
+    "title" : "Steak with garlic butter"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1741216486130993&id=1614251518827491",
+    "title" : "Parm chicken tenders"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1959446700862869&id=1318800798260799",
+    "title" : "Honey BBQ chicken wings"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=10102472000019056&substory_index=12&id=11504894",
+    "title" : "Mini potato stuffed mushrooms"
+  }, {
+    "category" : [ "d" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1087746711267414&id=100000962855426",
+    "title" : "Milk bread"
+  }, {
+    "category" : [ "v", "c" ],
+    "link" : "https://youtu.be/kTVcpmqpXJ8",
+    "title" : "Udon miso soup"
+  }, {
+    "category" : [ "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=10105431421669256&id=2502350",
+    "title" : "Cucumber, tomato, avocado salad"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1727880490797926&id=1614251518827491",
+    "title" : "BBQ chicken nachos"
+  }, {
+    "category" : [ "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=10102427400476896&id=11521497",
+    "title" : "Baked sweet potato fries"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1923646671109539&id=1318800798260799",
+    "title" : "Sweet potato black bean hash"
+  }, {
+    "category" : [ "d" ],
+    "link" : "http://allrecipes.com/recipe/12696/grandmas-egg-custard-pie/",
+    "title" : "Custard pie"
+  }, {
+    "category" : [ "m", "v" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1727795390806436&id=1614251518827491",
+    "title" : "Sausage and veges"
+  }, {
+    "category" : [ "v", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1055637941144958&id=100000962855426",
+    "title" : "Lighter mushroom Alfredo with spinach"
+  }, {
+    "category" : [ "m", "c" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1710177655921886&id=1443873339218987",
+    "title" : "Tonkatsu onigiri"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "link" : "http://pinchofyum.com/garlic-basil-chicken-with-tomato-butter-sauce",
+    "title" : "Basil tomato chicken spaghetti"
+  }, {
+    "category" : [ "s" ],
+    "link" : "http://www.funnymalaysia.net/10-delicious-and-easy-rice-cooker-recipes-that-you-should-try/",
+    "title" : "Rice cooker recipes"
+  }, {
+    "category" : [ "s" ],
+    "link" : "https://m.facebook.com/story.php?story_fbid=1728676130718362&id=1614251518827491",
+    "title" : "Stuffed Steak Roll"
+  }, {
+    "category" : [ "m", "v", "c" ],
+    "notes" : "1. Buy very thin sliced beef, or chicken cut in strips\n2. Sauce - Rice wine, Mirin, soy sauce (proportions 1:1:1)\n3. Onions cut to spices, stir fry\n4. Add beef (or chicken) and sauce\n5. Add egg if desired",
+    "title" : "Beef or Chicken Don"
+  }, {
+    "category" : [ "m" ],
+    "notes" : "1. Buy ribs at qfc or Safeway, ask butcher to cut ribs in half (horizontally)\n2. Cut ribs so that each rib is about the length of pinky finger\n3. Put ribs in pot (not pan)\n4. Sauce- Rice wine, sugar, white vinegar, soy sauce, water (1:2:2:3:5)\n5. Put enough sauce in pot to cover ribs entirely\n6. Add Ginger or Garlic (ginger cut so you can take out easier if you don't like)\n7. Cook on high until boil, then simmer on low for half hr- 1hr.\n8. Check after half hr, mix the ribs around. Use chopsticks to check the meat, if you can poke through then it's done. Cook for longer if needed/desired (depending on how tender you want)",
+    "title" : "Ribs (糖醋排骨)"
+  }, {
+    "category" : [ "v", "c" ],
+    "notes" : "1. Sauce- soy sauce, seseme oil, black vinegar (2:1:1) if white vinegar, use less\n2. Boil noodles - quench in cold water after\n3. Cut into strips- cucumber, eggs, carrot, chicken breast (deli) etc",
+    "title" : "Cold noodles (涼麵)"
+  }, {
+    "category" : [ "m" ],
+    "notes" : "1. 5個雞腿剁小塊，紅蘿蔔白蘿蔔切塊(比雞腿小一點)\n2.油爆薑蒜，下雞煎一煎等雞皮變金黃色\n3. 加酒，醬油，水 (1,3,7). 水almost cover chicken\n4. 糖 1tsp\n5. turn on high until boil, then taste\n6. 中小火煮 10mins，筷子搓的過\n7. 下蘿蔔， 轉大火until boil\n8. 轉小火 5 mins, 筷子搓蘿蔔",
+    "title" : "紅燒雞 (+蘿蔔)"
+  }, {
+    "category" : [ "m" ],
+    "notes" : "1. buy 0.75lb salmon\n2. marinate in miso paste, mirin, sugar (3:2:1 tbsp) overnight\n3. bake 350 degrees for 20 mins",
+    "title" : "Miso Salmon"
+  }, {
+    "category" : [ "m" ],
+    "link" : "https://www.facebook.com/SeonkyoungLongest/videos/1798003060227203/",
+    "title" : "Sticky garlic chicken wings "
+  } ],
+  "mealPlans" : [ {
+    "-KtNYcxsU3lQdN6CEHfH" : {
+      "meals" : [ {
+        "dishIds" : {
+          "2" : true
+        },
+        "mealIndex" : 0
+      }, {
+        "dishIds" : {
+          "7" : true,
+          "95" : true
+        },
+        "mealIndex" : 1
+      }, {
+        "dishIds" : {
+          "9" : true,
+          "65" : true,
+          "96" : true
+        },
+        "mealIndex" : 2
+      } ],
+      "title" : "September 6, 2017 at 11:58:11 AM"
+    },
+    "-KtNYe_iGOPna3B8XT12" : {
+      "meals" : [ {
+        "dishIds" : {
+          "24" : true
+        },
+        "mealIndex" : 0
+      } ],
+      "title" : "September 6, 2017 at 11:58:18 AM"
+    },
+    "-KtNYha5c5rhEMgqgeqK" : {
+      "meals" : [ {
+        "dishIds" : {
+          "20" : true,
+          "65" : true,
+          "90" : true
+        },
+        "mealIndex" : 0
+      }, {
+        "dishIds" : {
+          "46" : true,
+          "65" : true
+        },
+        "mealIndex" : 1
+      } ],
+      "title" : "September 6, 2017 at 11:58:30 AM"
+    }
+  } ]
+}
