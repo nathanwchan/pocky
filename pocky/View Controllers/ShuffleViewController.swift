@@ -15,7 +15,6 @@ class ShuffleViewController: UIViewController {
     private let mealsStackView = UIStackView(frame: .zero)
     private var dishStackViews = [UIStackView]()
     var mealPlan: MealPlan?
-    var navFromFavorites = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +46,12 @@ class ShuffleViewController: UIViewController {
         
         stackView.addArrangedSubview(mealsStackView)
         
-        let buttonsStackView = DrawableStackView()
+        let buttonsStackView = UIStackView()
         buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.axis = .horizontal
         buttonsStackView.distribution = .fill
         buttonsStackView.alignment = .fill
         buttonsStackView.isLayoutMarginsRelativeArrangement = true
-        buttonsStackView.backgroundColor = .purple
         
         stackView.addArrangedSubview(buttonsStackView)
         
@@ -70,16 +68,21 @@ class ShuffleViewController: UIViewController {
         
         buttonsStackView.addArrangedSubview(addButton)
         
-        // Navigation button setup
+        addButton.titleLabel?.centerXAnchor.constraint(equalTo: buttonsStackView.centerXAnchor).isActive = true
+
+        let saveButton = UIButton(frame: .zero)
+        saveButton.backgroundColor = .white
+        let imageEdgeInset: CGFloat = view.traitCollection.isIphone ? 6 : 8
+        saveButton.imageEdgeInsets = .init(top: imageEdgeInset, left: imageEdgeInset, bottom: imageEdgeInset, right: imageEdgeInset)
+        saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
+        saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
+        saveButton.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .horizontal)
+        saveButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 40 : 50).isActive = true
+        saveButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 40 : 50).isActive = true
         
-        if !navFromFavorites {
-            let saveButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-            saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
-            saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
-            let negativeSpacerLeft = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-            negativeSpacerLeft.width = -7;
-            self.navigationItem.leftBarButtonItems = [negativeSpacerLeft, UIBarButtonItem(customView: saveButton)]
-        }
+        buttonsStackView.addArrangedSubview(saveButton)
+        
+        // Navigation button setup
         
         let startOverButton = UIBarButtonItem(title: "Start Over", style: .plain, target: self, action: #selector(self.startOverButtonClicked(sender:)))
         let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)

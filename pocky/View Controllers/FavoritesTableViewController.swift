@@ -74,7 +74,6 @@ class FavoritesTableViewController: UITableViewController {
             
             let mealPlan = viewModel.mealPlans[indexPath.row]
             shuffleViewController.mealPlan = mealPlan
-            shuffleViewController.navFromFavorites = true
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "unknown")")
         }
