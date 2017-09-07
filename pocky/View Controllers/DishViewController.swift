@@ -44,9 +44,23 @@ class DishViewController: UIViewController {
         
         initViewModel()
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         view.backgroundColor = UIColor(colorLiteralRed: (230/255), green: (230/255), blue: (230/255), alpha: 1)
         
         let spacing: CGFloat = view.traitCollection.isIphone ? 12 : 20
+
+        let scrollView = UIScrollView(frame: .zero)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.keyboardDismissMode = .onDrag
+        scrollView.alwaysBounceVertical = true
+        
+        view.addSubview(scrollView)
+        
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -57,13 +71,13 @@ class DishViewController: UIViewController {
         stackView.cornerRadius = view.traitCollection.isIphone ? 6 : 10
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: spacing, left: spacing, bottom: spacing, right: spacing)
-
         
-        view.addSubview(stackView)
+        scrollView.addSubview(stackView)
         
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: spacing).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -spacing).isActive = true
-        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: spacing).isActive = true
+        stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: spacing).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -spacing).isActive = true
         
         titleLabel.textColor = .black
         titleLabel.textAlignment = .left
