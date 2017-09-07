@@ -54,6 +54,7 @@ class DishViewController: UIViewController {
         stackView.alignment = .leading
         stackView.spacing = spacing
         stackView.backgroundColor = .white
+        stackView.cornerRadius = view.traitCollection.isIphone ? 6 : 10
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: spacing, left: spacing, bottom: spacing, right: spacing)
 

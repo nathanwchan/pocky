@@ -59,4 +59,13 @@ class DrawableStackView: UIStackView {
             backgroundView.layer.borderColor = newValue
         }
     }
+    
+    var cornerRadius: CGFloat {
+        get {
+            return backgroundView.layer.cornerRadius
+        }
+        set {
+            backgroundView.layer.cornerRadius = newValue
+        }
+    }
 }

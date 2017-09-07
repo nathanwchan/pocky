@@ -136,6 +136,7 @@ class ShuffleViewController: UIViewController {
         mealStackView.alignment = .fill
         mealStackView.isLayoutMarginsRelativeArrangement = true
         mealStackView.backgroundColor = .white
+        mealStackView.cornerRadius = view.traitCollection.isIphone ? 6 : 10
         
         let titleStackView = UIStackView(frame: .zero)
         
@@ -145,6 +146,7 @@ class ShuffleViewController: UIViewController {
         titleStackView.alignment = .fill
         titleStackView.isLayoutMarginsRelativeArrangement = true
         titleStackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        titleStackView.layoutMargins = .init(top: 0, left: 7, bottom: 0, right: 0)
         
         let titleLabel = UILabel(frame: .zero)
         titleLabel.text = "Meal \(meal.mealIndex + 1)"
@@ -159,7 +161,8 @@ class ShuffleViewController: UIViewController {
         shuffleMealButton.addTarget(self, action: #selector(self.shuffleMealButtonClicked(sender:)), for: .touchUpInside)
         shuffleMealButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
         shuffleMealButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(1.5, 6, 1.5, 6) : UIEdgeInsetsMake(2.5, 10, 2.5, 10)
-        shuffleMealButton.backgroundColor = .yellow
+        shuffleMealButton.backgroundColor = .lightGray
+        shuffleMealButton.layer.cornerRadius = 4
         shuffleMealButton.tag = index
         shuffleMealButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 21 : 35).isActive = true
         shuffleMealButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 30 : 50).isActive = true
@@ -189,7 +192,7 @@ class ShuffleViewController: UIViewController {
             dishStackView.addArrangedSubview(topSpacer)
             
             let dishLabel = UILabel(frame: .zero)
-            dishLabel.text = "\(dish.title)" // \n\(dish.category.map { $0.rawValue.characters.first! })"
+            dishLabel.text = "\(dish.title)"
             dishLabel.numberOfLines = 1
             dishLabel.textColor = .black
             dishLabel.textAlignment = .center
@@ -211,7 +214,8 @@ class ShuffleViewController: UIViewController {
             shuffleButton.addTarget(self, action: #selector(self.shuffleDishButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
             shuffleButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(1.5, 6, 1.5, 6) : UIEdgeInsetsMake(2.5, 10, 2.5, 10)
-            shuffleButton.backgroundColor = .yellow
+            shuffleButton.backgroundColor = .lightGray
+            shuffleButton.layer.cornerRadius = view.traitCollection.isIphone ? 2 : 3
             shuffleButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 15 : 25).isActive = true
             shuffleButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 24 : 40).isActive = true
             
@@ -221,7 +225,8 @@ class ShuffleViewController: UIViewController {
             infoButton.addTarget(self, action: #selector(self.infoButtonClicked(sender:)), for: .touchUpInside)
             infoButton.setImage(UIImage(named: "info.png"), for: .normal)
             infoButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(3, 7.5, 3, 7.5) : UIEdgeInsetsMake(5, 12.5, 5, 12.5)
-            infoButton.backgroundColor = .yellow
+            infoButton.backgroundColor = .lightGray
+            infoButton.layer.cornerRadius = view.traitCollection.isIphone ? 2 : 3
             infoButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 15 : 25).isActive = true
             infoButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 24 : 40).isActive = true
             
