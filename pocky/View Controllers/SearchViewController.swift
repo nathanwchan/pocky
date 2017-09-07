@@ -11,6 +11,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     fileprivate var dishesViewModel: DishesViewModel!
     fileprivate var dishesToShow: [Dish] = [] {
@@ -32,6 +33,8 @@ class SearchViewController: UIViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 50
         
+        self.cancelButton.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: view.traitCollection.isIphone ? 11 : 8)
+        
         self.searchBar.delegate = self
         
         dishesViewModel = DishesViewModel(networkProvider: NetworkProvider())
@@ -52,6 +55,10 @@ class SearchViewController: UIViewController {
         if let dishes = dishesViewModel.allDishes {
             dishesToShow = dishes
         }
+    }
+    
+    @IBAction func cancelButtonClicked(_ sender: UIButton) {
+        view.endEditing(true)
     }
     
     func addNewDishButtonClicked(sender: UIBarButtonItem) {
@@ -112,6 +119,20 @@ extension SearchViewController: UISearchBarDelegate {
             scrollToFirstRow()
         } else if let allDishes = dishesViewModel.allDishes {
             dishesToShow = allDishes.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3) {
+                self.cancelButton.isHidden = false
+            }
+        }
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        DispatchQueue.main.async {
+            self.cancelButton.isHidden = true
         }
     }
     
