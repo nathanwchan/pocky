@@ -46,44 +46,47 @@ class DishViewController: UIViewController {
         
         view.backgroundColor = UIColor(colorLiteralRed: (230/255), green: (230/255), blue: (230/255), alpha: 1)
         
+        let spacing: CGFloat = view.traitCollection.isIphone ? 12 : 20
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.spacing = 20
+        stackView.spacing = spacing
         stackView.backgroundColor = .white
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
+        stackView.layoutMargins = .init(top: spacing, left: spacing, bottom: spacing, right: spacing)
+
         
         view.addSubview(stackView)
         
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 20).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: spacing).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -spacing).isActive = true
+        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: spacing).isActive = true
         
         titleLabel.textColor = .black
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont(name: "HelveticaNeue", size: 30)
+        titleLabel.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 22 : 30)
         titleLabel.numberOfLines = 0
         
         categoryLabel.textColor = .black
         categoryLabel.textAlignment = .left
-        categoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+        categoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: view.traitCollection.isIphone ? 12 : 15)
         
         linkLabel.textColor = .blue
         linkLabel.textAlignment = .left
-        linkLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        linkLabel.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
         linkLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapLink)))
         linkLabel.isUserInteractionEnabled = true
         
         notesLabel.textColor = .black
         notesLabel.textAlignment = .left
-        notesLabel.font = UIFont(name: "HelveticaNeue", size: 20)
+        notesLabel.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
         notesLabel.numberOfLines = 0
         
         titleTextField.textColor = .black
         titleTextField.textAlignment = .left
-        titleTextField.font = UIFont(name: "HelveticaNeue", size: 30)
+        titleTextField.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 22 : 30)
         titleTextField.borderStyle = .line
         
         categoriesStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +112,7 @@ class DishViewController: UIViewController {
             categoryLabel.text = String(describing: category).uppercased()
             categoryLabel.textColor = .black
             categoryLabel.textAlignment = .left
-            categoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
+            categoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: view.traitCollection.isIphone ? 12 : 15)
             
             categoryStackView.addArrangedSubview(categoryLabel)
             categoriesStackView.addArrangedSubview(categoryStackView)
@@ -125,14 +128,14 @@ class DishViewController: UIViewController {
         linkStaticLabel.text = "LINK"
         linkStaticLabel.textColor = .black
         linkStaticLabel.textAlignment = .left
-        linkStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
-        linkStaticLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        linkStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: view.traitCollection.isIphone ? 12 : 15)
+        linkStaticLabel.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 50 : 60).isActive = true
         
         linkStackView.addArrangedSubview(linkStaticLabel)
         
         linkTextField.textColor = .black
         linkTextField.textAlignment = .left
-        linkTextField.font = UIFont(name: "HelveticaNeue", size: 20)
+        linkTextField.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
         linkTextField.borderStyle = .line
         linkTextField.autocapitalizationType = .none
         linkTextField.clearButtonMode = .always
@@ -150,14 +153,14 @@ class DishViewController: UIViewController {
         notesStaticLabel.text = "NOTES"
         notesStaticLabel.textColor = .black
         notesStaticLabel.textAlignment = .left
-        notesStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 15)
-        notesStaticLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        notesStaticLabel.font = UIFont(name: "HelveticaNeue-Bold", size: view.traitCollection.isIphone ? 12 : 15)
+        notesStaticLabel.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 50 : 60).isActive = true
         
         notesStackView.addArrangedSubview(notesStaticLabel)
         
         notesTextView.textColor = .black
         notesTextView.textAlignment = .left
-        notesTextView.font = UIFont(name: "HelveticaNeue", size: 20)
+        notesTextView.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
         notesTextView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
         notesTextView.translatesAutoresizingMaskIntoConstraints = true
         notesTextView.sizeToFit()
@@ -171,13 +174,13 @@ class DishViewController: UIViewController {
         saveButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = .blue
-        saveButton.contentEdgeInsets = UIEdgeInsetsMake(10, 20, 10, 20)
+        saveButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(6, 12, 6, 12) : UIEdgeInsetsMake(10, 20, 10, 20)
         saveButton.layer.cornerRadius = 4
         
         createButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         createButton.setTitle("Create", for: .normal)
         createButton.backgroundColor = .blue
-        createButton.contentEdgeInsets = UIEdgeInsetsMake(10, 20, 10, 20)
+        createButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(6, 12, 6, 12) : UIEdgeInsetsMake(10, 20, 10, 20)
         createButton.layer.cornerRadius = 4
         
         if let dishId = dishId {

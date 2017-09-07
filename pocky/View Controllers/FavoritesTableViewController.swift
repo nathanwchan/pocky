@@ -14,6 +14,10 @@ class FavoritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // dynamic cell height based on inner content
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
 
         viewModel = MealPlansViewModel(networkProvider: NetworkProvider())
         viewModel.didGetSavedMealPlans = { [weak self] _ in

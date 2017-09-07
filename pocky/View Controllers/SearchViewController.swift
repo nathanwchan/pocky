@@ -27,7 +27,11 @@ class SearchViewController: UIViewController {
         
         // remove separator lines between empty rows
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-
+        
+        // dynamic cell height based on inner content
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 50
+        
         self.searchBar.delegate = self
         
         dishesViewModel = DishesViewModel(networkProvider: NetworkProvider())
