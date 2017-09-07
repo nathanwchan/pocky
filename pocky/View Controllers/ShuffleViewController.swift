@@ -13,6 +13,7 @@ class ShuffleViewController: UIViewController {
     private var viewModel: MealsViewModel?
     private let stackView = UIStackView(frame: .zero)
     private let mealsStackView = UIStackView(frame: .zero)
+    private var dishStackViews = [UIStackView]()
     var mealPlan: MealPlan?
     var navFromFavorites = false
     
@@ -106,6 +107,22 @@ class ShuffleViewController: UIViewController {
         }
     }
     
+    private func setupDishStackView(_ dishStackView: UIStackView) {
+        dishStackView.translatesAutoresizingMaskIntoConstraints = false
+        dishStackView.isLayoutMarginsRelativeArrangement = true
+        if UIDevice.current.orientation.isPortrait {
+            dishStackView.axis = .vertical
+            dishStackView.distribution = .fill
+            dishStackView.alignment = .center
+            dishStackView.spacing = 5
+        } else if UIDevice.current.orientation.isLandscape {
+            dishStackView.axis = .horizontal
+            dishStackView.distribution = .fill
+            dishStackView.alignment = .center
+            dishStackView.spacing = 10
+        }
+    }
+    
     private func updateMealStackView(at index: Int, forceNoAnimate: Bool = false) {
         guard let meal = viewModel?.meals[index] else {
             return
@@ -156,7 +173,7 @@ class ShuffleViewController: UIViewController {
         dishesStackView.translatesAutoresizingMaskIntoConstraints = false
         dishesStackView.axis = .vertical
         dishesStackView.distribution = .fillEqually
-        dishesStackView.alignment = .fill
+        dishesStackView.alignment = .center
         dishesStackView.isLayoutMarginsRelativeArrangement = true
         dishesStackView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
         
@@ -164,12 +181,8 @@ class ShuffleViewController: UIViewController {
         
         for dish in meal.sortedDishes {
             let dishStackView = UIStackView(frame: .zero)
-            dishStackView.translatesAutoresizingMaskIntoConstraints = false
-            dishStackView.axis = .vertical
-            dishStackView.distribution = .fill
-            dishStackView.alignment = .center
-            dishStackView.isLayoutMarginsRelativeArrangement = true
-            dishStackView.spacing = 5
+            setupDishStackView(dishStackView)
+            dishStackViews.append(dishStackView)
             
             let topSpacer = UIView(frame: .zero)
             topSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
@@ -289,6 +302,7 @@ class ShuffleViewController: UIViewController {
     
     func startOverButtonClicked(sender: Any?) {
         viewModel?.clearAllMeals()
+        dishStackViews = []
     }
     
     func shuffleDishButtonClicked(sender: DishUIButton) {
@@ -322,6 +336,12 @@ class ShuffleViewController: UIViewController {
     func infoButtonClicked(sender: DishUIButton) {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowDishSegue", sender: sender)
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        for dishStackView in dishStackViews {
+            setupDishStackView(dishStackView)
         }
     }
     
