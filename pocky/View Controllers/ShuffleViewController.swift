@@ -146,7 +146,7 @@ class ShuffleViewController: UIViewController {
         titleStackView.alignment = .fill
         titleStackView.isLayoutMarginsRelativeArrangement = true
         titleStackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
-        titleStackView.layoutMargins = .init(top: 0, left: 7, bottom: 0, right: 0)
+        titleStackView.layoutMargins = .init(top: 0, left: view.traitCollection.isIphone ? 5 : 7, bottom: 0, right: 0)
         
         let titleLabel = UILabel(frame: .zero)
         titleLabel.text = "Meal \(meal.mealIndex + 1)"
