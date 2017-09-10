@@ -18,12 +18,12 @@ class MealPlansViewModel {
     }
     
     //MARK: - Events
-    var didGetSavedMealPlans: ((MealPlansViewModel) -> Void)?
+    var didGetSavedMealPlans: (() -> Void)?
     
     //MARK: - Private
     private func didGetSavedMealPlans(mealPlans: [MealPlan]?) {
         self.mealPlans = mealPlans ?? []
-        self.didGetSavedMealPlans?(self)
+        self.didGetSavedMealPlans?()
     }
     
     //MARK: - Actions

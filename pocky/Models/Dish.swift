@@ -44,6 +44,9 @@ struct Dish: Equatable {
     }
     
     static func == (lhs: Dish, rhs: Dish) -> Bool {
+        if let lhsDishId = lhs.id, let rhsDishId = rhs.id {
+            return lhsDishId == rhsDishId
+        }
         return lhs.title == rhs.title
     }
     

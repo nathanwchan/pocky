@@ -20,7 +20,7 @@ class FavoritesTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 50
 
         viewModel = MealPlansViewModel(networkProvider: NetworkProvider())
-        viewModel.didGetSavedMealPlans = { [weak self] _ in
+        viewModel.didGetSavedMealPlans = { [weak self] in
             self?.didGetSavedMealPlans()
         }
         

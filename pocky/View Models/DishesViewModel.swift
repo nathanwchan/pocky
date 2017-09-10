@@ -17,11 +17,11 @@ class DishesViewModel {
     }
     
     //MARK: - Events
-    var didGetAllDishes: ((DishesViewModel) -> Void)?
+    var didGetAllDishes: (() -> Void)?
     
     //MARK: - Private
     private func didGetAllDishes(dishes: [Dish]?) {
         self.allDishes = dishes
-        self.didGetAllDishes?(self)
+        self.didGetAllDishes?()
     }
 }

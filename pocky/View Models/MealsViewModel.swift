@@ -20,19 +20,17 @@ class MealsViewModel {
     init(networkProvider: Network) {
         self.networkProvider = networkProvider
         dishesViewModel = DishesViewModel(networkProvider: networkProvider)
-        dishesViewModel?.didGetAllDishes = { [weak self] _ in
-            if let strongSelf = self {
-                strongSelf.didInitViewModel?(strongSelf)
-            }
+        dishesViewModel?.didGetAllDishes = { [weak self] in
+            self?.didInitViewModel?()
         }
     }
     
     //MARK: - Events
-    var didInitViewModel: ((MealsViewModel) -> Void)?
-    var didAddNewMeal: ((MealsViewModel) -> Void)?
-    var didClearAllMeals: ((MealsViewModel) -> Void)?
-    var didShuffleDishes: ((MealsViewModel, Int) -> Void)?
-    var didLoadMealPlan: ((MealsViewModel) -> Void)?
+    var didInitViewModel: (() -> Void)?
+    var didAddNewMeal: (() -> Void)?
+    var didClearAllMeals: (() -> Void)?
+    var didShuffleDishes: ((Int) -> Void)?
+    var didLoadMealPlan: (() -> Void)?
     
     //MARK: - Private
     func getDishCombos(with categories: [Category], dishCombos: [Dish] = []) -> [Dish] {
@@ -59,12 +57,12 @@ class MealsViewModel {
     func addNewMeal() {
         meals.append(Meal(mealIndex: self.mealCount,
                           dishes: getDishCombos(with: Category.allValuesUsedForPlanning)))
-        self.didAddNewMeal?(self)
+        self.didAddNewMeal?()
     }
     
     func clearAllMeals() {
         meals = []
-        self.didClearAllMeals?(self)
+        self.didClearAllMeals?()
     }
     
     func shuffleDishes(mealIndex: Int, categories: [Category]) {
@@ -77,7 +75,7 @@ class MealsViewModel {
         let dishesToKeep = meals[mealIndex].dishes.filter { Set($0.category).intersection(Set(categories)).isEmpty }
         meals[mealIndex].dishes = dishesToKeep + newDishes
         
-        self.didShuffleDishes?(self, mealIndex)
+        self.didShuffleDishes?(mealIndex)
     }
     
     func saveMealPlan(title: String) {
@@ -87,6 +85,6 @@ class MealsViewModel {
     
     func loadMealPlan(_ mealPlan: MealPlan) {
         meals = mealPlan.meals
-        self.didLoadMealPlan?(self)
+        self.didLoadMealPlan?()
     }
 }

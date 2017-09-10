@@ -208,18 +208,16 @@ class DishViewController: UIViewController {
     private func initViewModel() {
         viewModel = DishViewModel(networkProvider: NetworkProvider())
         
-        viewModel?.didGetDish = { [weak self] _ in
+        viewModel?.didGetDish = { [weak self] in
             self?.updateView()
         }
-        viewModel?.didCreateDish = { [weak self] (_, dishId: String) in
+        viewModel?.didCreateDish = { [weak self] dishId in
             self?.dishId = dishId
             self?.viewModel?.getDish(id: dishId)
         }
     }
     
     func updateView() {
-        navigationItem.title = viewModel?.dish?.title ?? "Create a new dish"
-        
         let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         negativeSpacerRight.width = -6;
         
@@ -230,6 +228,8 @@ class DishViewController: UIViewController {
         
         switch viewState {
         case .creating:
+            navigationItem.title = "Create a new dish"
+            
             titleTextField.becomeFirstResponder()
             stackView.addArrangedSubview(titleTextField)
             titleTextField.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
@@ -253,6 +253,7 @@ class DishViewController: UIViewController {
             
             let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.editButtonClicked(sender:)))
         
+            navigationItem.title = dish.title
             navigationItem.rightBarButtonItems = [negativeSpacerRight, editButton]
             
             titleLabel.text = dish.title
@@ -279,6 +280,7 @@ class DishViewController: UIViewController {
             
             let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonClicked(sender:)))
             
+            navigationItem.title = dish.title
             navigationItem.rightBarButtonItems = [negativeSpacerRight, cancelButton]
             
             titleTextField.text = dish.title

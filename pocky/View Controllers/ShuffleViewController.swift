@@ -93,19 +93,19 @@ class ShuffleViewController: UIViewController {
     private func initViewModel() {
         viewModel = MealsViewModel(networkProvider: NetworkProvider())
         
-        viewModel?.didInitViewModel = { [weak self] _ in
+        viewModel?.didInitViewModel = { [weak self] in
             self?.viewModelDidInit()
         }
-        viewModel?.didAddNewMeal = { [weak self] _ in
+        viewModel?.didAddNewMeal = { [weak self] in
             self?.viewModelDidAddNewMeal()
         }
-        viewModel?.didClearAllMeals = { [weak self] _ in
+        viewModel?.didClearAllMeals = { [weak self] in
             self?.viewModelDidClearAllMeals()
         }
-        viewModel?.didShuffleDishes = { [weak self] (_, mealIndex: Int) in
+        viewModel?.didShuffleDishes = { [weak self] mealIndex in
             self?.viewModelDidShuffleMeal(mealIndex: mealIndex)
         }
-        viewModel?.didLoadMealPlan = { [weak self] _ in
+        viewModel?.didLoadMealPlan = { [weak self] in
             self?.viewModelDidLoadMealPlan()
         }
     }
@@ -195,7 +195,7 @@ class ShuffleViewController: UIViewController {
             dishStackView.addArrangedSubview(topSpacer)
             
             let dishLabel = UILabel(frame: .zero)
-            dishLabel.text = "\(dish.title)"
+            dishLabel.text = dish.title
             dishLabel.numberOfLines = 1
             dishLabel.textColor = .black
             dishLabel.textAlignment = .center
@@ -322,16 +322,11 @@ class ShuffleViewController: UIViewController {
     }
     
     func saveButtonClicked(sender: UIButton) {
-        // TODO: prompt to ask for title of meal
-        
-        // get the current date and time
         let currentDateTime = Date()
-        // initialize the date formatter and set the style
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
         formatter.dateStyle = .long
-        // get the date time String from the date object
-        let title = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+        let title = formatter.string(from: currentDateTime) // Example format: October 8, 2016 at 10:48:53 PM
         
         viewModel?.saveMealPlan(title: title)
         

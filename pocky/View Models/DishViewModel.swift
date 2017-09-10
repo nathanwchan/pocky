@@ -18,17 +18,17 @@ class DishViewModel {
     }
     
     //MARK: - Events
-    var didGetDish: ((DishViewModel) -> Void)?
-    var didCreateDish: ((DishViewModel, String) -> Void)?
+    var didGetDish: (() -> Void)?
+    var didCreateDish: ((String) -> Void)?
     
     //MARK: - Private
     private func didGetDish(dish: Dish?) {
         self.dish = dish
-        self.didGetDish?(self)
+        self.didGetDish?()
     }
     
     private func didCreateDish(dishId: String) {
-        self.didCreateDish?(self, dishId)
+        self.didCreateDish?(dishId)
     }
     
     //MARK: - Actions

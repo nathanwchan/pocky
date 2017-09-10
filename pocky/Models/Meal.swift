@@ -10,9 +10,6 @@ import Foundation
 
 struct Meal {
     var mealIndex: Int
-    var title: String {
-        return "Meal \(mealIndex + 1)"
-    }
     var dishes: [Dish]
     var sortedDishes: [Dish] {
         // super custom code to make sure Meat dishes are always first, then Veggie, then Carb

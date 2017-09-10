@@ -109,7 +109,7 @@ class NetworkProvider: Network {
     
     func createDish(dish: Dish, completion: @escaping ((String) -> Void)) {
         ref.child("dishes").child(Constants.globalUserID).childByAutoId().setValue(dish.encodeForFirebase()) { (error, retRef) in
-                completion(retRef.key)
+            completion(retRef.key)
         }
     }
 }
