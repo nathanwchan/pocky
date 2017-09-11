@@ -13,7 +13,7 @@ class MealPlansViewModel {
     private(set) var mealPlans = [MealPlan]()
     let networkProvider: Network!
     
-    init(networkProvider: Network) {
+    init(networkProvider: Network = NetworkProvider()) {
         self.networkProvider = networkProvider
     }
     

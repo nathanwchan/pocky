@@ -91,7 +91,7 @@ class ShuffleViewController: UIViewController {
     }
     
     private func initViewModel() {
-        viewModel = MealsViewModel(networkProvider: NetworkProvider())
+        viewModel = MealsViewModel()
         
         viewModel?.didInitViewModel = { [weak self] in
             self?.viewModelDidInit()

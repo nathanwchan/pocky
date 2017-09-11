@@ -13,7 +13,7 @@ class DishViewModel {
     private(set) var dish: Dish?
     let networkProvider: Network!
     
-    init(networkProvider: Network) {
+    init(networkProvider: Network = NetworkProvider()) {
         self.networkProvider = networkProvider
     }
     

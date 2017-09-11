@@ -12,7 +12,7 @@ class DishesViewModel {
     //MARK: - Properties
     private(set) var allDishes: [Dish]?
     
-    init(networkProvider: Network) {
+    init(networkProvider: Network = NetworkProvider()) {
         networkProvider.getAllDishes(completion: self.didGetAllDishes)
     }
     

@@ -17,7 +17,7 @@ class MealsViewModel {
     let networkProvider: Network!
     private var dishesViewModel: DishesViewModel!
     
-    init(networkProvider: Network) {
+    init(networkProvider: Network = NetworkProvider()) {
         self.networkProvider = networkProvider
         dishesViewModel = DishesViewModel(networkProvider: networkProvider)
         dishesViewModel?.didGetAllDishes = { [weak self] in

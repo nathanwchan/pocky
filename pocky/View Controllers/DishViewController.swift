@@ -206,7 +206,7 @@ class DishViewController: UIViewController {
     }
     
     private func initViewModel() {
-        viewModel = DishViewModel(networkProvider: NetworkProvider())
+        viewModel = DishViewModel()
         
         viewModel?.didGetDish = { [weak self] in
             self?.updateView()

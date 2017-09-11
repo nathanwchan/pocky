@@ -37,7 +37,7 @@ class SearchViewController: UIViewController {
         
         self.searchBar.delegate = self
         
-        dishesViewModel = DishesViewModel(networkProvider: NetworkProvider())
+        dishesViewModel = DishesViewModel()
         dishesViewModel?.didGetAllDishes = { [weak self] in
             self?.showAllDishes()
         }
