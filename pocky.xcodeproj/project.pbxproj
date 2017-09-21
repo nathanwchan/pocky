@@ -94,7 +94,7 @@
 		C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+initWithElements.swift"; path = "Utils/Dictionary+initWithElements.swift"; sourceTree = "<group>"; };
 		C16460791F607D1400B79B82 /* pockyTestsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pockyTestsData.json; sourceTree = "<group>"; };
 		C164607B1F60CC3C00B79B82 /* UITraitCollection+isIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITraitCollection+isIphone.swift"; path = "Utils/UITraitCollection+isIphone.swift"; sourceTree = "<group>"; };
-		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; };
+		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C1F4516D1F61012C0033DAEF /* spatula-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-120.png"; path = "Icons/spatula-120.png"; sourceTree = "<group>"; };
 		C1F4516E1F61012C0033DAEF /* spatula-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-180.png"; path = "Icons/spatula-180.png"; sourceTree = "<group>"; };
 		C1F451711F61017E0033DAEF /* spatula-167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-167.png"; path = "Icons/spatula-167.png"; sourceTree = "<group>"; };
