@@ -18,7 +18,7 @@ class NetworkProvider: Network {
                 let dishSnap = snap as! DataSnapshot
                 return Dish(id: dishSnap.key, data: dishSnap.value)
             }
-            completion(dishes)
+            completion(dishes.reversed()) // reverse order so most recently added first
         }) { (error) in
             print(error.localizedDescription)
         }
