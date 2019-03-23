@@ -12,7 +12,6 @@
 		C101F5411F58767A00028E10 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5401F58767A00028E10 /* SearchViewController.swift */; };
 		C101F5431F5877AE00028E10 /* DishesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5421F5877AE00028E10 /* DishesViewModel.swift */; };
 		C101F5451F587FC700028E10 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101F5441F587FC700028E10 /* DishTableViewCell.swift */; };
-		C101F5471F58A60300028E10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C101F5461F58A60300028E10 /* GoogleService-Info.plist */; };
 		C101F54C1F58A61300028E10 /* spatula-76.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F5491F58A61300028E10 /* spatula-76.png */; };
 		C101F54D1F58A61300028E10 /* spatula-152.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F54A1F58A61300028E10 /* spatula-152.png */; };
 		C101F54F1F58A71900028E10 /* planner.png in Resources */ = {isa = PBXBuildFile; fileRef = C101F54E1F58A71900028E10 /* planner.png */; };
@@ -26,6 +25,7 @@
 		C16460781F5F726600B79B82 /* Dictionary+initWithElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */; };
 		C164607A1F607D1400B79B82 /* pockyTestsData.json in Resources */ = {isa = PBXBuildFile; fileRef = C16460791F607D1400B79B82 /* pockyTestsData.json */; };
 		C164607C1F60CC3C00B79B82 /* UITraitCollection+isIphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C164607B1F60CC3C00B79B82 /* UITraitCollection+isIphone.swift */; };
+		C1CE90F5216FEB6000A90D30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1CE90F4216FEB6000A90D30 /* GoogleService-Info.plist */; };
 		C1F4516F1F61012C0033DAEF /* spatula-120.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F4516D1F61012C0033DAEF /* spatula-120.png */; };
 		C1F451701F61012C0033DAEF /* spatula-180.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F4516E1F61012C0033DAEF /* spatula-180.png */; };
 		C1F451721F61017E0033DAEF /* spatula-167.png in Resources */ = {isa = PBXBuildFile; fileRef = C1F451711F61017E0033DAEF /* spatula-167.png */; };
@@ -80,7 +80,6 @@
 		C101F5401F58767A00028E10 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "View Controllers/SearchViewController.swift"; sourceTree = "<group>"; };
 		C101F5421F5877AE00028E10 /* DishesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishesViewModel.swift; path = "View Models/DishesViewModel.swift"; sourceTree = "<group>"; };
 		C101F5441F587FC700028E10 /* DishTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DishTableViewCell.swift; path = "View Controllers/DishTableViewCell.swift"; sourceTree = "<group>"; };
-		C101F5461F58A60300028E10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C101F5491F58A61300028E10 /* spatula-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-76.png"; path = "Icons/spatula-76.png"; sourceTree = "<group>"; };
 		C101F54A1F58A61300028E10 /* spatula-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-152.png"; path = "Icons/spatula-152.png"; sourceTree = "<group>"; };
 		C101F54E1F58A71900028E10 /* planner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planner.png; path = Icons/planner.png; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		C16460771F5F726600B79B82 /* Dictionary+initWithElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+initWithElements.swift"; path = "Utils/Dictionary+initWithElements.swift"; sourceTree = "<group>"; };
 		C16460791F607D1400B79B82 /* pockyTestsData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pockyTestsData.json; sourceTree = "<group>"; };
 		C164607B1F60CC3C00B79B82 /* UITraitCollection+isIphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITraitCollection+isIphone.swift"; path = "Utils/UITraitCollection+isIphone.swift"; sourceTree = "<group>"; };
+		C1CE90F4216FEB6000A90D30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C1F362341F56885C00E32DF8 /* pocky.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pocky.playground; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C1F4516D1F61012C0033DAEF /* spatula-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-120.png"; path = "Icons/spatula-120.png"; sourceTree = "<group>"; };
 		C1F4516E1F61012C0033DAEF /* spatula-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "spatula-180.png"; path = "Icons/spatula-180.png"; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				D874909B1F48F873007E659F /* Assets.xcassets */,
 				D874909D1F48F873007E659F /* LaunchScreen.storyboard */,
 				D87490A01F48F873007E659F /* Info.plist */,
-				C101F5461F58A60300028E10 /* GoogleService-Info.plist */,
+				C1CE90F4216FEB6000A90D30 /* GoogleService-Info.plist */,
 				C1F362341F56885C00E32DF8 /* pocky.playground */,
 			);
 			path = pocky;
@@ -326,7 +326,6 @@
 				D874908E1F48F873007E659F /* Frameworks */,
 				D874908F1F48F873007E659F /* Resources */,
 				3E9797C3C9BC49FBCDB8F90A /* [CP] Embed Pods Frameworks */,
-				E015B978A18F7C18DB83A693 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,7 +345,6 @@
 				D87490A21F48F873007E659F /* Frameworks */,
 				D87490A31F48F873007E659F /* Resources */,
 				6E5449BF8ECF08D0D3EE41F8 /* [CP] Embed Pods Frameworks */,
-				92B6AEAD464332CF265ABD9B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,8 +364,6 @@
 				D87490AC1F48F873007E659F /* Sources */,
 				D87490AD1F48F873007E659F /* Frameworks */,
 				D87490AE1F48F873007E659F /* Resources */,
-				5CE9564A5ED92CE94C892C7C /* [CP] Embed Pods Frameworks */,
-				A3AE21C2E9A9391A1C7AF33E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -437,7 +433,6 @@
 				D874909F1F48F873007E659F /* LaunchScreen.storyboard in Resources */,
 				C1F451721F61017E0033DAEF /* spatula-167.png in Resources */,
 				C101F54F1F58A71900028E10 /* planner.png in Resources */,
-				C101F5471F58A60300028E10 /* GoogleService-Info.plist in Resources */,
 				D874909C1F48F873007E659F /* Assets.xcassets in Resources */,
 				C1F4516F1F61012C0033DAEF /* spatula-120.png in Resources */,
 				C1F451701F61012C0033DAEF /* spatula-180.png in Resources */,
@@ -446,6 +441,7 @@
 				D874909A1F48F873007E659F /* Main.storyboard in Resources */,
 				D838E5B41F54BEAB00E3DC17 /* info.png in Resources */,
 				C101F54C1F58A61300028E10 /* spatula-76.png in Resources */,
+				C1CE90F5216FEB6000A90D30 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,21 +483,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pocky/Pods-pocky-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5CE9564A5ED92CE94C892C7C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pockyUITests/Pods-pockyUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6E5449BF8ECF08D0D3EE41F8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -540,36 +521,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92B6AEAD464332CF265ABD9B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pockyTests/Pods-pockyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3AE21C2E9A9391A1C7AF33E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pockyUITests/Pods-pockyUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C483A4C1E2CFD62F45BDEAED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -586,21 +537,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E015B978A18F7C18DB83A693 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pocky/Pods-pocky-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F55748027F89D9D62326D061 /* [CP] Check Pods Manifest.lock */ = {
@@ -809,7 +745,7 @@
 				DEVELOPMENT_TEAM = 3S86DJ63TR;
 				INFOPLIST_FILE = pocky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanchan.pocky;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanchan.pocky2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -823,7 +759,7 @@
 				DEVELOPMENT_TEAM = 3S86DJ63TR;
 				INFOPLIST_FILE = pocky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathanchan.pocky;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nathanchan.pocky2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
