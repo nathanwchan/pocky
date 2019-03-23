@@ -30,7 +30,7 @@ class SearchViewController: UIViewController {
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         // dynamic cell height based on inner content
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 50
         
         self.cancelButton.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: view.traitCollection.isIphone ? 11 : 8)
@@ -61,7 +61,7 @@ class SearchViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func addNewDishButtonClicked(sender: UIBarButtonItem) {
+    @objc func addNewDishButtonClicked(sender: UIBarButtonItem) {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowAddNewDishSegue", sender: sender)
         }

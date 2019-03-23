@@ -21,7 +21,7 @@ class ShuffleViewController: UIViewController {
         
         self.initViewModel()
         
-        view.backgroundColor = UIColor(colorLiteralRed: (230/255), green: (230/255), blue: (230/255), alpha: 1)
+        view.backgroundColor = UIColor(red: 230, green: 230, blue: 230, alpha: 1)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -64,7 +64,7 @@ class ShuffleViewController: UIViewController {
         addButton.setTitleColor(.black, for: .normal)
         addButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 18 : 25)
         addButton.addTarget(self, action: #selector(self.addButtonClicked(sender:)), for: .touchUpInside)
-        addButton.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        addButton.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         
         buttonsStackView.addArrangedSubview(addButton)
         
@@ -76,7 +76,7 @@ class ShuffleViewController: UIViewController {
         saveButton.imageEdgeInsets = .init(top: imageEdgeInset, left: imageEdgeInset, bottom: imageEdgeInset, right: imageEdgeInset)
         saveButton.setImage(UIImage(named: "addToFavorite.png"), for: .normal)
         saveButton.addTarget(self, action: #selector(self.saveButtonClicked(sender:)), for: .touchUpInside)
-        saveButton.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .horizontal)
+        saveButton.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         saveButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 40 : 50).isActive = true
         saveButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 40 : 50).isActive = true
         
@@ -146,7 +146,7 @@ class ShuffleViewController: UIViewController {
         titleLabel.textColor = .black
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
-        titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         titleLabel.layoutMargins = .init(top: 0, left: view.traitCollection.isIphone ? 5 : 7, bottom: 0, right: 0)
 
         mealStackView.addArrangedSubview(titleLabel)
@@ -157,7 +157,7 @@ class ShuffleViewController: UIViewController {
         dishesStackView.distribution = .fillEqually
         dishesStackView.alignment = .center
         dishesStackView.isLayoutMarginsRelativeArrangement = true
-        dishesStackView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+        dishesStackView.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
         
         mealStackView.addArrangedSubview(dishesStackView)
         
@@ -167,7 +167,7 @@ class ShuffleViewController: UIViewController {
             dishStackViews.append(dishStackView)
             
             let topSpacer = UIView(frame: .zero)
-            topSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+            topSpacer.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
             dishStackView.addArrangedSubview(topSpacer)
             
             let dishLabel = UILabel(frame: .zero)
@@ -192,7 +192,7 @@ class ShuffleViewController: UIViewController {
             let shuffleButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
             shuffleButton.addTarget(self, action: #selector(self.shuffleDishButtonClicked(sender:)), for: .touchUpInside)
             shuffleButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
-            shuffleButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(1.5, 6, 1.5, 6) : UIEdgeInsetsMake(2.5, 10, 2.5, 10)
+            shuffleButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 1.5, left: 6, bottom: 1.5, right: 6) : UIEdgeInsets.init(top: 2.5, left: 10, bottom: 2.5, right: 10)
             shuffleButton.backgroundColor = .lightGray
             shuffleButton.layer.cornerRadius = 4
             shuffleButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 28 : 42).isActive = true
@@ -203,7 +203,7 @@ class ShuffleViewController: UIViewController {
             let infoButton = DishUIButton(dish: dish, mealIndex: meal.mealIndex)
             infoButton.addTarget(self, action: #selector(self.infoButtonClicked(sender:)), for: .touchUpInside)
             infoButton.setImage(UIImage(named: "info.png"), for: .normal)
-            infoButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(3, 7.5, 3, 7.5) : UIEdgeInsetsMake(5, 12.5, 5, 12.5)
+            infoButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 3, left: 7.5, bottom: 3, right: 7.5) : UIEdgeInsets.init(top: 5, left: 12.5, bottom: 5, right: 12.5)
             infoButton.backgroundColor = .lightGray
             infoButton.layer.cornerRadius = 4
             infoButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 28 : 42).isActive = true
@@ -214,7 +214,7 @@ class ShuffleViewController: UIViewController {
             dishStackView.addArrangedSubview(dishButtonsStackView)
             
             let bottomSpacer = UIView(frame: .zero)
-            bottomSpacer.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+            bottomSpacer.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
             dishStackView.addArrangedSubview(bottomSpacer)
             
             topSpacer.heightAnchor.constraint(equalTo: bottomSpacer.heightAnchor).isActive = true
@@ -229,18 +229,18 @@ class ShuffleViewController: UIViewController {
         shuffleMealStackView.distribution = .fill
         shuffleMealStackView.alignment = .fill
         shuffleMealStackView.isLayoutMarginsRelativeArrangement = true
-        shuffleMealStackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
+        shuffleMealStackView.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
 
         let shuffleMealButton = UIButton(frame: .zero)
         shuffleMealButton.addTarget(self, action: #selector(self.shuffleMealButtonClicked(sender:)), for: .touchUpInside)
         shuffleMealButton.setImage(UIImage(named: "shuffle.png"), for: .normal)
-        shuffleMealButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(1.5, 6, 1.5, 6) : UIEdgeInsetsMake(2.5, 10, 2.5, 10)
+        shuffleMealButton.imageEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 1.5, left: 6, bottom: 1.5, right: 6) : UIEdgeInsets.init(top: 2.5, left: 10, bottom: 2.5, right: 10)
         shuffleMealButton.backgroundColor = .lightGray
         shuffleMealButton.layer.cornerRadius = 4
         shuffleMealButton.tag = index
         shuffleMealButton.heightAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 28 : 42).isActive = true
         shuffleMealButton.widthAnchor.constraint(equalToConstant: view.traitCollection.isIphone ? 40 : 60).isActive = true
-        shuffleMealButton.setContentHuggingPriority(UILayoutPriorityDefaultHigh, for: .horizontal)
+        shuffleMealButton.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
 
         shuffleMealStackView.addArrangedSubview(shuffleMealButton)
 
@@ -305,26 +305,26 @@ class ShuffleViewController: UIViewController {
         }
     }
     
-    func addButtonClicked(sender: Any?) {
+    @objc func addButtonClicked(sender: Any?) {
         if let mealCount = viewModel?.mealCount, mealCount < 3 {
             viewModel?.addNewMeal()
         }
     }
     
-    func startOverButtonClicked(sender: Any?) {
+    @objc func startOverButtonClicked(sender: Any?) {
         viewModel?.clearAllMeals()
         dishStackViews = []
     }
     
-    func shuffleDishButtonClicked(sender: DishUIButton) {
+    @objc func shuffleDishButtonClicked(sender: DishUIButton) {
         viewModel?.shuffleDishes(mealIndex: sender.mealIndex, categories: sender.dish.category)
     }
     
-    func shuffleMealButtonClicked(sender: UIButton) {
+    @objc func shuffleMealButtonClicked(sender: UIButton) {
         viewModel?.shuffleDishes(mealIndex: sender.tag, categories: Category.allValuesUsedForPlanning)
     }
     
-    func saveButtonClicked(sender: UIButton) {
+    @objc func saveButtonClicked(sender: UIButton) {
         let currentDateTime = Date()
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
@@ -339,7 +339,7 @@ class ShuffleViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func infoButtonClicked(sender: DishUIButton) {
+    @objc func infoButtonClicked(sender: DishUIButton) {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowDishSegue", sender: sender)
         }

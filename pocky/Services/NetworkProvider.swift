@@ -14,7 +14,7 @@ class NetworkProvider: Network {
     
     func getAllDishes(completion: @escaping ([Dish]?) -> Void) {
         ref.child("dishes").child(Constants.globalUserID).observe(.value, with: { (snapshot) in
-            let dishes: [Dish] = snapshot.children.flatMap { snap in
+            let dishes: [Dish] = snapshot.children.compactMap { snap in
                 let dishSnap = snap as! DataSnapshot
                 return Dish(id: dishSnap.key, data: dishSnap.value)
             }

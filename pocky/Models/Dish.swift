@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Dish: Equatable {
+struct Dish: Equatable, Hashable {
     var id: String?
     var title: String
     var category: [Category]
@@ -30,7 +30,7 @@ struct Dish: Equatable {
         
         self.id = id
         self.title = title
-        self.category = category.flatMap { Category(rawValue: $0) }
+        self.category = category.compactMap { Category(rawValue: $0) }
         if let link = (dict["link"] as? String).nilIfEmpty {
             self.link = link
         }

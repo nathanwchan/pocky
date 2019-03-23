@@ -16,7 +16,7 @@ class FavoritesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // dynamic cell height based on inner content
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
 
         viewModel = MealPlansViewModel()
@@ -48,7 +48,7 @@ class FavoritesTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.deleteMealPlan(mealPlanIndex: indexPath.row)
         }

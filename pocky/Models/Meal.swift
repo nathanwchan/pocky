@@ -23,7 +23,7 @@ struct Meal {
     
     // Codable in Swift 4 !!!
     func encodeForFirebase() -> [String: Any] {
-        let dishIds = dishes.flatMap { (dish) -> (String, Bool)? in
+        let dishIds = dishes.compactMap { (dish) -> (String, Bool)? in
             guard let dishId = dish.id else {
                 return nil
             }

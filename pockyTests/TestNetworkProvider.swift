@@ -25,13 +25,13 @@ class TestNetworkProvider: Network {
             guard let dishesJsonData = jsonData?["dishes"] as? [AnyObject] else {
                 fatalError("dishes json data not available")
             }
-            dishes = dishesJsonData.flatMap { Dish(data: $0) }
+            dishes = dishesJsonData.compactMap { Dish(data: $0) }
             
             guard let mealPlansOuterJsonData = jsonData?["mealPlans"] as? [AnyObject],
             let mealPlansJsonData = mealPlansOuterJsonData[0] as? [String: AnyObject] else {
                 fatalError("meal plan json data not available")
             }
-            mealPlans = mealPlansJsonData.flatMap { mealPlanJsonData -> MealPlan? in
+            mealPlans = mealPlansJsonData.compactMap { mealPlanJsonData -> MealPlan? in
                 guard let mealPlanData = mealPlanJsonData.value as? [String: AnyObject] else {
                     return nil
                 }
@@ -41,7 +41,7 @@ class TestNetworkProvider: Network {
                 guard let mealsJsonData = mealPlanData["meals"] as? [String: AnyObject] else {
                     return nil
                 }
-                let meals = mealsJsonData.flatMap { mealJsonData -> Meal? in
+                let meals = mealsJsonData.compactMap { mealJsonData -> Meal? in
                     let mealData = mealJsonData.value as? [String: AnyObject]
                     guard let mealIndex = mealData?["mealIndex"] as? Int else {
                         return nil

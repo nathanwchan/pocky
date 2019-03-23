@@ -46,7 +46,7 @@ class DishViewController: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        view.backgroundColor = UIColor(colorLiteralRed: (230/255), green: (230/255), blue: (230/255), alpha: 1)
+        view.backgroundColor = UIColor(red: 230, green: 230, blue: 230, alpha: 1)
         
         let spacing: CGFloat = view.traitCollection.isIphone ? 12 : 20
 
@@ -154,7 +154,7 @@ class DishViewController: UIViewController {
         linkTextField.borderStyle = .line
         linkTextField.autocapitalizationType = .none
         linkTextField.clearButtonMode = .always
-        linkTextField.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        linkTextField.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         
         linkStackView.addArrangedSubview(linkTextField)
         
@@ -176,26 +176,26 @@ class DishViewController: UIViewController {
         notesTextView.textColor = .black
         notesTextView.textAlignment = .left
         notesTextView.font = UIFont(name: "HelveticaNeue", size: view.traitCollection.isIphone ? 15 : 20)
-        notesTextView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .vertical)
+        notesTextView.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .vertical)
         notesTextView.translatesAutoresizingMaskIntoConstraints = true
         notesTextView.sizeToFit()
         notesTextView.isScrollEnabled = false
         notesTextView.layer.borderWidth = 1
         notesTextView.layer.borderColor = UIColor.black.cgColor
-        notesTextView.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
+        notesTextView.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         
         notesStackView.addArrangedSubview(notesTextView)
         
         saveButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         saveButton.setTitle("Save", for: .normal)
         saveButton.backgroundColor = .blue
-        saveButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(6, 12, 6, 12) : UIEdgeInsetsMake(10, 20, 10, 20)
+        saveButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 6, left: 12, bottom: 6, right: 12) : UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         saveButton.layer.cornerRadius = 4
         
         createButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         createButton.setTitle("Create", for: .normal)
         createButton.backgroundColor = .blue
-        createButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsetsMake(6, 12, 6, 12) : UIEdgeInsetsMake(10, 20, 10, 20)
+        createButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 6, left: 12, bottom: 6, right: 12) : UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         createButton.layer.cornerRadius = 4
         
         if let dishId = dishId {
@@ -263,8 +263,8 @@ class DishViewController: UIViewController {
             stackView.addArrangedSubview(categoryLabel)
             
             if let link = dish.link {
-                let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-                let underlineAttributedString = NSAttributedString(string: link, attributes: underlineAttribute)
+                let underlineAttribute = [convertFromNSAttributedStringKey(NSAttributedString.Key.underlineStyle): NSUnderlineStyle.single.rawValue]
+                let underlineAttributedString = NSAttributedString(string: link, attributes: convertToOptionalNSAttributedStringKeyDictionary(underlineAttribute))
                 linkLabel.attributedText = underlineAttributedString
                 stackView.addArrangedSubview(linkLabel)
             }
@@ -322,22 +322,22 @@ class DishViewController: UIViewController {
         }
     }
     
-    func tapLink() {
+    @objc func tapLink() {
         if let link = viewModel?.dish?.link {
             let url = URL(string: link)
             openUrlInModal(url)
         }
     }
     
-    func editButtonClicked(sender: UIButton) {
+    @objc func editButtonClicked(sender: UIButton) {
         viewState = .editing
     }
 
-    func cancelButtonClicked(sender: UIButton) {
+    @objc func cancelButtonClicked(sender: UIButton) {
         viewState = .viewing
     }
     
-    func saveOrCreateButtonClicked(sender: UIButton) {
+    @objc func saveOrCreateButtonClicked(sender: UIButton) {
         guard let title = titleTextField.text.nilIfEmpty else {
             let alertController = UIAlertController(title: "Error", message: "You must set a title!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
@@ -346,7 +346,7 @@ class DishViewController: UIViewController {
             return
         }
         
-        let categories = categorySwitches.flatMap { categorySwitch in
+        let categories = categorySwitches.compactMap { categorySwitch in
             categorySwitch.isOn ? Category.allValues[categorySwitch.tag] : nil
         }
         if categories.isEmpty {
@@ -369,4 +369,15 @@ class DishViewController: UIViewController {
         }
         viewState = .viewing
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

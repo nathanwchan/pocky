@@ -37,16 +37,8 @@ class MealsViewModel {
         if categories.isEmpty {
             return dishCombos
         }
-        let filterClosure: (Dish) -> Bool = { dish in
-            let isDishWithinRequiredCategories = Set(dish.category).isSubset(of: Set(categories))
-            // allow Carb dish to be duplicated
-            var isDishAlreadyAdded = false
-            if !(dish.category.count == 1 && dish.category.first! == .Carb) {
-                isDishAlreadyAdded = self.meals.flatMap({ $0.dishes }).contains(dish)
-            }
-            return isDishWithinRequiredCategories && !isDishAlreadyAdded
-        }
-        guard let dishToAdd = dishesViewModel.allDishes?.filter(filterClosure).randomItem() else {
+        
+        guard let dishToAdd = dishesViewModel.getNewUnseenDish(with: categories) else {
             return dishCombos
         }
         return getDishCombos(with: categories.filter { !dishToAdd.category.contains($0) }, dishCombos: dishCombos + [dishToAdd])
