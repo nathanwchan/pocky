@@ -11,7 +11,6 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     fileprivate var dishesViewModel: DishesViewModel!
     fileprivate var dishesToShow: [Dish] = [] {
@@ -32,8 +31,6 @@ class SearchViewController: UIViewController {
         // dynamic cell height based on inner content
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = 50
-        
-        self.cancelButton.titleEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: view.traitCollection.isIphone ? 11 : 8)
         
         self.searchBar.delegate = self
         
@@ -121,21 +118,7 @@ extension SearchViewController: UISearchBarDelegate {
             dishesToShow = allDishes.filter { $0.title.lowercased().contains(searchText.lowercased()) }
         }
     }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.3) {
-                self.cancelButton.isHidden = false
-            }
-        }
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        DispatchQueue.main.async {
-            self.cancelButton.isHidden = true
-        }
-    }
-    
+
     func scrollToFirstRow() {
         if !dishesToShow.isEmpty {
             let indexPath = IndexPath(row: 0, section: 0)
