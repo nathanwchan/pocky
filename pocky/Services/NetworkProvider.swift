@@ -112,4 +112,8 @@ class NetworkProvider: Network {
             completion(retRef.key)
         }
     }
+
+    func deleteDish(id: String) {
+        ref.child("dishes").child(Constants.globalUserID).child(id).removeValue()
+    }
 }

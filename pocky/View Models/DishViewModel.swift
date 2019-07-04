@@ -43,5 +43,9 @@ class DishViewModel {
     func createDish(dish: Dish) {
         networkProvider.createDish(dish: dish, completion: self.didCreateDish)
     }
+
+    func deleteDish(id: String) {
+        networkProvider.deleteDish(id: id)
+    }
 }
 

@@ -16,4 +16,5 @@ protocol Network {
     func getDish(id: String, completion: @escaping ((Dish?) -> Void))
     func updateDish(dish: Dish)
     func createDish(dish: Dish, completion: @escaping ((String) -> Void))
+    func deleteDish(id: String)
 }

@@ -37,6 +37,7 @@ class DishViewController: UIViewController {
     private let notesStackView = UIStackView(frame: .zero)
     private let notesTextView = UITextView(frame: .zero)
     private let saveButton = UIButton(frame: .zero)
+    private let deleteButton = UIButton(frame: .zero)
     private let createButton = UIButton(frame: .zero)
     
     override func viewDidLoad() {
@@ -191,6 +192,12 @@ class DishViewController: UIViewController {
         saveButton.backgroundColor = .blue
         saveButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 6, left: 12, bottom: 6, right: 12) : UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
         saveButton.layer.cornerRadius = 4
+
+        deleteButton.addTarget(self, action: #selector(self.deleteButtonClicked(sender:)), for: .touchUpInside)
+        deleteButton.setTitle("Delete", for: .normal)
+        deleteButton.backgroundColor = .red
+        deleteButton.contentEdgeInsets = view.traitCollection.isIphone ? UIEdgeInsets.init(top: 6, left: 12, bottom: 6, right: 12) : UIEdgeInsets.init(top: 10, left: 20, bottom: 10, right: 20)
+        deleteButton.layer.cornerRadius = 4
         
         createButton.addTarget(self, action: #selector(self.saveOrCreateButtonClicked(sender:)), for: .touchUpInside)
         createButton.setTitle("Create", for: .normal)
@@ -302,8 +309,19 @@ class DishViewController: UIViewController {
             stackView.addArrangedSubview(notesStackView)
             notesStackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: stackView.layoutMargins.left).isActive = true
             notesStackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -stackView.layoutMargins.right).isActive = true
-            
-            stackView.addArrangedSubview(saveButton)
+
+
+            let buttonsStackView = UIStackView(frame: .zero)
+            buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+            buttonsStackView.axis = .horizontal
+            buttonsStackView.distribution = .fill
+            buttonsStackView.alignment = .center
+            buttonsStackView.spacing = 10
+
+            buttonsStackView.addArrangedSubview(saveButton)
+            buttonsStackView.addArrangedSubview(deleteButton)
+
+            stackView.addArrangedSubview(buttonsStackView)
         }
     }
     
@@ -368,6 +386,20 @@ class DishViewController: UIViewController {
             viewModel?.updateDish(dish: dish)
         }
         viewState = .viewing
+    }
+
+    @objc func deleteButtonClicked(sender: UIButton) {
+        let alertController = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yes", style: .destructive) { (action) in
+            if let dishId = self.dishId {
+                self.viewModel?.deleteDish(id: dishId)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        alertController.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
