@@ -69,6 +69,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfz-KC-w53" userLabel="Filter View">
+                                <rect key="frame" x="375" y="64" width="150" height="667"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uSV-fo-Mxo" userLabel="Filter Stack View">
+                                        <rect key="frame" x="10" y="5" width="130" height="320"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="1f0-e4-6HD"/>
+                                    <constraint firstItem="uSV-fo-Mxo" firstAttribute="top" secondItem="Xfz-KC-w53" secondAttribute="top" constant="10" id="fg2-eI-YRk"/>
+                                    <constraint firstItem="uSV-fo-Mxo" firstAttribute="leading" secondItem="Xfz-KC-w53" secondAttribute="leading" constant="10" id="hrR-L8-Lwg"/>
+                                    <constraint firstAttribute="trailing" secondItem="uSV-fo-Mxo" secondAttribute="trailing" constant="10" id="iIK-h1-hYN"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -76,13 +91,18 @@
                             <constraint firstAttribute="trailingMargin" secondItem="kwQ-IY-fTi" secondAttribute="trailing" constant="-20" id="S9K-Gg-HFU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M1C-CV-p8q" secondAttribute="trailing" constant="-20" id="TSj-C0-gr5"/>
                             <constraint firstItem="kwQ-IY-fTi" firstAttribute="leading" secondItem="F4q-N8-Xd2" secondAttribute="leadingMargin" constant="-20" id="ZOz-RM-Yu9"/>
+                            <constraint firstItem="Xfz-KC-w53" firstAttribute="top" secondItem="Hm0-HL-PWg" secondAttribute="bottom" id="f1r-y7-5lq"/>
                             <constraint firstItem="M1C-CV-p8q" firstAttribute="top" secondItem="kwQ-IY-fTi" secondAttribute="bottom" id="k4u-Ej-uAt"/>
+                            <constraint firstItem="Xfz-KC-w53" firstAttribute="trailing" secondItem="F4q-N8-Xd2" secondAttribute="trailing" constant="150" id="m7k-TL-2c4"/>
                             <constraint firstItem="M1C-CV-p8q" firstAttribute="leading" secondItem="F4q-N8-Xd2" secondAttribute="leadingMargin" constant="-20" id="nWR-N4-IzT"/>
                             <constraint firstItem="kwQ-IY-fTi" firstAttribute="top" secondItem="Hm0-HL-PWg" secondAttribute="bottom" id="utJ-Nw-V0p"/>
+                            <constraint firstItem="Xfz-KC-w53" firstAttribute="height" secondItem="F4q-N8-Xd2" secondAttribute="height" id="yEZ-QA-DaY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="m9q-o7-Muy"/>
                     <connections>
+                        <outlet property="filterStackView" destination="uSV-fo-Mxo" id="p4W-zD-Z6t"/>
+                        <outlet property="filterViewTrailingConstraint" destination="m7k-TL-2c4" id="Nb0-4I-4Ip"/>
                         <outlet property="searchBar" destination="GLX-84-Sih" id="DMj-k0-syN"/>
                         <outlet property="tableView" destination="M1C-CV-p8q" id="pmG-EW-caS"/>
                         <segue destination="Wxw-tL-V9d" kind="show" identifier="ShowAddNewDishSegue" id="ERp-3v-WKG"/>

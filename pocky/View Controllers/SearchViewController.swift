@@ -8,10 +8,18 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var filterViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var filterStackView: UIStackView!
+
+    var filterViewWidth: CGFloat = 150
+    var filterViewIsVisible = false
+    var filterCategorySwitches: [UISwitch] = []
+
     fileprivate var dishesViewModel: DishesViewModel!
     fileprivate var dishesToShow: [Dish] = [] {
         didSet {
@@ -33,7 +41,7 @@ class SearchViewController: UIViewController {
         self.tableView.estimatedRowHeight = 50
         
         self.searchBar.delegate = self
-        
+
         dishesViewModel = DishesViewModel()
         dishesViewModel?.didGetAllDishes = { [weak self] in
             self?.showAllDishes()
@@ -41,11 +49,38 @@ class SearchViewController: UIViewController {
         
         self.searchBar.becomeFirstResponder()
         self.tableView.keyboardDismissMode = .onDrag
+
+        let addNewDishButton = UIBarButtonItem(image: UIImage(named: "plus"), style: .plain, target: self, action: #selector(self.addNewDishButtonClicked(sender:)))
+        navigationItem.leftBarButtonItem = addNewDishButton
         
-        let negativeSpacerRight = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        negativeSpacerRight.width = -6;
-        let addNewDishButton = UIBarButtonItem(title: "Add New Dish", style: .plain, target: self, action: #selector(self.addNewDishButtonClicked(sender:)))
-        navigationItem.rightBarButtonItems = [negativeSpacerRight, addNewDishButton]
+        let filterDishesButton = UIBarButtonItem(image: UIImage(named: "filter"), style: .plain, target: self, action: #selector(self.filterDishesButtonClicked(sender:)))
+        navigationItem.rightBarButtonItem = filterDishesButton
+
+        for category in Category.allValues {
+            let categoryStackView = UIStackView(frame: .zero)
+            categoryStackView.translatesAutoresizingMaskIntoConstraints = false
+            categoryStackView.axis = .horizontal
+            categoryStackView.distribution = .fill
+            categoryStackView.alignment = .center
+            categoryStackView.spacing = 10
+
+            let categorySwitch = UISwitch(frame: .zero)
+            categorySwitch.tag = Category.index(of: category)
+            categorySwitch.addTarget(self, action: #selector(filterSwitchChanged), for: .valueChanged)
+            filterCategorySwitches.append(categorySwitch)
+            categoryStackView.addArrangedSubview(categorySwitch)
+
+            let categoryLabel = UILabel(frame: .zero)
+            categoryLabel.text = String(describing: category).uppercased()
+            categoryLabel.textColor = .black
+            categoryLabel.textAlignment = .left
+            categoryLabel.font = UIFont(name: "HelveticaNeue-Bold", size: view.traitCollection.isIphone ? 12 : 15)
+
+            categoryStackView.addArrangedSubview(categoryLabel)
+            filterStackView.addArrangedSubview(categoryStackView)
+        }
+
+        filterSwitchChanged()
     }
     
     func showAllDishes() {
@@ -61,6 +96,28 @@ class SearchViewController: UIViewController {
     @objc func addNewDishButtonClicked(sender: UIBarButtonItem) {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "ShowAddNewDishSegue", sender: sender)
+        }
+    }
+
+    @objc func filterDishesButtonClicked(sender: UIBarButtonItem) {
+        toggleFilterView()
+    }
+
+    func toggleFilterView() {
+        filterViewIsVisible.toggle()
+        filterViewTrailingConstraint.constant = filterViewIsVisible ? 0 : filterViewWidth
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }) { _ in }
+    }
+
+    @objc func filterSwitchChanged() {
+        searchBar.text = nil
+        let filteredCategories = Set(filterCategorySwitches.filter({ $0.isOn }).map({ Category.allValues[$0.tag] }))
+        if filteredCategories.isEmpty {
+            showAllDishes()
+        } else if let allDishes = dishesViewModel.allDishes {
+            dishesToShow = allDishes.filter { filteredCategories == Set($0.category) }
         }
     }
     
@@ -105,12 +162,28 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if filterViewIsVisible {
+            toggleFilterView()
+        }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if filterViewIsVisible {
+            toggleFilterView()
+        }
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if filterViewIsVisible {
+            toggleFilterView()
+        }
+        for categorySwitch in filterCategorySwitches {
+            categorySwitch.isOn = false
+        }
+
         if searchText.isEmpty {
             showAllDishes()
             scrollToFirstRow()
